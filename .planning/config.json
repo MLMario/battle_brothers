@@ -1,0 +1,20 @@
+{
+  "planning": {
+    "commit_docs": true
+  },
+  "gates": {
+    "confirm_project": true,
+    "confirm_roadmap": true,
+    "confirm_plan": true,
+    "confirm_transition": true
+  },
+  "safety": {
+    "always_confirm_destructive": true,
+    "always_confirm_external_services": true
+  },
+  "hooks": {
+    "context_warnings": true
+  },
+  "claude_md_path": "./CLAUDE.md",
+  "commit_docs": true
+}

@@ -1,0 +1,6709 @@
+{
+  "meta": {
+    "source": "https://battlebrothers.fandom.com/wiki/Character_Backgrounds",
+    "scrapedAt": "2026-03-13T19:02:55.779713+00:00",
+    "totalBackgrounds": 67
+  },
+  "backgrounds": [
+    {
+      "id": "adventurous_noble",
+      "name": "Adventurous Noble",
+      "startingLevel": {
+        "min": 1,
+        "max": 3
+      },
+      "baseWage": 25,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 50,
+            "max": 60
+          },
+          "average": 55,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 57,
+            "max": 67
+          },
+          "average": 62,
+          "levelUp": {
+            "min": 10,
+            "max": 10
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 32,
+            "max": 42
+          },
+          "average": 37,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 5,
+            "max": 13
+          },
+          "average": 9,
+          "levelUp": {
+            "min": 5,
+            "max": 8
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": -10,
+            "max": 0
+          },
+          "average": -5,
+          "levelUp": {
+            "min": -10,
+            "max": -5
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 90,
+            "max": 105
+          },
+          "average": 97.5,
+          "levelUp": {
+            "min": null,
+            "max": 5
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 45,
+            "max": 60
+          },
+          "average": 52.5,
+          "levelUp": {
+            "min": 15,
+            "max": 20
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 100,
+            "max": 110
+          },
+          "average": 105,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        }
+      },
+      "icon": "icons/Background_06.png"
+    },
+    {
+      "id": "anatomist",
+      "name": "Anatomist",
+      "startingLevel": {
+        "min": 1,
+        "max": 1
+      },
+      "baseWage": 12,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 46,
+            "max": 56
+          },
+          "average": 51,
+          "levelUp": {
+            "min": -4,
+            "max": -4
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 54,
+            "max": 64
+          },
+          "average": 59,
+          "levelUp": {
+            "min": 7,
+            "max": 7
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 41,
+            "max": 51
+          },
+          "average": 46,
+          "levelUp": {
+            "min": 9,
+            "max": 9
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 1,
+            "max": 5
+          },
+          "average": 3,
+          "levelUp": {
+            "min": 1,
+            "max": null
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 1,
+            "max": 5
+          },
+          "average": 3,
+          "levelUp": {
+            "min": 1,
+            "max": null
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 90,
+            "max": 95
+          },
+          "average": 92.5,
+          "levelUp": {
+            "min": null,
+            "max": -5
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 40,
+            "max": 50
+          },
+          "average": 45,
+          "levelUp": {
+            "min": 10,
+            "max": 10
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 100,
+            "max": 110
+          },
+          "average": 105,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        }
+      },
+      "icon": "icons/Background 70.png"
+    },
+    {
+      "id": "apprentice",
+      "name": "Apprentice",
+      "startingLevel": {
+        "min": 1,
+        "max": 1
+      },
+      "baseWage": 8,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 50,
+            "max": 60
+          },
+          "average": 55,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 47,
+            "max": 57
+          },
+          "average": 52,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 32,
+            "max": 42
+          },
+          "average": 37,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 90,
+            "max": 100
+          },
+          "average": 95,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 30,
+            "max": 40
+          },
+          "average": 35,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 100,
+            "max": 110
+          },
+          "average": 105,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        }
+      },
+      "icon": "icons/Background_40.png"
+    },
+    {
+      "id": "assassin",
+      "name": "Assassin",
+      "startingLevel": {
+        "min": 4,
+        "max": 4
+      },
+      "baseWage": 25,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 45,
+            "max": 55
+          },
+          "average": 50,
+          "levelUp": {
+            "min": -5,
+            "max": -5
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 57,
+            "max": 67
+          },
+          "average": 62,
+          "levelUp": {
+            "min": 10,
+            "max": 10
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 32,
+            "max": 42
+          },
+          "average": 37,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 5,
+            "max": 13
+          },
+          "average": 9,
+          "levelUp": {
+            "min": 5,
+            "max": 8
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 85,
+            "max": 95
+          },
+          "average": 90,
+          "levelUp": {
+            "min": -5,
+            "max": -5
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 40,
+            "max": 50
+          },
+          "average": 45,
+          "levelUp": {
+            "min": 10,
+            "max": 10
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 120,
+            "max": 125
+          },
+          "average": 122.5,
+          "levelUp": {
+            "min": 20,
+            "max": 15
+          }
+        }
+      },
+      "icon": "icons/Background_53.png"
+    },
+    {
+      "id": "barbarian",
+      "name": "Barbarian",
+      "startingLevel": {
+        "min": 2,
+        "max": 4
+      },
+      "baseWage": 20,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 60,
+            "max": 65
+          },
+          "average": 62.5,
+          "levelUp": {
+            "min": 10,
+            "max": 5
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 57,
+            "max": 62
+          },
+          "average": 59.5,
+          "levelUp": {
+            "min": 10,
+            "max": 5
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 32,
+            "max": 42
+          },
+          "average": 37,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 100,
+            "max": 105
+          },
+          "average": 102.5,
+          "levelUp": {
+            "min": 10,
+            "max": 5
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 40,
+            "max": 45
+          },
+          "average": 42.5,
+          "levelUp": {
+            "min": 10,
+            "max": 5
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 105,
+            "max": 120
+          },
+          "average": 112.5,
+          "levelUp": {
+            "min": 5,
+            "max": 10
+          }
+        }
+      },
+      "icon": "icons/Barbarian.png"
+    },
+    {
+      "id": "bastard",
+      "name": "Bastard",
+      "startingLevel": {
+        "min": 1,
+        "max": 3
+      },
+      "baseWage": 14,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 50,
+            "max": 60
+          },
+          "average": 55,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 52,
+            "max": 67
+          },
+          "average": 59.5,
+          "levelUp": {
+            "min": 5,
+            "max": 10
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 32,
+            "max": 42
+          },
+          "average": 37,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": -5,
+            "max": 10
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": -5,
+            "max": 5
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 90,
+            "max": 100
+          },
+          "average": 95,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 25,
+            "max": 35
+          },
+          "average": 30,
+          "levelUp": {
+            "min": -5,
+            "max": -5
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 100,
+            "max": 110
+          },
+          "average": 105,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        }
+      },
+      "icon": "icons/Bastard.png"
+    },
+    {
+      "id": "beast_slayer",
+      "name": "Beast Slayer",
+      "startingLevel": {
+        "min": 2,
+        "max": 3
+      },
+      "baseWage": 15,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 50,
+            "max": 63
+          },
+          "average": 56.5,
+          "levelUp": {
+            "min": null,
+            "max": 3
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 52,
+            "max": 62
+          },
+          "average": 57,
+          "levelUp": {
+            "min": 5,
+            "max": 5
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 43,
+            "max": 49
+          },
+          "average": 46,
+          "levelUp": {
+            "min": 11,
+            "max": 7
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 95,
+            "max": 107
+          },
+          "average": 101,
+          "levelUp": {
+            "min": 5,
+            "max": 7
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 43,
+            "max": 50
+          },
+          "average": 46.5,
+          "levelUp": {
+            "min": 13,
+            "max": 10
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 107,
+            "max": 115
+          },
+          "average": 111,
+          "levelUp": {
+            "min": 7,
+            "max": 5
+          }
+        }
+      },
+      "icon": "icons/Background_57.png"
+    },
+    {
+      "id": "beggar",
+      "name": "Beggar",
+      "startingLevel": {
+        "min": 1,
+        "max": 1
+      },
+      "baseWage": 3,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 40,
+            "max": 50
+          },
+          "average": 45,
+          "levelUp": {
+            "min": -10,
+            "max": -10
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 47,
+            "max": 57
+          },
+          "average": 52,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 32,
+            "max": 42
+          },
+          "average": 37,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 80,
+            "max": 90
+          },
+          "average": 85,
+          "levelUp": {
+            "min": -10,
+            "max": -10
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 20,
+            "max": 35
+          },
+          "average": 27.5,
+          "levelUp": {
+            "min": -10,
+            "max": -5
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 100,
+            "max": 110
+          },
+          "average": 105,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        }
+      },
+      "icon": "icons/Beggar.png"
+    },
+    {
+      "id": "belly_dancer",
+      "name": "Belly Dancer",
+      "startingLevel": {
+        "min": 1,
+        "max": 1
+      },
+      "baseWage": 20,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 45,
+            "max": 55
+          },
+          "average": 50,
+          "levelUp": {
+            "min": -5,
+            "max": -5
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 57,
+            "max": 67
+          },
+          "average": 62,
+          "levelUp": {
+            "min": 10,
+            "max": 10
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 37,
+            "max": 47
+          },
+          "average": 42,
+          "levelUp": {
+            "min": 5,
+            "max": 5
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 85,
+            "max": 95
+          },
+          "average": 90,
+          "levelUp": {
+            "min": -5,
+            "max": -5
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 25,
+            "max": 35
+          },
+          "average": 30,
+          "levelUp": {
+            "min": -5,
+            "max": -5
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 110,
+            "max": 120
+          },
+          "average": 115,
+          "levelUp": {
+            "min": 10,
+            "max": 10
+          }
+        }
+      },
+      "icon": "icons/Background_64.png"
+    },
+    {
+      "id": "bowyer",
+      "name": "Bowyer",
+      "startingLevel": {
+        "min": 1,
+        "max": 1
+      },
+      "baseWage": 8,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 50,
+            "max": 60
+          },
+          "average": 55,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 47,
+            "max": 57
+          },
+          "average": 52,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 42,
+            "max": 52
+          },
+          "average": 47,
+          "levelUp": {
+            "min": 10,
+            "max": 10
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 85,
+            "max": 100
+          },
+          "average": 92.5,
+          "levelUp": {
+            "min": -5,
+            "max": null
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 25,
+            "max": 40
+          },
+          "average": 32.5,
+          "levelUp": {
+            "min": -5,
+            "max": null
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 100,
+            "max": 110
+          },
+          "average": 105,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        }
+      },
+      "icon": "icons/Bowyer.png"
+    },
+    {
+      "id": "brawler",
+      "name": "Brawler",
+      "startingLevel": {
+        "min": 1,
+        "max": 1
+      },
+      "baseWage": 13,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 55,
+            "max": 70
+          },
+          "average": 62.5,
+          "levelUp": {
+            "min": 5,
+            "max": 10
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 52,
+            "max": 57
+          },
+          "average": 54.5,
+          "levelUp": {
+            "min": 5,
+            "max": null
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 32,
+            "max": 42
+          },
+          "average": 37,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 100,
+            "max": 105
+          },
+          "average": 102.5,
+          "levelUp": {
+            "min": 10,
+            "max": 5
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 37,
+            "max": 45
+          },
+          "average": 41,
+          "levelUp": {
+            "min": 7,
+            "max": 5
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 105,
+            "max": 110
+          },
+          "average": 107.5,
+          "levelUp": {
+            "min": 5,
+            "max": null
+          }
+        }
+      },
+      "icon": "icons/Brawler.png"
+    },
+    {
+      "id": "butcher",
+      "name": "Butcher",
+      "startingLevel": {
+        "min": 1,
+        "max": 1
+      },
+      "baseWage": 7,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 50,
+            "max": 64
+          },
+          "average": 57,
+          "levelUp": {
+            "min": null,
+            "max": 4
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 50,
+            "max": 59
+          },
+          "average": 54.5,
+          "levelUp": {
+            "min": 3,
+            "max": 2
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 29,
+            "max": 42
+          },
+          "average": 35.5,
+          "levelUp": {
+            "min": -3,
+            "max": null
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 90,
+            "max": 104
+          },
+          "average": 97,
+          "levelUp": {
+            "min": null,
+            "max": 4
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 37,
+            "max": 45
+          },
+          "average": 41,
+          "levelUp": {
+            "min": 7,
+            "max": 5
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 100,
+            "max": 110
+          },
+          "average": 105,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        }
+      },
+      "icon": "icons/Butcher_02.png"
+    },
+    {
+      "id": "caravan_hand",
+      "name": "Caravan Hand",
+      "startingLevel": {
+        "min": 1,
+        "max": 1
+      },
+      "baseWage": 8,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 53,
+            "max": 65
+          },
+          "average": 59,
+          "levelUp": {
+            "min": 3,
+            "max": 5
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 51,
+            "max": 57
+          },
+          "average": 54,
+          "levelUp": {
+            "min": 4,
+            "max": null
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 32,
+            "max": 42
+          },
+          "average": 37,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 95,
+            "max": 107
+          },
+          "average": 101,
+          "levelUp": {
+            "min": 5,
+            "max": 7
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 33,
+            "max": 43
+          },
+          "average": 38,
+          "levelUp": {
+            "min": 3,
+            "max": 3
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 100,
+            "max": 110
+          },
+          "average": 105,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        }
+      },
+      "icon": "icons/Caravan_hand.png"
+    },
+    {
+      "id": "companion",
+      "name": "Companion",
+      "startingLevel": {
+        "min": 1,
+        "max": 1
+      },
+      "baseWage": 14,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 50,
+            "max": 60
+          },
+          "average": 55,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 52,
+            "max": 57
+          },
+          "average": 54.5,
+          "levelUp": {
+            "min": 5,
+            "max": null
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 48,
+            "max": 52
+          },
+          "average": 50,
+          "levelUp": {
+            "min": 16,
+            "max": 10
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 90,
+            "max": 100
+          },
+          "average": 95,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 35,
+            "max": 45
+          },
+          "average": 40,
+          "levelUp": {
+            "min": 5,
+            "max": 5
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 105,
+            "max": 115
+          },
+          "average": 110,
+          "levelUp": {
+            "min": 5,
+            "max": 5
+          }
+        }
+      },
+      "icon": "icons/MediaWikiCompanionWelcome.png"
+    },
+    {
+      "id": "converted_crusader",
+      "name": "Converted Crusader",
+      "startingLevel": {
+        "min": 2,
+        "max": 4
+      },
+      "baseWage": 30,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 50,
+            "max": 60
+          },
+          "average": 55,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 60,
+            "max": 67
+          },
+          "average": 63.5,
+          "levelUp": {
+            "min": 13,
+            "max": 10
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 44,
+            "max": 52
+          },
+          "average": 48,
+          "levelUp": {
+            "min": 12,
+            "max": 10
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 5,
+            "max": 13
+          },
+          "average": 9,
+          "levelUp": {
+            "min": 5,
+            "max": 8
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 5,
+            "max": 13
+          },
+          "average": 9,
+          "levelUp": {
+            "min": 5,
+            "max": 8
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 90,
+            "max": 100
+          },
+          "average": 95,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 35,
+            "max": 45
+          },
+          "average": 40,
+          "levelUp": {
+            "min": 5,
+            "max": 5
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 100,
+            "max": 110
+          },
+          "average": 105,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        }
+      },
+      "icon": "icons/Background_65.png"
+    },
+    {
+      "id": "cripple",
+      "name": "Cripple",
+      "startingLevel": {
+        "min": 1,
+        "max": 1
+      },
+      "baseWage": 3,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 30,
+            "max": 50
+          },
+          "average": 40,
+          "levelUp": {
+            "min": -20,
+            "max": -10
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 42,
+            "max": 52
+          },
+          "average": 47,
+          "levelUp": {
+            "min": -5,
+            "max": -5
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 27,
+            "max": 42
+          },
+          "average": 34.5,
+          "levelUp": {
+            "min": -5,
+            "max": null
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 80,
+            "max": 100
+          },
+          "average": 90,
+          "levelUp": {
+            "min": -10,
+            "max": null
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 30,
+            "max": 40
+          },
+          "average": 35,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 75,
+            "max": 100
+          },
+          "average": 87.5,
+          "levelUp": {
+            "min": -25,
+            "max": -10
+          }
+        }
+      },
+      "icon": "icons/Cripple2.png"
+    },
+    {
+      "id": "crusader",
+      "name": "Crusader",
+      "startingLevel": {
+        "min": 9,
+        "max": 9
+      },
+      "baseWage": 25,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 60,
+            "max": 70
+          },
+          "average": 65,
+          "levelUp": {
+            "min": 10,
+            "max": 10
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 57,
+            "max": 67
+          },
+          "average": 62,
+          "levelUp": {
+            "min": 10,
+            "max": 10
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 22,
+            "max": 37
+          },
+          "average": 29.5,
+          "levelUp": {
+            "min": -10,
+            "max": -5
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": -5,
+            "max": 5
+          },
+          "average": 0,
+          "levelUp": {
+            "min": -5,
+            "max": null
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 100,
+            "max": 110
+          },
+          "average": 105,
+          "levelUp": {
+            "min": 10,
+            "max": 10
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 45,
+            "max": 60
+          },
+          "average": 52.5,
+          "levelUp": {
+            "min": 15,
+            "max": 20
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 100,
+            "max": 110
+          },
+          "average": 105,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        }
+      },
+      "icon": "icons/Background_54.png"
+    },
+    {
+      "id": "cultist",
+      "name": "Cultist",
+      "startingLevel": {
+        "min": 1,
+        "max": 1
+      },
+      "baseWage": 6,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 45,
+            "max": 65
+          },
+          "average": 55,
+          "levelUp": {
+            "min": -5,
+            "max": 5
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 47,
+            "max": 57
+          },
+          "average": 52,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 32,
+            "max": 42
+          },
+          "average": 37,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 93,
+            "max": 103
+          },
+          "average": 98,
+          "levelUp": {
+            "min": 3,
+            "max": 3
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 45,
+            "max": 50
+          },
+          "average": 47.5,
+          "levelUp": {
+            "min": 15,
+            "max": 10
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 100,
+            "max": 110
+          },
+          "average": 105,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        }
+      },
+      "icon": "icons/Cultist.png"
+    },
+    {
+      "id": "daytaler",
+      "name": "Daytaler",
+      "startingLevel": {
+        "min": 1,
+        "max": 1
+      },
+      "baseWage": 6,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 50,
+            "max": 60
+          },
+          "average": 55,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 47,
+            "max": 57
+          },
+          "average": 52,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 32,
+            "max": 42
+          },
+          "average": 37,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 90,
+            "max": 103
+          },
+          "average": 96.5,
+          "levelUp": {
+            "min": null,
+            "max": 3
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 30,
+            "max": 40
+          },
+          "average": 35,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 100,
+            "max": 110
+          },
+          "average": 105,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        }
+      },
+      "icon": "icons/Daytaler.png"
+    },
+    {
+      "id": "deserter",
+      "name": "Deserter",
+      "startingLevel": {
+        "min": 1,
+        "max": 2
+      },
+      "baseWage": 11,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 50,
+            "max": 60
+          },
+          "average": 55,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 52,
+            "max": 62
+          },
+          "average": 57,
+          "levelUp": {
+            "min": 5,
+            "max": 5
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 39,
+            "max": 42
+          },
+          "average": 40.5,
+          "levelUp": {
+            "min": 7,
+            "max": null
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 3,
+            "max": 10
+          },
+          "average": 6.5,
+          "levelUp": {
+            "min": 3,
+            "max": 5
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 3,
+            "max": 10
+          },
+          "average": 6.5,
+          "levelUp": {
+            "min": 3,
+            "max": 5
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 90,
+            "max": 100
+          },
+          "average": 95,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 15,
+            "max": 30
+          },
+          "average": 22.5,
+          "levelUp": {
+            "min": -15,
+            "max": -10
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 100,
+            "max": 110
+          },
+          "average": 105,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        }
+      },
+      "icon": "icons/Deserter.png"
+    },
+    {
+      "id": "disowned_noble",
+      "name": "Disowned Noble",
+      "startingLevel": {
+        "min": 1,
+        "max": 3
+      },
+      "baseWage": 18,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 50,
+            "max": 60
+          },
+          "average": 55,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 55,
+            "max": 67
+          },
+          "average": 61,
+          "levelUp": {
+            "min": 8,
+            "max": 10
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 35,
+            "max": 48
+          },
+          "average": 41.5,
+          "levelUp": {
+            "min": 3,
+            "max": 6
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 2,
+            "max": 12
+          },
+          "average": 8,
+          "levelUp": {
+            "min": 2,
+            "max": 7
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 3,
+            "max": 10
+          },
+          "average": 6.5,
+          "levelUp": {
+            "min": 3,
+            "max": 5
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 80,
+            "max": 95
+          },
+          "average": 87.5,
+          "levelUp": {
+            "min": -10,
+            "max": -5
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 35,
+            "max": 53
+          },
+          "average": 44,
+          "levelUp": {
+            "min": 5,
+            "max": 13
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 106,
+            "max": 120
+          },
+          "average": 113,
+          "levelUp": {
+            "min": 6,
+            "max": 10
+          }
+        }
+      },
+      "icon": "icons/Disowned_noble.png"
+    },
+    {
+      "id": "eunuch",
+      "name": "Eunuch",
+      "startingLevel": {
+        "min": 1,
+        "max": 1
+      },
+      "baseWage": 6,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 50,
+            "max": 60
+          },
+          "average": 55,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 47,
+            "max": 57
+          },
+          "average": 52,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 32,
+            "max": 42
+          },
+          "average": 37,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 90,
+            "max": 100
+          },
+          "average": 95,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 25,
+            "max": 35
+          },
+          "average": 30,
+          "levelUp": {
+            "min": -5,
+            "max": -5
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 95,
+            "max": 105
+          },
+          "average": 100,
+          "levelUp": {
+            "min": -5,
+            "max": -5
+          }
+        }
+      },
+      "icon": "icons/Eunuch.png"
+    },
+    {
+      "id": "farmhand",
+      "name": "Farmhand",
+      "startingLevel": {
+        "min": 1,
+        "max": 1
+      },
+      "baseWage": 10,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 62,
+            "max": 70
+          },
+          "average": 66,
+          "levelUp": {
+            "min": 12,
+            "max": 10
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 47,
+            "max": 57
+          },
+          "average": 52,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 32,
+            "max": 42
+          },
+          "average": 37,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 100,
+            "max": 120
+          },
+          "average": 110,
+          "levelUp": {
+            "min": 10,
+            "max": 20
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 28,
+            "max": 37
+          },
+          "average": 32.5,
+          "levelUp": {
+            "min": -2,
+            "max": -3
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 100,
+            "max": 110
+          },
+          "average": 105,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        }
+      },
+      "icon": "icons/Farmhand.png"
+    },
+    {
+      "id": "fisherman",
+      "name": "Fisherman",
+      "startingLevel": {
+        "min": 1,
+        "max": 1
+      },
+      "baseWage": 7,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 55,
+            "max": 60
+          },
+          "average": 57.5,
+          "levelUp": {
+            "min": 5,
+            "max": null
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 47,
+            "max": 57
+          },
+          "average": 52,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 32,
+            "max": 42
+          },
+          "average": 37,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 95,
+            "max": 105
+          },
+          "average": 100,
+          "levelUp": {
+            "min": 5,
+            "max": 5
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 35,
+            "max": 40
+          },
+          "average": 37.5,
+          "levelUp": {
+            "min": 5,
+            "max": null
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 100,
+            "max": 115
+          },
+          "average": 107.5,
+          "levelUp": {
+            "min": null,
+            "max": 5
+          }
+        }
+      },
+      "icon": "icons/Fisherman.png"
+    },
+    {
+      "id": "flagellant",
+      "name": "Flagellant",
+      "startingLevel": {
+        "min": 1,
+        "max": 1
+      },
+      "baseWage": 6,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 50,
+            "max": 60
+          },
+          "average": 55,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 42,
+            "max": 52
+          },
+          "average": 47,
+          "levelUp": {
+            "min": -5,
+            "max": -5
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 32,
+            "max": 42
+          },
+          "average": 37,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 80,
+            "max": 100
+          },
+          "average": 90,
+          "levelUp": {
+            "min": -10,
+            "max": null
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 41,
+            "max": 51
+          },
+          "average": 46,
+          "levelUp": {
+            "min": 11,
+            "max": 11
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 100,
+            "max": 110
+          },
+          "average": 105,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        }
+      },
+      "icon": "icons/Flagellant.png"
+    },
+    {
+      "id": "gambler",
+      "name": "Gambler",
+      "startingLevel": {
+        "min": 1,
+        "max": 1
+      },
+      "baseWage": 6,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 48,
+            "max": 58
+          },
+          "average": 53,
+          "levelUp": {
+            "min": -2,
+            "max": -2
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 47,
+            "max": 57
+          },
+          "average": 52,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 32,
+            "max": 42
+          },
+          "average": 37,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 0,
+            "max": 7
+          },
+          "average": 3.5,
+          "levelUp": {
+            "min": null,
+            "max": 2
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 2,
+            "max": 13
+          },
+          "average": 7.5,
+          "levelUp": {
+            "min": 2,
+            "max": 8
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 84,
+            "max": 95
+          },
+          "average": 89.5,
+          "levelUp": {
+            "min": -6,
+            "max": -5
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 42,
+            "max": 52
+          },
+          "average": 47,
+          "levelUp": {
+            "min": 12,
+            "max": 12
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 112,
+            "max": 120
+          },
+          "average": 116,
+          "levelUp": {
+            "min": 12,
+            "max": 10
+          }
+        }
+      },
+      "icon": "icons/Gambler.png"
+    },
+    {
+      "id": "gladiator",
+      "name": "Gladiator",
+      "startingLevel": {
+        "min": 2,
+        "max": 4
+      },
+      "baseWage": 35,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 50,
+            "max": 60
+          },
+          "average": 55,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 60,
+            "max": 67
+          },
+          "average": 63.5,
+          "levelUp": {
+            "min": 13,
+            "max": 10
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 40,
+            "max": 48
+          },
+          "average": 44,
+          "levelUp": {
+            "min": 8,
+            "max": 6
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 5,
+            "max": 13
+          },
+          "average": 9,
+          "levelUp": {
+            "min": 5,
+            "max": 8
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 5,
+            "max": 13
+          },
+          "average": 9,
+          "levelUp": {
+            "min": 5,
+            "max": 8
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 90,
+            "max": 100
+          },
+          "average": 95,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 35,
+            "max": 45
+          },
+          "average": 40,
+          "levelUp": {
+            "min": 5,
+            "max": 5
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 100,
+            "max": 110
+          },
+          "average": 105,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        }
+      },
+      "icon": "icons/Background_61.png"
+    },
+    {
+      "id": "gravedigger",
+      "name": "Gravedigger",
+      "startingLevel": {
+        "min": 1,
+        "max": 1
+      },
+      "baseWage": 5,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 50,
+            "max": 64
+          },
+          "average": 57,
+          "levelUp": {
+            "min": null,
+            "max": 4
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 47,
+            "max": 57
+          },
+          "average": 52,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 32,
+            "max": 42
+          },
+          "average": 37,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 95,
+            "max": 107
+          },
+          "average": 101,
+          "levelUp": {
+            "min": 5,
+            "max": 7
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 37,
+            "max": 45
+          },
+          "average": 41,
+          "levelUp": {
+            "min": 7,
+            "max": 5
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 95,
+            "max": 110
+          },
+          "average": 102.5,
+          "levelUp": {
+            "min": -5,
+            "max": null
+          }
+        }
+      },
+      "icon": "icons/Gravedigger.png"
+    },
+    {
+      "id": "graverobber",
+      "name": "Graverobber",
+      "startingLevel": {
+        "min": 1,
+        "max": 1
+      },
+      "baseWage": 6,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 50,
+            "max": 60
+          },
+          "average": 55,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 50,
+            "max": 57
+          },
+          "average": 53.5,
+          "levelUp": {
+            "min": 3,
+            "max": null
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 32,
+            "max": 42
+          },
+          "average": 37,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 0,
+            "max": 6
+          },
+          "average": 3,
+          "levelUp": {
+            "min": null,
+            "max": 1
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 0,
+            "max": 6
+          },
+          "average": 3,
+          "levelUp": {
+            "min": null,
+            "max": 1
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 95,
+            "max": 105
+          },
+          "average": 100,
+          "levelUp": {
+            "min": 5,
+            "max": 5
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 38,
+            "max": 45
+          },
+          "average": 41.5,
+          "levelUp": {
+            "min": 8,
+            "max": 5
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 100,
+            "max": 114
+          },
+          "average": 107,
+          "levelUp": {
+            "min": null,
+            "max": 4
+          }
+        }
+      },
+      "icon": "icons/Background_25.png"
+    },
+    {
+      "id": "hedge_knight",
+      "name": "Hedge Knight",
+      "startingLevel": {
+        "min": 2,
+        "max": 5
+      },
+      "baseWage": 35,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 62,
+            "max": 73
+          },
+          "average": 67.5,
+          "levelUp": {
+            "min": 12,
+            "max": 13
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 58,
+            "max": 67
+          },
+          "average": 62.5,
+          "levelUp": {
+            "min": 11,
+            "max": 10
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 32,
+            "max": 42
+          },
+          "average": 37,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 6,
+            "max": 10
+          },
+          "average": 8,
+          "levelUp": {
+            "min": 6,
+            "max": 5
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 105,
+            "max": 110
+          },
+          "average": 107.5,
+          "levelUp": {
+            "min": 15,
+            "max": 10
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 39,
+            "max": 44
+          },
+          "average": 41.5,
+          "levelUp": {
+            "min": 9,
+            "max": 4
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 86,
+            "max": 103
+          },
+          "average": 94.5,
+          "levelUp": {
+            "min": -14,
+            "max": -7
+          }
+        }
+      },
+      "icon": "icons/Background_33.png"
+    },
+    {
+      "id": "historian",
+      "name": "Historian",
+      "startingLevel": {
+        "min": 1,
+        "max": 1
+      },
+      "baseWage": 8,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 48,
+            "max": 55
+          },
+          "average": 51.5,
+          "levelUp": {
+            "min": -2,
+            "max": -5
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 42,
+            "max": 52
+          },
+          "average": 47,
+          "levelUp": {
+            "min": -5,
+            "max": -5
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 29,
+            "max": 40
+          },
+          "average": 34.5,
+          "levelUp": {
+            "min": -3,
+            "max": -2
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 85,
+            "max": 95
+          },
+          "average": 90,
+          "levelUp": {
+            "min": -5,
+            "max": -5
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 30,
+            "max": 40
+          },
+          "average": 35,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 100,
+            "max": 110
+          },
+          "average": 105,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        }
+      },
+      "icon": "icons/Historian.png"
+    },
+    {
+      "id": "houndmaster",
+      "name": "Houndmaster",
+      "startingLevel": {
+        "min": 1,
+        "max": 1
+      },
+      "baseWage": 7,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 55,
+            "max": 60
+          },
+          "average": 57.5,
+          "levelUp": {
+            "min": 5,
+            "max": null
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 47,
+            "max": 57
+          },
+          "average": 52,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 32,
+            "max": 42
+          },
+          "average": 37,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 3,
+            "max": 8
+          },
+          "average": 5.5,
+          "levelUp": {
+            "min": 3,
+            "max": 3
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 95,
+            "max": 100
+          },
+          "average": 97.5,
+          "levelUp": {
+            "min": 5,
+            "max": null
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 35,
+            "max": 45
+          },
+          "average": 40,
+          "levelUp": {
+            "min": 5,
+            "max": 5
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 105,
+            "max": 110
+          },
+          "average": 107.5,
+          "levelUp": {
+            "min": 5,
+            "max": null
+          }
+        }
+      },
+      "icon": "icons/Houndmaster.png"
+    },
+    {
+      "id": "hunter",
+      "name": "Hunter",
+      "startingLevel": {
+        "min": 1,
+        "max": 2
+      },
+      "baseWage": 20,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 50,
+            "max": 60
+          },
+          "average": 55,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 47,
+            "max": 57
+          },
+          "average": 52,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 52,
+            "max": 59
+          },
+          "average": 55.5,
+          "levelUp": {
+            "min": 20,
+            "max": 17
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 0,
+            "max": 8
+          },
+          "average": 4,
+          "levelUp": {
+            "min": null,
+            "max": 3
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 97,
+            "max": 105
+          },
+          "average": 101,
+          "levelUp": {
+            "min": 7,
+            "max": 5
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 30,
+            "max": 45
+          },
+          "average": 37.5,
+          "levelUp": {
+            "min": null,
+            "max": 5
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 100,
+            "max": 115
+          },
+          "average": 107.5,
+          "levelUp": {
+            "min": null,
+            "max": 5
+          }
+        }
+      },
+      "icon": "icons/Hunter2.png"
+    },
+    {
+      "id": "indebted",
+      "name": "Indebted",
+      "startingLevel": {
+        "min": 1,
+        "max": 1
+      },
+      "baseWage": 0,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 40,
+            "max": 50
+          },
+          "average": 45,
+          "levelUp": {
+            "min": -10,
+            "max": -10
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 47,
+            "max": 57
+          },
+          "average": 52,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 32,
+            "max": 42
+          },
+          "average": 37,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 95,
+            "max": 105
+          },
+          "average": 100,
+          "levelUp": {
+            "min": 5,
+            "max": 5
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 20,
+            "max": 35
+          },
+          "average": 27.5,
+          "levelUp": {
+            "min": -10,
+            "max": -5
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 95,
+            "max": 105
+          },
+          "average": 100,
+          "levelUp": {
+            "min": -5,
+            "max": -5
+          }
+        }
+      },
+      "icon": "icons/Background_60.png"
+    },
+    {
+      "id": "juggler",
+      "name": "Juggler",
+      "startingLevel": {
+        "min": 1,
+        "max": 1
+      },
+      "baseWage": 7,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 45,
+            "max": 55
+          },
+          "average": 50,
+          "levelUp": {
+            "min": -5,
+            "max": -5
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 47,
+            "max": 57
+          },
+          "average": 52,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 35,
+            "max": 45
+          },
+          "average": 40,
+          "levelUp": {
+            "min": 3,
+            "max": 3
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 90,
+            "max": 100
+          },
+          "average": 95,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 30,
+            "max": 40
+          },
+          "average": 35,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 112,
+            "max": 120
+          },
+          "average": 116,
+          "levelUp": {
+            "min": 12,
+            "max": 10
+          }
+        }
+      },
+      "icon": "icons/Juggler.png"
+    },
+    {
+      "id": "killer_on_the_run",
+      "name": "Killer on the Run",
+      "startingLevel": {
+        "min": 1,
+        "max": 1
+      },
+      "baseWage": 6,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 50,
+            "max": 60
+          },
+          "average": 55,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 51,
+            "max": 57
+          },
+          "average": 54,
+          "levelUp": {
+            "min": 4,
+            "max": null
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 34,
+            "max": 45
+          },
+          "average": 39.5,
+          "levelUp": {
+            "min": 2,
+            "max": 3
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 90,
+            "max": 100
+          },
+          "average": 95,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 25,
+            "max": 35
+          },
+          "average": 30,
+          "levelUp": {
+            "min": -5,
+            "max": -5
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 100,
+            "max": 115
+          },
+          "average": 107.5,
+          "levelUp": {
+            "min": null,
+            "max": 5
+          }
+        }
+      },
+      "icon": "icons/Killer_on_the_run.png"
+    },
+    {
+      "id": "king_s_guard",
+      "name": "King's Guard",
+      "startingLevel": {
+        "min": 3,
+        "max": 3
+      },
+      "baseWage": 30,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 45,
+            "max": 65
+          },
+          "average": 55,
+          "levelUp": {
+            "min": -5,
+            "max": 5
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 54,
+            "max": 64
+          },
+          "average": 59,
+          "levelUp": {
+            "min": 7,
+            "max": 7
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 27,
+            "max": 42
+          },
+          "average": 34.5,
+          "levelUp": {
+            "min": -5,
+            "max": null
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 7,
+            "max": 12
+          },
+          "average": 9.5,
+          "levelUp": {
+            "min": 7,
+            "max": 7
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 7,
+            "max": 12
+          },
+          "average": 9.5,
+          "levelUp": {
+            "min": 7,
+            "max": 7
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 90,
+            "max": 110
+          },
+          "average": 100,
+          "levelUp": {
+            "min": null,
+            "max": 10
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 45,
+            "max": 55
+          },
+          "average": 50,
+          "levelUp": {
+            "min": 15,
+            "max": 15
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 85,
+            "max": 110
+          },
+          "average": 97.5,
+          "levelUp": {
+            "min": -15,
+            "max": null
+          }
+        }
+      },
+      "icon": "icons/Background_59.png"
+    },
+    {
+      "id": "lindwurm_slayer",
+      "name": "Lindwurm Slayer",
+      "startingLevel": {
+        "min": 1,
+        "max": 1
+      },
+      "baseWage": 28,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 56,
+            "max": 63
+          },
+          "average": 59.5,
+          "levelUp": {
+            "min": 6,
+            "max": 3
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 55,
+            "max": 65
+          },
+          "average": 60,
+          "levelUp": {
+            "min": 8,
+            "max": 8
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 42,
+            "max": 50
+          },
+          "average": 46,
+          "levelUp": {
+            "min": 10,
+            "max": 8
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 5,
+            "max": 9
+          },
+          "average": 7,
+          "levelUp": {
+            "min": 5,
+            "max": 4
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": -3,
+            "max": 2
+          },
+          "average": -0.5,
+          "levelUp": {
+            "min": -3,
+            "max": -3
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 95,
+            "max": 105
+          },
+          "average": 100,
+          "levelUp": {
+            "min": 5,
+            "max": 5
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 42,
+            "max": 50
+          },
+          "average": 46,
+          "levelUp": {
+            "min": 12,
+            "max": 10
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 108,
+            "max": 122
+          },
+          "average": 115,
+          "levelUp": {
+            "min": 8,
+            "max": 12
+          }
+        }
+      },
+      "icon": "icons/Background_71.png"
+    },
+    {
+      "id": "lumberjack",
+      "name": "Lumberjack",
+      "startingLevel": {
+        "min": 1,
+        "max": 1
+      },
+      "baseWage": 13,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 60,
+            "max": 70
+          },
+          "average": 65,
+          "levelUp": {
+            "min": 10,
+            "max": 10
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 52,
+            "max": 57
+          },
+          "average": 54.5,
+          "levelUp": {
+            "min": 5,
+            "max": null
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 32,
+            "max": 42
+          },
+          "average": 37,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 100,
+            "max": 115
+          },
+          "average": 107.5,
+          "levelUp": {
+            "min": 10,
+            "max": 15
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 30,
+            "max": 45
+          },
+          "average": 37.5,
+          "levelUp": {
+            "min": null,
+            "max": 5
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 95,
+            "max": 110
+          },
+          "average": 102.5,
+          "levelUp": {
+            "min": -5,
+            "max": null
+          }
+        }
+      },
+      "icon": "icons/Lumberjack.png"
+    },
+    {
+      "id": "manhunter",
+      "name": "Manhunter",
+      "startingLevel": {
+        "min": 1,
+        "max": 1
+      },
+      "baseWage": 10,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 52,
+            "max": 63
+          },
+          "average": 57.5,
+          "levelUp": {
+            "min": 2,
+            "max": 3
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 52,
+            "max": 62
+          },
+          "average": 57,
+          "levelUp": {
+            "min": 5,
+            "max": 5
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 32,
+            "max": 42
+          },
+          "average": 37,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 2,
+            "max": 7
+          },
+          "average": 4.5,
+          "levelUp": {
+            "min": 2,
+            "max": 2
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": -1,
+            "max": 4
+          },
+          "average": 1.5,
+          "levelUp": {
+            "min": -1,
+            "max": -1
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 93,
+            "max": 105
+          },
+          "average": 99,
+          "levelUp": {
+            "min": 3,
+            "max": 5
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 37,
+            "max": 45
+          },
+          "average": 41,
+          "levelUp": {
+            "min": 7,
+            "max": 5
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 103,
+            "max": 115
+          },
+          "average": 109.5,
+          "levelUp": {
+            "min": 3,
+            "max": 5
+          }
+        }
+      },
+      "icon": "icons/Background_62.png"
+    },
+    {
+      "id": "mason",
+      "name": "Mason",
+      "startingLevel": {
+        "min": 1,
+        "max": 1
+      },
+      "baseWage": 8,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 50,
+            "max": 60
+          },
+          "average": 55,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 47,
+            "max": 57
+          },
+          "average": 52,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 32,
+            "max": 42
+          },
+          "average": 37,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 95,
+            "max": 105
+          },
+          "average": 100,
+          "levelUp": {
+            "min": 5,
+            "max": 5
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 30,
+            "max": 40
+          },
+          "average": 35,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 100,
+            "max": 110
+          },
+          "average": 105,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        }
+      },
+      "icon": "icons/Mason.png"
+    },
+    {
+      "id": "messenger",
+      "name": "Messenger",
+      "startingLevel": {
+        "min": 1,
+        "max": 1
+      },
+      "baseWage": 6,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 50,
+            "max": 60
+          },
+          "average": 55,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 47,
+            "max": 57
+          },
+          "average": 52,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 32,
+            "max": 42
+          },
+          "average": 37,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 0,
+            "max": 7
+          },
+          "average": 3.5,
+          "levelUp": {
+            "min": null,
+            "max": 2
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 3,
+            "max": 8
+          },
+          "average": 5.5,
+          "levelUp": {
+            "min": 3,
+            "max": 3
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 105,
+            "max": 110
+          },
+          "average": 107.5,
+          "levelUp": {
+            "min": 15,
+            "max": 10
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 35,
+            "max": 40
+          },
+          "average": 37.5,
+          "levelUp": {
+            "min": 5,
+            "max": null
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 100,
+            "max": 110
+          },
+          "average": 105,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        }
+      },
+      "icon": "icons/Messenger.png"
+    },
+    {
+      "id": "militia",
+      "name": "Militia",
+      "startingLevel": {
+        "min": 1,
+        "max": 2
+      },
+      "baseWage": 10,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 50,
+            "max": 60
+          },
+          "average": 55,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 52,
+            "max": 62
+          },
+          "average": 57,
+          "levelUp": {
+            "min": 5,
+            "max": 5
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 38,
+            "max": 47
+          },
+          "average": 42.5,
+          "levelUp": {
+            "min": 6,
+            "max": 5
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 2,
+            "max": 7
+          },
+          "average": 4.5,
+          "levelUp": {
+            "min": 2,
+            "max": 2
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 2,
+            "max": 7
+          },
+          "average": 4.5,
+          "levelUp": {
+            "min": 2,
+            "max": 2
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 93,
+            "max": 105
+          },
+          "average": 99,
+          "levelUp": {
+            "min": 3,
+            "max": 5
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 33,
+            "max": 45
+          },
+          "average": 39,
+          "levelUp": {
+            "min": 3,
+            "max": 5
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 100,
+            "max": 110
+          },
+          "average": 105,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        }
+      },
+      "icon": "icons/Militia.png"
+    },
+    {
+      "id": "miller",
+      "name": "Miller",
+      "startingLevel": {
+        "min": 1,
+        "max": 1
+      },
+      "baseWage": 7,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 53,
+            "max": 60
+          },
+          "average": 56.5,
+          "levelUp": {
+            "min": 3,
+            "max": null
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 47,
+            "max": 57
+          },
+          "average": 52,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 32,
+            "max": 42
+          },
+          "average": 37,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 98,
+            "max": 105
+          },
+          "average": 101.5,
+          "levelUp": {
+            "min": 8,
+            "max": 5
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 30,
+            "max": 40
+          },
+          "average": 35,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 100,
+            "max": 110
+          },
+          "average": 105,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        }
+      },
+      "icon": "icons/Miller.png"
+    },
+    {
+      "id": "miner",
+      "name": "Miner",
+      "startingLevel": {
+        "min": 1,
+        "max": 1
+      },
+      "baseWage": 6,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 60,
+            "max": 70
+          },
+          "average": 65,
+          "levelUp": {
+            "min": 10,
+            "max": 10
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 52,
+            "max": 57
+          },
+          "average": 54.5,
+          "levelUp": {
+            "min": 5,
+            "max": null
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 32,
+            "max": 42
+          },
+          "average": 37,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 80,
+            "max": 90
+          },
+          "average": 85,
+          "levelUp": {
+            "min": -10,
+            "max": -10
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 35,
+            "max": 48
+          },
+          "average": 41.5,
+          "levelUp": {
+            "min": 5,
+            "max": 8
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 100,
+            "max": 110
+          },
+          "average": 105,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        }
+      },
+      "icon": "icons/Miner.png"
+    },
+    {
+      "id": "minstrel",
+      "name": "Minstrel",
+      "startingLevel": {
+        "min": 1,
+        "max": 1
+      },
+      "baseWage": 6,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 45,
+            "max": 57
+          },
+          "average": 51,
+          "levelUp": {
+            "min": -5,
+            "max": -3
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 47,
+            "max": 57
+          },
+          "average": 52,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 32,
+            "max": 42
+          },
+          "average": 37,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 80,
+            "max": 90
+          },
+          "average": 85,
+          "levelUp": {
+            "min": -10,
+            "max": -10
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 35,
+            "max": 50
+          },
+          "average": 42.5,
+          "levelUp": {
+            "min": 5,
+            "max": 10
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 100,
+            "max": 115
+          },
+          "average": 107.5,
+          "levelUp": {
+            "min": null,
+            "max": 5
+          }
+        }
+      },
+      "icon": "icons/Minstrel.png"
+    },
+    {
+      "id": "monk",
+      "name": "Monk",
+      "startingLevel": {
+        "min": 1,
+        "max": 1
+      },
+      "baseWage": 5,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 40,
+            "max": 55
+          },
+          "average": 47.5,
+          "levelUp": {
+            "min": -10,
+            "max": -5
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 47,
+            "max": 57
+          },
+          "average": 52,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 32,
+            "max": 42
+          },
+          "average": 37,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 95,
+            "max": 110
+          },
+          "average": 102.5,
+          "levelUp": {
+            "min": 5,
+            "max": 10
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 42,
+            "max": 52
+          },
+          "average": 47,
+          "levelUp": {
+            "min": 12,
+            "max": 12
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 100,
+            "max": 110
+          },
+          "average": 105,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        }
+      },
+      "icon": "icons/Monk.png"
+    },
+    {
+      "id": "nomad",
+      "name": "Nomad",
+      "startingLevel": {
+        "min": 2,
+        "max": 4
+      },
+      "baseWage": 28,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 50,
+            "max": 60
+          },
+          "average": 55,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 52,
+            "max": 60
+          },
+          "average": 56,
+          "levelUp": {
+            "min": 5,
+            "max": 3
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 47,
+            "max": 56
+          },
+          "average": 51.5,
+          "levelUp": {
+            "min": 15,
+            "max": 14
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 5,
+            "max": 8
+          },
+          "average": 6.5,
+          "levelUp": {
+            "min": 5,
+            "max": 3
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 6,
+            "max": 10
+          },
+          "average": 8,
+          "levelUp": {
+            "min": 6,
+            "max": 5
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 92,
+            "max": 100
+          },
+          "average": 96,
+          "levelUp": {
+            "min": 2,
+            "max": null
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 30,
+            "max": 37
+          },
+          "average": 33.5,
+          "levelUp": {
+            "min": null,
+            "max": -3
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 100,
+            "max": 110
+          },
+          "average": 105,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        }
+      },
+      "icon": "icons/Background_63.png"
+    },
+    {
+      "id": "oathtaker",
+      "name": "Oathtaker",
+      "startingLevel": {
+        "min": 1,
+        "max": 3
+      },
+      "baseWage": 22,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 60,
+            "max": 66
+          },
+          "average": 63,
+          "levelUp": {
+            "min": 10,
+            "max": 6
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 60,
+            "max": 67
+          },
+          "average": 63.5,
+          "levelUp": {
+            "min": 13,
+            "max": 10
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 30,
+            "max": 39
+          },
+          "average": 34.5,
+          "levelUp": {
+            "min": -2,
+            "max": -3
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 4,
+            "max": 10
+          },
+          "average": 7,
+          "levelUp": {
+            "min": 4,
+            "max": 5
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": -10,
+            "max": 0
+          },
+          "average": -5,
+          "levelUp": {
+            "min": -10,
+            "max": -5
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 90,
+            "max": 96
+          },
+          "average": 93,
+          "levelUp": {
+            "min": null,
+            "max": -4
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 43,
+            "max": 56
+          },
+          "average": 49.5,
+          "levelUp": {
+            "min": 13,
+            "max": 16
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 113,
+            "max": 122
+          },
+          "average": 117.5,
+          "levelUp": {
+            "min": 13,
+            "max": 12
+          }
+        }
+      },
+      "icon": "icons/Paladin.png"
+    },
+    {
+      "id": "orc_slayer",
+      "name": "Orc Slayer",
+      "startingLevel": {
+        "min": 9,
+        "max": 9
+      },
+      "baseWage": 25,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 60,
+            "max": 70
+          },
+          "average": 65,
+          "levelUp": {
+            "min": 10,
+            "max": 10
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 57,
+            "max": 67
+          },
+          "average": 62,
+          "levelUp": {
+            "min": 10,
+            "max": 10
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 22,
+            "max": 37
+          },
+          "average": 29.5,
+          "levelUp": {
+            "min": -10,
+            "max": -5
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": -5,
+            "max": 5
+          },
+          "average": 0,
+          "levelUp": {
+            "min": -5,
+            "max": null
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 100,
+            "max": 110
+          },
+          "average": 105,
+          "levelUp": {
+            "min": 10,
+            "max": 10
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 45,
+            "max": 60
+          },
+          "average": 52.5,
+          "levelUp": {
+            "min": 15,
+            "max": 20
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 100,
+            "max": 110
+          },
+          "average": 105,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        }
+      },
+      "icon": "icons/Background_55.png"
+    },
+    {
+      "id": "peddler",
+      "name": "Peddler",
+      "startingLevel": {
+        "min": 1,
+        "max": 1
+      },
+      "baseWage": 6,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 50,
+            "max": 60
+          },
+          "average": 55,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 37,
+            "max": 48
+          },
+          "average": 42.5,
+          "levelUp": {
+            "min": -10,
+            "max": -9
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 32,
+            "max": 42
+          },
+          "average": 37,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 2,
+            "max": 12
+          },
+          "average": 7,
+          "levelUp": {
+            "min": 2,
+            "max": 7
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 2,
+            "max": 12
+          },
+          "average": 7,
+          "levelUp": {
+            "min": 2,
+            "max": 7
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 90,
+            "max": 100
+          },
+          "average": 95,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 30,
+            "max": 40
+          },
+          "average": 35,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 100,
+            "max": 117
+          },
+          "average": 108.5,
+          "levelUp": {
+            "min": null,
+            "max": 7
+          }
+        }
+      },
+      "icon": "icons/Peddler.png"
+    },
+    {
+      "id": "pimp",
+      "name": "Pimp",
+      "startingLevel": {
+        "min": 1,
+        "max": 1
+      },
+      "baseWage": 6,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 50,
+            "max": 60
+          },
+          "average": 55,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 42,
+            "max": 52
+          },
+          "average": 47,
+          "levelUp": {
+            "min": -5,
+            "max": -5
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 32,
+            "max": 42
+          },
+          "average": 37,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 2,
+            "max": 12
+          },
+          "average": 7,
+          "levelUp": {
+            "min": 2,
+            "max": 7
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 2,
+            "max": 12
+          },
+          "average": 7,
+          "levelUp": {
+            "min": 2,
+            "max": 7
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 90,
+            "max": 100
+          },
+          "average": 95,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 35,
+            "max": 45
+          },
+          "average": 40,
+          "levelUp": {
+            "min": 5,
+            "max": 5
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 100,
+            "max": 117
+          },
+          "average": 108.5,
+          "levelUp": {
+            "min": null,
+            "max": 7
+          }
+        }
+      },
+      "icon": "icons/Background_56.png"
+    },
+    {
+      "id": "poacher",
+      "name": "Poacher",
+      "startingLevel": {
+        "min": 1,
+        "max": 1
+      },
+      "baseWage": 8,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 50,
+            "max": 60
+          },
+          "average": 55,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 49,
+            "max": 57
+          },
+          "average": 53,
+          "levelUp": {
+            "min": 2,
+            "max": null
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 47,
+            "max": 49
+          },
+          "average": 48,
+          "levelUp": {
+            "min": 15,
+            "max": 7
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 93,
+            "max": 100
+          },
+          "average": 96.5,
+          "levelUp": {
+            "min": 3,
+            "max": null
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 25,
+            "max": 45
+          },
+          "average": 35,
+          "levelUp": {
+            "min": -5,
+            "max": 5
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 100,
+            "max": 114
+          },
+          "average": 107,
+          "levelUp": {
+            "min": null,
+            "max": 4
+          }
+        }
+      },
+      "icon": "icons/Poacher.png"
+    },
+    {
+      "id": "raider",
+      "name": "Raider",
+      "startingLevel": {
+        "min": 2,
+        "max": 4
+      },
+      "baseWage": 28,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 50,
+            "max": 60
+          },
+          "average": 55,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 59,
+            "max": 67
+          },
+          "average": 63,
+          "levelUp": {
+            "min": 12,
+            "max": 10
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 37,
+            "max": 42
+          },
+          "average": 39.5,
+          "levelUp": {
+            "min": 5,
+            "max": null
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 6,
+            "max": 10
+          },
+          "average": 8,
+          "levelUp": {
+            "min": 6,
+            "max": 5
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 6,
+            "max": 10
+          },
+          "average": 8,
+          "levelUp": {
+            "min": 6,
+            "max": 5
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 92,
+            "max": 100
+          },
+          "average": 96,
+          "levelUp": {
+            "min": 2,
+            "max": null
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 30,
+            "max": 37
+          },
+          "average": 33.5,
+          "levelUp": {
+            "min": null,
+            "max": -3
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 100,
+            "max": 110
+          },
+          "average": 105,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        }
+      },
+      "icon": "icons/Raider2.png"
+    },
+    {
+      "id": "ratcatcher",
+      "name": "Ratcatcher",
+      "startingLevel": {
+        "min": 1,
+        "max": 1
+      },
+      "baseWage": 4,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 45,
+            "max": 55
+          },
+          "average": 50,
+          "levelUp": {
+            "min": -5,
+            "max": -5
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 47,
+            "max": 57
+          },
+          "average": 52,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 32,
+            "max": 42
+          },
+          "average": 37,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 90,
+            "max": 100
+          },
+          "average": 95,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 30,
+            "max": 40
+          },
+          "average": 35,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 118,
+            "max": 125
+          },
+          "average": 121.5,
+          "levelUp": {
+            "min": 18,
+            "max": 15
+          }
+        }
+      },
+      "icon": "icons/Ratcatcher.png"
+    },
+    {
+      "id": "refugee",
+      "name": "Refugee",
+      "startingLevel": {
+        "min": 1,
+        "max": 1
+      },
+      "baseWage": 4,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 42,
+            "max": 55
+          },
+          "average": 48.5,
+          "levelUp": {
+            "min": -8,
+            "max": -5
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 47,
+            "max": 57
+          },
+          "average": 52,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 32,
+            "max": 42
+          },
+          "average": 37,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 1,
+            "max": 5
+          },
+          "average": 3,
+          "levelUp": {
+            "min": 1,
+            "max": null
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 97,
+            "max": 105
+          },
+          "average": 101,
+          "levelUp": {
+            "min": 7,
+            "max": 5
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 25,
+            "max": 35
+          },
+          "average": 30,
+          "levelUp": {
+            "min": -5,
+            "max": -5
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 100,
+            "max": 110
+          },
+          "average": 105,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        }
+      },
+      "icon": "icons/Refugee.png"
+    },
+    {
+      "id": "retired_soldier",
+      "name": "Retired Soldier",
+      "startingLevel": {
+        "min": 2,
+        "max": 3
+      },
+      "baseWage": 15,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 40,
+            "max": 45
+          },
+          "average": 42.5,
+          "levelUp": {
+            "min": -10,
+            "max": -15
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 60,
+            "max": 67
+          },
+          "average": 63.5,
+          "levelUp": {
+            "min": 13,
+            "max": 10
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 37,
+            "max": 42
+          },
+          "average": 39.5,
+          "levelUp": {
+            "min": 5,
+            "max": null
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 5,
+            "max": 13
+          },
+          "average": 9,
+          "levelUp": {
+            "min": 5,
+            "max": 8
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 5,
+            "max": 13
+          },
+          "average": 9,
+          "levelUp": {
+            "min": 5,
+            "max": 8
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 80,
+            "max": 90
+          },
+          "average": 85,
+          "levelUp": {
+            "min": -10,
+            "max": -10
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 43,
+            "max": 50
+          },
+          "average": 46.5,
+          "levelUp": {
+            "min": 13,
+            "max": 10
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 95,
+            "max": 100
+          },
+          "average": 97.5,
+          "levelUp": {
+            "min": -5,
+            "max": -10
+          }
+        }
+      },
+      "icon": "icons/Retired_soldier.png"
+    },
+    {
+      "id": "sellsword",
+      "name": "Sellsword",
+      "startingLevel": {
+        "min": 2,
+        "max": 4
+      },
+      "baseWage": 35,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 50,
+            "max": 60
+          },
+          "average": 55,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 60,
+            "max": 67
+          },
+          "average": 63.5,
+          "levelUp": {
+            "min": 13,
+            "max": 10
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 44,
+            "max": 52
+          },
+          "average": 48,
+          "levelUp": {
+            "min": 12,
+            "max": 10
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 5,
+            "max": 13
+          },
+          "average": 9,
+          "levelUp": {
+            "min": 5,
+            "max": 8
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 5,
+            "max": 13
+          },
+          "average": 9,
+          "levelUp": {
+            "min": 5,
+            "max": 8
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 90,
+            "max": 100
+          },
+          "average": 95,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 35,
+            "max": 45
+          },
+          "average": 40,
+          "levelUp": {
+            "min": 5,
+            "max": 5
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 100,
+            "max": 110
+          },
+          "average": 105,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        }
+      },
+      "icon": "icons/Sellsword.png"
+    },
+    {
+      "id": "servant",
+      "name": "Servant",
+      "startingLevel": {
+        "min": 1,
+        "max": 1
+      },
+      "baseWage": 4,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 45,
+            "max": 55
+          },
+          "average": 50,
+          "levelUp": {
+            "min": -5,
+            "max": -5
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 47,
+            "max": 57
+          },
+          "average": 52,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 32,
+            "max": 42
+          },
+          "average": 37,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 2,
+            "max": 5
+          },
+          "average": 3.5,
+          "levelUp": {
+            "min": 2,
+            "max": null
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 85,
+            "max": 95
+          },
+          "average": 90,
+          "levelUp": {
+            "min": -5,
+            "max": -5
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 25,
+            "max": 35
+          },
+          "average": 30,
+          "levelUp": {
+            "min": -5,
+            "max": -5
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 105,
+            "max": 110
+          },
+          "average": 107.5,
+          "levelUp": {
+            "min": 5,
+            "max": null
+          }
+        }
+      },
+      "icon": "icons/Servant.png"
+    },
+    {
+      "id": "shepherd",
+      "name": "Shepherd",
+      "startingLevel": {
+        "min": 1,
+        "max": 1
+      },
+      "baseWage": 6,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 50,
+            "max": 60
+          },
+          "average": 55,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 47,
+            "max": 57
+          },
+          "average": 52,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 37,
+            "max": 49
+          },
+          "average": 43,
+          "levelUp": {
+            "min": 5,
+            "max": 7
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 90,
+            "max": 105
+          },
+          "average": 97.5,
+          "levelUp": {
+            "min": null,
+            "max": 5
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 35,
+            "max": 40
+          },
+          "average": 37.5,
+          "levelUp": {
+            "min": 5,
+            "max": null
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 100,
+            "max": 110
+          },
+          "average": 105,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        }
+      },
+      "icon": "icons/Shepherd.png"
+    },
+    {
+      "id": "squire",
+      "name": "Squire",
+      "startingLevel": {
+        "min": 1,
+        "max": 1
+      },
+      "baseWage": 20,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 50,
+            "max": 60
+          },
+          "average": 55,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 54,
+            "max": 62
+          },
+          "average": 58,
+          "levelUp": {
+            "min": 7,
+            "max": 5
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 39,
+            "max": 50
+          },
+          "average": 44.5,
+          "levelUp": {
+            "min": 7,
+            "max": 8
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 1,
+            "max": 8
+          },
+          "average": 4.5,
+          "levelUp": {
+            "min": 1,
+            "max": 3
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 1,
+            "max": 8
+          },
+          "average": 4.5,
+          "levelUp": {
+            "min": 1,
+            "max": 3
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 97,
+            "max": 105
+          },
+          "average": 101,
+          "levelUp": {
+            "min": 7,
+            "max": 5
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 42,
+            "max": 52
+          },
+          "average": 47,
+          "levelUp": {
+            "min": 12,
+            "max": 12
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 100,
+            "max": 110
+          },
+          "average": 105,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        }
+      },
+      "icon": "icons/Squire.png"
+    },
+    {
+      "id": "swordmaster",
+      "name": "Swordmaster",
+      "startingLevel": {
+        "min": 3,
+        "max": 5
+      },
+      "baseWage": 35,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 38,
+            "max": 48
+          },
+          "average": 43,
+          "levelUp": {
+            "min": -12,
+            "max": -12
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 72,
+            "max": 77
+          },
+          "average": 74.5,
+          "levelUp": {
+            "min": 25,
+            "max": 20
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 27,
+            "max": 37
+          },
+          "average": 32,
+          "levelUp": {
+            "min": -5,
+            "max": -5
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 10,
+            "max": 20
+          },
+          "average": 15,
+          "levelUp": {
+            "min": 10,
+            "max": 15
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 75,
+            "max": 90
+          },
+          "average": 82.5,
+          "levelUp": {
+            "min": -15,
+            "max": -10
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 42,
+            "max": 50
+          },
+          "average": 46,
+          "levelUp": {
+            "min": 12,
+            "max": 10
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 90,
+            "max": 100
+          },
+          "average": 95,
+          "levelUp": {
+            "min": -10,
+            "max": -10
+          }
+        }
+      },
+      "icon": "icons/Swordmaster2.png"
+    },
+    {
+      "id": "tailor",
+      "name": "Tailor",
+      "startingLevel": {
+        "min": 1,
+        "max": 1
+      },
+      "baseWage": 5,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 47,
+            "max": 60
+          },
+          "average": 53.5,
+          "levelUp": {
+            "min": -3,
+            "max": null
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 47,
+            "max": 57
+          },
+          "average": 52,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 32,
+            "max": 42
+          },
+          "average": 37,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 85,
+            "max": 95
+          },
+          "average": 90,
+          "levelUp": {
+            "min": -5,
+            "max": -5
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 30,
+            "max": 40
+          },
+          "average": 35,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 100,
+            "max": 115
+          },
+          "average": 107.5,
+          "levelUp": {
+            "min": null,
+            "max": 5
+          }
+        }
+      },
+      "icon": "icons/Tailor.png"
+    },
+    {
+      "id": "thief",
+      "name": "Thief",
+      "startingLevel": {
+        "min": 1,
+        "max": 1
+      },
+      "baseWage": 10,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 50,
+            "max": 60
+          },
+          "average": 55,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 47,
+            "max": 57
+          },
+          "average": 52,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 32,
+            "max": 42
+          },
+          "average": 37,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 5,
+            "max": 13
+          },
+          "average": 9,
+          "levelUp": {
+            "min": 5,
+            "max": 8
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 5,
+            "max": 13
+          },
+          "average": 9,
+          "levelUp": {
+            "min": 5,
+            "max": 8
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 90,
+            "max": 100
+          },
+          "average": 95,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 35,
+            "max": 40
+          },
+          "average": 37.5,
+          "levelUp": {
+            "min": 5,
+            "max": null
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 112,
+            "max": 120
+          },
+          "average": 116,
+          "levelUp": {
+            "min": 12,
+            "max": 10
+          }
+        }
+      },
+      "icon": "icons/Thief.png"
+    },
+    {
+      "id": "vagabond",
+      "name": "Vagabond",
+      "startingLevel": {
+        "min": 1,
+        "max": 1
+      },
+      "baseWage": 6,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 47,
+            "max": 60
+          },
+          "average": 53.5,
+          "levelUp": {
+            "min": -3,
+            "max": null
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 47,
+            "max": 57
+          },
+          "average": 52,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 32,
+            "max": 42
+          },
+          "average": 37,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 100,
+            "max": 115
+          },
+          "average": 107.5,
+          "levelUp": {
+            "min": 10,
+            "max": 15
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 25,
+            "max": 33
+          },
+          "average": 29,
+          "levelUp": {
+            "min": -5,
+            "max": -7
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 100,
+            "max": 110
+          },
+          "average": 105,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        }
+      },
+      "icon": "icons/Vagabond.png"
+    },
+    {
+      "id": "wildman",
+      "name": "Wildman",
+      "startingLevel": {
+        "min": 1,
+        "max": 2
+      },
+      "baseWage": 12,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 62,
+            "max": 70
+          },
+          "average": 66,
+          "levelUp": {
+            "min": 12,
+            "max": 10
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 53,
+            "max": 57
+          },
+          "average": 55,
+          "levelUp": {
+            "min": 6,
+            "max": null
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 27,
+            "max": 42
+          },
+          "average": 34.5,
+          "levelUp": {
+            "min": -5,
+            "max": null
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": -5,
+            "max": 5
+          },
+          "average": 0,
+          "levelUp": {
+            "min": -5,
+            "max": null
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": -5,
+            "max": 0
+          },
+          "average": -2.5,
+          "levelUp": {
+            "min": -5,
+            "max": -5
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 108,
+            "max": 123
+          },
+          "average": 115.5,
+          "levelUp": {
+            "min": 18,
+            "max": 23
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 42,
+            "max": 50
+          },
+          "average": 46,
+          "levelUp": {
+            "min": 12,
+            "max": 10
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 95,
+            "max": 105
+          },
+          "average": 100,
+          "levelUp": {
+            "min": -5,
+            "max": -5
+          }
+        }
+      },
+      "icon": "icons/Wildman.png"
+    },
+    {
+      "id": "witchhunter",
+      "name": "Witchhunter",
+      "startingLevel": {
+        "min": 1,
+        "max": 3
+      },
+      "baseWage": 13,
+      "attributes": {
+        "hitpoints": {
+          "range": {
+            "min": 50,
+            "max": 60
+          },
+          "average": 55,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "meleeSkill": {
+          "range": {
+            "min": 47,
+            "max": 57
+          },
+          "average": 52,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedSkill": {
+          "range": {
+            "min": 47,
+            "max": 50
+          },
+          "average": 48.5,
+          "levelUp": {
+            "min": 15,
+            "max": 8
+          }
+        },
+        "meleeDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "rangedDefense": {
+          "range": {
+            "min": 0,
+            "max": 5
+          },
+          "average": 2.5,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "fatigue": {
+          "range": {
+            "min": 90,
+            "max": 100
+          },
+          "average": 95,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        },
+        "resolve": {
+          "range": {
+            "min": 42,
+            "max": 50
+          },
+          "average": 46,
+          "levelUp": {
+            "min": 12,
+            "max": 10
+          }
+        },
+        "initiative": {
+          "range": {
+            "min": 100,
+            "max": 110
+          },
+          "average": 105,
+          "levelUp": {
+            "min": null,
+            "max": null
+          }
+        }
+      },
+      "icon": "icons/Witchhunter.png"
+    }
+  ]
+}

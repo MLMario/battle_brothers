@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Battle Brothers – Backgrounds</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:        #080808;
+    --surface:   #141414;
+    --surface-h: #1e1e1e;
+    --expanded:  #1a1a1a;
+    --border:    #222;
+    --amber:     #d4a843;
+    --amber-dim: #9a7520;
+    --text-pri:  #eeeeee;
+    --text-sec:  #aaaaaa;
+    --text-name: #ffffff;
+    --track:     #252525;
+    --bar-low:   #c0392b;
+    --bar-mid:   #e6b800;
+    --bar-high:  #27ae60;
+    --nav-h:     52px;
+    --ctrl-h:    88px;
+  }
+
+  html, body {
+    height: 100%;
+    background: var(--bg);
+    color: var(--text-pri);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 13px;
+    line-height: 1.3;
+    overscroll-behavior: none;
+  }
+
+  #app {
+    max-width: 430px;
+    margin: 0 auto;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ── TOP CONTROLS ──────────────────────────────────────── */
+  #controls {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+
+  #search-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px 8px;
+  }
+
+  #search-wrap svg {
+    flex-shrink: 0;
+    color: #555;
+  }
+
+  #search {
+    flex: 1;
+    background: #111;
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    color: var(--text-pri);
+    font-size: 13px;
+    padding: 7px 10px 7px 32px;
+    outline: none;
+    transition: border-color .2s;
+    width: 100%;
+  }
+
+  #search-wrap {
+    position: relative;
+  }
+
+  #search-icon {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #555;
+  }
+
+  #search:focus {
+    border-color: var(--amber-dim);
+  }
+
+  #search::placeholder { color: #444; }
+
+  #pills-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 12px 10px;
+    scrollbar-width: none;
+  }
+  #pills-wrap::-webkit-scrollbar { display: none; }
+
+  #pills {
+    display: flex;
+    gap: 6px;
+    width: max-content;
+  }
+
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 5px 11px;
+    border-radius: 999px;
+    border: 1px solid #2c2c2c;
+    background: #111;
+    color: var(--text-sec);
+    font-size: 11px;
+    font-weight: 500;
+    cursor: pointer;
+    white-space: nowrap;
+    user-select: none;
+    transition: background .15s, color .15s, border-color .15s;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .pill:active { background: #1a1a1a; }
+
+  .pill.active {
+    background: rgba(212,168,67,.15);
+    border-color: var(--amber);
+    color: var(--amber);
+  }
+
+  .pill .arrow {
+    font-size: 9px;
+    line-height: 1;
+    opacity: .8;
+  }
+
+  /* ── RESULT COUNT ──────────────────────────────────────── */
+  #result-count {
+    font-size: 11px;
+    color: #555;
+    padding: 0 12px 6px;
+    flex-shrink: 0;
+  }
+
+  /* ── LIST ──────────────────────────────────────────────── */
+  #list-wrap {
+    flex: 1;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    padding-bottom: calc(var(--nav-h) + 4px);
+  }
+
+  #list-wrap::-webkit-scrollbar { width: 3px; }
+  #list-wrap::-webkit-scrollbar-track { background: transparent; }
+  #list-wrap::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 2px; }
+
+  .bg-item {
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* ── COLLAPSED ROW ─────────────────────────────────────── */
+  .bg-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 12px;
+    background: var(--surface);
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: background .15s;
+    min-height: 54px;
+  }
+
+  .bg-row:active,
+  .bg-item.open .bg-row {
+    background: var(--surface-h);
+  }
+
+  .bg-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    object-fit: contain;
+    background: #1c1c1c;
+    flex-shrink: 0;
+    border: 1px solid #282828;
+  }
+
+  .bg-icon-fallback {
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    background: #1c1c1c;
+    flex-shrink: 0;
+    border: 1px solid #282828;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #444;
+    font-size: 16px;
+  }
+
+  .bg-main {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .bg-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-name);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* mini sparkline */
+  .bg-sparkline {
+    display: flex;
+    align-items: flex-end;
+    gap: 2px;
+    height: 16px;
+  }
+
+  .spark-bar {
+    width: 3px;
+    border-radius: 1px;
+    flex-shrink: 0;
+    min-height: 2px;
+  }
+
+  .bg-row-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+
+  .wage-badge {
+    background: rgba(212,168,67,.12);
+    border: 1px solid rgba(212,168,67,.3);
+    color: var(--amber);
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+
+  .chevron {
+    color: #444;
+    font-size: 10px;
+    transition: transform .25s ease;
+    line-height: 1;
+  }
+
+  .bg-item.open .chevron {
+    transform: rotate(180deg);
+  }
+
+  /* ── EXPANDED PANEL ────────────────────────────────────── */
+  .bg-panel {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height .32s cubic-bezier(.4,0,.2,1);
+    background: var(--expanded);
+    border-left: 3px solid var(--amber);
+  }
+
+  .bg-item.open .bg-panel {
+    max-height: 600px;
+  }
+
+  .bg-panel-inner {
+    padding: 10px 12px 12px 12px;
+  }
+
+  /* badges row */
+  .panel-badges {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+
+  .panel-badge {
+    font-size: 10px;
+    font-weight: 500;
+    padding: 3px 8px;
+    border-radius: 5px;
+    border: 1px solid #2e2e2e;
+    background: #111;
+    color: var(--text-sec);
+  }
+
+  .panel-badge span {
+    color: var(--text-pri);
+    font-weight: 600;
+  }
+
+  /* attribute bars */
+  .attr-list {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .attr-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .attr-label {
+    width: 30px;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--text-sec);
+    text-align: right;
+    flex-shrink: 0;
+    letter-spacing: .3px;
+  }
+
+  .attr-bar-wrap {
+    flex: 1;
+    height: 8px;
+    background: var(--track);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .attr-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width .35s ease .05s;
+  }
+
+  .attr-vals {
+    width: 52px;
+    font-size: 10px;
+    color: var(--text-sec);
+    text-align: right;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  .attr-avg {
+    color: var(--text-pri);
+    font-weight: 500;
+  }
+
+  .attr-levelup {
+    width: 54px;
+    font-size: 9px;
+    color: #666;
+    text-align: right;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  .attr-levelup.positive { color: #4a9; }
+  .attr-levelup.negative { color: #c66; }
+
+  /* ── BOTTOM NAV ─────────────────────────────────────────── */
+  #bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 430px;
+    height: var(--nav-h);
+    background: #0e0e0e;
+    border-top: 1px solid #1e1e1e;
+    display: flex;
+    z-index: 30;
+  }
+
+  .nav-tab {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    cursor: pointer;
+    color: #555;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: .4px;
+    text-transform: uppercase;
+    transition: color .15s;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    position: relative;
+  }
+
+  .nav-tab.active {
+    color: var(--amber);
+  }
+
+  .nav-tab.active::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 25%;
+    width: 50%;
+    height: 2px;
+    background: var(--amber);
+    border-radius: 0 0 2px 2px;
+  }
+
+  .nav-tab svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* ── EMPTY STATE ───────────────────────────────────────── */
+  #empty {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    color: #444;
+    gap: 8px;
+    font-size: 13px;
+  }
+
+  #empty svg { opacity: .3; }
+
+  /* ── UTILITY ───────────────────────────────────────────── */
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+<div id="app">
+
+  <!-- TOP CONTROLS -->
+  <div id="controls">
+    <div id="search-wrap">
+      <svg id="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input id="search" type="search" placeholder="Search backgrounds…" autocomplete="off" spellcheck="false">
+    </div>
+    <div id="pills-wrap">
+      <div id="pills">
+        <button class="pill active" data-key="name">Name <span class="arrow">▲</span></button>
+        <button class="pill" data-key="baseWage">Wage</button>
+        <button class="pill" data-key="hitpoints">HP</button>
+        <button class="pill" data-key="meleeSkill">MSk</button>
+        <button class="pill" data-key="rangedSkill">RSk</button>
+        <button class="pill" data-key="meleeDefense">MDf</button>
+        <button class="pill" data-key="rangedDefense">RDf</button>
+        <button class="pill" data-key="fatigue">Fat</button>
+        <button class="pill" data-key="resolve">Res</button>
+        <button class="pill" data-key="initiative">Ini</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="result-count"></div>
+
+  <!-- ACCORDION LIST -->
+  <div id="list-wrap">
+    <div id="list"></div>
+    <div id="empty">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      No backgrounds found
+    </div>
+  </div>
+
+  <!-- BOTTOM NAV -->
+  <nav id="bottom-nav">
+    <div class="nav-tab active">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+        <circle cx="9" cy="7" r="4"/>
+        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+      </svg>
+      Backgrounds
+    </div>
+    <div class="nav-tab">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+        <line x1="8" y1="21" x2="16" y2="21"/>
+        <line x1="12" y1="17" x2="12" y2="21"/>
+      </svg>
+      Build
+    </div>
+  </nav>
+
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  // ── CONFIG ────────────────────────────────────────────────
+  const ATTR_KEYS = [
+    { key: 'hitpoints',    label: 'HP'  },
+    { key: 'meleeSkill',   label: 'MSk' },
+    { key: 'rangedSkill',  label: 'RSk' },
+    { key: 'meleeDefense', label: 'MDf' },
+    { key: 'rangedDefense',label: 'RDf' },
+    { key: 'fatigue',      label: 'Fat' },
+    { key: 'resolve',      label: 'Res' },
+    { key: 'initiative',   label: 'Ini' },
+  ];
+
+  // ── STATE ─────────────────────────────────────────────────
+  let allBgs     = [];
+  let filtered   = [];
+  let sortKey    = 'name';
+  let sortAsc    = true;
+  let query      = '';
+  let openId     = null;
+  let globalMin  = {};   // per-attr global min avg
+  let globalMax  = {};   // per-attr global max avg
+
+  // ── ELEMENTS ──────────────────────────────────────────────
+  const listEl   = document.getElementById('list');
+  const emptyEl  = document.getElementById('empty');
+  const searchEl = document.getElementById('search');
+  const pillsEl  = document.getElementById('pills');
+  const countEl  = document.getElementById('result-count');
+
+  // ── LOAD EMBEDDED DATA ─────────────────────────────────
+  const EMBEDDED_DATA = {"meta":{"source":"https://battlebrothers.fandom.com/wiki/Character_Backgrounds","scrapedAt":"2026-03-13T19:02:55.779713+00:00","totalBackgrounds":67},"backgrounds":[{"id":"adventurous_noble","name":"Adventurous Noble","startingLevel":{"min":1,"max":3},"baseWage":25,"attributes":{"hitpoints":{"range":{"min":50,"max":60},"average":55,"levelUp":{"min":null,"max":null}},"meleeSkill":{"range":{"min":57,"max":67},"average":62,"levelUp":{"min":10,"max":10}},"rangedSkill":{"range":{"min":32,"max":42},"average":37,"levelUp":{"min":null,"max":null}},"meleeDefense":{"range":{"min":5,"max":13},"average":9,"levelUp":{"min":5,"max":8}},"rangedDefense":{"range":{"min":-10,"max":0},"average":-5,"levelUp":{"min":-10,"max":-5}},"fatigue":{"range":{"min":90,"max":105},"average":97.5,"levelUp":{"min":null,"max":5}},"resolve":{"range":{"min":45,"max":60},"average":52.5,"levelUp":{"min":15,"max":20}},"initiative":{"range":{"min":100,"max":110},"average":105,"levelUp":{"min":null,"max":null}}},"icon":"icons/Background_06.png"},{"id":"anatomist","name":"Anatomist","startingLevel":{"min":1,"max":1},"baseWage":12,"attributes":{"hitpoints":{"range":{"min":46,"max":56},"average":51,"levelUp":{"min":-4,"max":-4}},"meleeSkill":{"range":{"min":54,"max":64},"average":59,"levelUp":{"min":7,"max":7}},"rangedSkill":{"range":{"min":41,"max":51},"average":46,"levelUp":{"min":9,"max":9}},"meleeDefense":{"range":{"min":1,"max":5},"average":3,"levelUp":{"min":1,"max":null}},"rangedDefense":{"range":{"min":1,"max":5},"average":3,"levelUp":{"min":1,"max":null}},"fatigue":{"range":{"min":90,"max":95},"average":92.5,"levelUp":{"min":null,"max":-5}},"resolve":{"range":{"min":40,"max":50},"average":45,"levelUp":{"min":10,"max":10}},"initiative":{"range":{"min":100,"max":110},"average":105,"levelUp":{"min":null,"max":null}}},"icon":"icons/Background 70.png"},{"id":"apprentice","name":"Apprentice","startingLevel":{"min":1,"max":1},"baseWage":8,"attributes":{"hitpoints":{"range":{"min":50,"max":60},"average":55,"levelUp":{"min":null,"max":null}},"meleeSkill":{"range":{"min":47,"max":57},"average":52,"levelUp":{"min":null,"max":null}},"rangedSkill":{"range":{"min":32,"max":42},"average":37,"levelUp":{"min":null,"max":null}},"meleeDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"rangedDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"fatigue":{"range":{"min":90,"max":100},"average":95,"levelUp":{"min":null,"max":null}},"resolve":{"range":{"min":30,"max":40},"average":35,"levelUp":{"min":null,"max":null}},"initiative":{"range":{"min":100,"max":110},"average":105,"levelUp":{"min":null,"max":null}}},"icon":"icons/Background_40.png"},{"id":"assassin","name":"Assassin","startingLevel":{"min":4,"max":4},"baseWage":25,"attributes":{"hitpoints":{"range":{"min":45,"max":55},"average":50,"levelUp":{"min":-5,"max":-5}},"meleeSkill":{"range":{"min":57,"max":67},"average":62,"levelUp":{"min":10,"max":10}},"rangedSkill":{"range":{"min":32,"max":42},"average":37,"levelUp":{"min":null,"max":null}},"meleeDefense":{"range":{"min":5,"max":13},"average":9,"levelUp":{"min":5,"max":8}},"rangedDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"fatigue":{"range":{"min":85,"max":95},"average":90,"levelUp":{"min":-5,"max":-5}},"resolve":{"range":{"min":40,"max":50},"average":45,"levelUp":{"min":10,"max":10}},"initiative":{"range":{"min":120,"max":125},"average":122.5,"levelUp":{"min":20,"max":15}}},"icon":"icons/Background_53.png"},{"id":"barbarian","name":"Barbarian","startingLevel":{"min":2,"max":4},"baseWage":20,"attributes":{"hitpoints":{"range":{"min":60,"max":65},"average":62.5,"levelUp":{"min":10,"max":5}},"meleeSkill":{"range":{"min":57,"max":62},"average":59.5,"levelUp":{"min":10,"max":5}},"rangedSkill":{"range":{"min":32,"max":42},"average":37,"levelUp":{"min":null,"max":null}},"meleeDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"rangedDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"fatigue":{"range":{"min":100,"max":105},"average":102.5,"levelUp":{"min":10,"max":5}},"resolve":{"range":{"min":40,"max":45},"average":42.5,"levelUp":{"min":10,"max":5}},"initiative":{"range":{"min":105,"max":120},"average":112.5,"levelUp":{"min":5,"max":10}}},"icon":"icons/Barbarian.png"},{"id":"bastard","name":"Bastard","startingLevel":{"min":1,"max":3},"baseWage":14,"attributes":{"hitpoints":{"range":{"min":50,"max":60},"average":55,"levelUp":{"min":null,"max":null}},"meleeSkill":{"range":{"min":52,"max":67},"average":59.5,"levelUp":{"min":5,"max":10}},"rangedSkill":{"range":{"min":32,"max":42},"average":37,"levelUp":{"min":null,"max":null}},"meleeDefense":{"range":{"min":-5,"max":10},"average":2.5,"levelUp":{"min":-5,"max":5}},"rangedDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"fatigue":{"range":{"min":90,"max":100},"average":95,"levelUp":{"min":null,"max":null}},"resolve":{"range":{"min":25,"max":35},"average":30,"levelUp":{"min":-5,"max":-5}},"initiative":{"range":{"min":100,"max":110},"average":105,"levelUp":{"min":null,"max":null}}},"icon":"icons/Bastard.png"},{"id":"beast_slayer","name":"Beast Slayer","startingLevel":{"min":2,"max":3},"baseWage":15,"attributes":{"hitpoints":{"range":{"min":50,"max":63},"average":56.5,"levelUp":{"min":null,"max":3}},"meleeSkill":{"range":{"min":52,"max":62},"average":57,"levelUp":{"min":5,"max":5}},"rangedSkill":{"range":{"min":43,"max":49},"average":46,"levelUp":{"min":11,"max":7}},"meleeDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"rangedDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"fatigue":{"range":{"min":95,"max":107},"average":101,"levelUp":{"min":5,"max":7}},"resolve":{"range":{"min":43,"max":50},"average":46.5,"levelUp":{"min":13,"max":10}},"initiative":{"range":{"min":107,"max":115},"average":111,"levelUp":{"min":7,"max":5}}},"icon":"icons/Background_57.png"},{"id":"beggar","name":"Beggar","startingLevel":{"min":1,"max":1},"baseWage":3,"attributes":{"hitpoints":{"range":{"min":40,"max":50},"average":45,"levelUp":{"min":-10,"max":-10}},"meleeSkill":{"range":{"min":47,"max":57},"average":52,"levelUp":{"min":null,"max":null}},"rangedSkill":{"range":{"min":32,"max":42},"average":37,"levelUp":{"min":null,"max":null}},"meleeDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"rangedDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"fatigue":{"range":{"min":80,"max":90},"average":85,"levelUp":{"min":-10,"max":-10}},"resolve":{"range":{"min":20,"max":35},"average":27.5,"levelUp":{"min":-10,"max":-5}},"initiative":{"range":{"min":100,"max":110},"average":105,"levelUp":{"min":null,"max":null}}},"icon":"icons/Beggar.png"},{"id":"belly_dancer","name":"Belly Dancer","startingLevel":{"min":1,"max":1},"baseWage":20,"attributes":{"hitpoints":{"range":{"min":45,"max":55},"average":50,"levelUp":{"min":-5,"max":-5}},"meleeSkill":{"range":{"min":57,"max":67},"average":62,"levelUp":{"min":10,"max":10}},"rangedSkill":{"range":{"min":37,"max":47},"average":42,"levelUp":{"min":5,"max":5}},"meleeDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"rangedDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"fatigue":{"range":{"min":85,"max":95},"average":90,"levelUp":{"min":-5,"max":-5}},"resolve":{"range":{"min":25,"max":35},"average":30,"levelUp":{"min":-5,"max":-5}},"initiative":{"range":{"min":110,"max":120},"average":115,"levelUp":{"min":10,"max":10}}},"icon":"icons/Background_64.png"},{"id":"bowyer","name":"Bowyer","startingLevel":{"min":1,"max":1},"baseWage":8,"attributes":{"hitpoints":{"range":{"min":50,"max":60},"average":55,"levelUp":{"min":null,"max":null}},"meleeSkill":{"range":{"min":47,"max":57},"average":52,"levelUp":{"min":null,"max":null}},"rangedSkill":{"range":{"min":42,"max":52},"average":47,"levelUp":{"min":10,"max":10}},"meleeDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"rangedDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"fatigue":{"range":{"min":85,"max":100},"average":92.5,"levelUp":{"min":-5,"max":null}},"resolve":{"range":{"min":25,"max":40},"average":32.5,"levelUp":{"min":-5,"max":null}},"initiative":{"range":{"min":100,"max":110},"average":105,"levelUp":{"min":null,"max":null}}},"icon":"icons/Bowyer.png"},{"id":"brawler","name":"Brawler","startingLevel":{"min":1,"max":1},"baseWage":13,"attributes":{"hitpoints":{"range":{"min":55,"max":70},"average":62.5,"levelUp":{"min":5,"max":10}},"meleeSkill":{"range":{"min":52,"max":57},"average":54.5,"levelUp":{"min":5,"max":null}},"rangedSkill":{"range":{"min":32,"max":42},"average":37,"levelUp":{"min":null,"max":null}},"meleeDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"rangedDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"fatigue":{"range":{"min":100,"max":105},"average":102.5,"levelUp":{"min":10,"max":5}},"resolve":{"range":{"min":37,"max":45},"average":41,"levelUp":{"min":7,"max":5}},"initiative":{"range":{"min":105,"max":110},"average":107.5,"levelUp":{"min":5,"max":null}}},"icon":"icons/Brawler.png"},{"id":"butcher","name":"Butcher","startingLevel":{"min":1,"max":1},"baseWage":7,"attributes":{"hitpoints":{"range":{"min":50,"max":64},"average":57,"levelUp":{"min":null,"max":4}},"meleeSkill":{"range":{"min":50,"max":59},"average":54.5,"levelUp":{"min":3,"max":2}},"rangedSkill":{"range":{"min":29,"max":42},"average":35.5,"levelUp":{"min":-3,"max":null}},"meleeDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"rangedDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"fatigue":{"range":{"min":90,"max":104},"average":97,"levelUp":{"min":null,"max":4}},"resolve":{"range":{"min":37,"max":45},"average":41,"levelUp":{"min":7,"max":5}},"initiative":{"range":{"min":100,"max":110},"average":105,"levelUp":{"min":null,"max":null}}},"icon":"icons/Butcher_02.png"},{"id":"caravan_hand","name":"Caravan Hand","startingLevel":{"min":1,"max":1},"baseWage":8,"attributes":{"hitpoints":{"range":{"min":53,"max":65},"average":59,"levelUp":{"min":3,"max":5}},"meleeSkill":{"range":{"min":51,"max":57},"average":54,"levelUp":{"min":4,"max":null}},"rangedSkill":{"range":{"min":32,"max":42},"average":37,"levelUp":{"min":null,"max":null}},"meleeDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"rangedDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"fatigue":{"range":{"min":95,"max":107},"average":101,"levelUp":{"min":5,"max":7}},"resolve":{"range":{"min":33,"max":43},"average":38,"levelUp":{"min":3,"max":3}},"initiative":{"range":{"min":100,"max":110},"average":105,"levelUp":{"min":null,"max":null}}},"icon":"icons/Caravan_hand.png"},{"id":"companion","name":"Companion","startingLevel":{"min":1,"max":1},"baseWage":14,"attributes":{"hitpoints":{"range":{"min":50,"max":60},"average":55,"levelUp":{"min":null,"max":null}},"meleeSkill":{"range":{"min":52,"max":57},"average":54.5,"levelUp":{"min":5,"max":null}},"rangedSkill":{"range":{"min":48,"max":52},"average":50,"levelUp":{"min":16,"max":10}},"meleeDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"rangedDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"fatigue":{"range":{"min":90,"max":100},"average":95,"levelUp":{"min":null,"max":null}},"resolve":{"range":{"min":35,"max":45},"average":40,"levelUp":{"min":5,"max":5}},"initiative":{"range":{"min":105,"max":115},"average":110,"levelUp":{"min":5,"max":5}}},"icon":"icons/MediaWikiCompanionWelcome.png"},{"id":"converted_crusader","name":"Converted Crusader","startingLevel":{"min":2,"max":4},"baseWage":30,"attributes":{"hitpoints":{"range":{"min":50,"max":60},"average":55,"levelUp":{"min":null,"max":null}},"meleeSkill":{"range":{"min":60,"max":67},"average":63.5,"levelUp":{"min":13,"max":10}},"rangedSkill":{"range":{"min":44,"max":52},"average":48,"levelUp":{"min":12,"max":10}},"meleeDefense":{"range":{"min":5,"max":13},"average":9,"levelUp":{"min":5,"max":8}},"rangedDefense":{"range":{"min":5,"max":13},"average":9,"levelUp":{"min":5,"max":8}},"fatigue":{"range":{"min":90,"max":100},"average":95,"levelUp":{"min":null,"max":null}},"resolve":{"range":{"min":35,"max":45},"average":40,"levelUp":{"min":5,"max":5}},"initiative":{"range":{"min":100,"max":110},"average":105,"levelUp":{"min":null,"max":null}}},"icon":"icons/Background_65.png"},{"id":"cripple","name":"Cripple","startingLevel":{"min":1,"max":1},"baseWage":3,"attributes":{"hitpoints":{"range":{"min":30,"max":50},"average":40,"levelUp":{"min":-20,"max":-10}},"meleeSkill":{"range":{"min":42,"max":52},"average":47,"levelUp":{"min":-5,"max":-5}},"rangedSkill":{"range":{"min":27,"max":42},"average":34.5,"levelUp":{"min":-5,"max":null}},"meleeDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"rangedDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"fatigue":{"range":{"min":80,"max":100},"average":90,"levelUp":{"min":-10,"max":null}},"resolve":{"range":{"min":30,"max":40},"average":35,"levelUp":{"min":null,"max":null}},"initiative":{"range":{"min":75,"max":100},"average":87.5,"levelUp":{"min":-25,"max":-10}}},"icon":"icons/Cripple2.png"},{"id":"crusader","name":"Crusader","startingLevel":{"min":9,"max":9},"baseWage":25,"attributes":{"hitpoints":{"range":{"min":60,"max":70},"average":65,"levelUp":{"min":10,"max":10}},"meleeSkill":{"range":{"min":57,"max":67},"average":62,"levelUp":{"min":10,"max":10}},"rangedSkill":{"range":{"min":22,"max":37},"average":29.5,"levelUp":{"min":-10,"max":-5}},"meleeDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"rangedDefense":{"range":{"min":-5,"max":5},"average":0,"levelUp":{"min":-5,"max":null}},"fatigue":{"range":{"min":100,"max":110},"average":105,"levelUp":{"min":10,"max":10}},"resolve":{"range":{"min":45,"max":60},"average":52.5,"levelUp":{"min":15,"max":20}},"initiative":{"range":{"min":100,"max":110},"average":105,"levelUp":{"min":null,"max":null}}},"icon":"icons/Background_54.png"},{"id":"cultist","name":"Cultist","startingLevel":{"min":1,"max":1},"baseWage":6,"attributes":{"hitpoints":{"range":{"min":45,"max":65},"average":55,"levelUp":{"min":-5,"max":5}},"meleeSkill":{"range":{"min":47,"max":57},"average":52,"levelUp":{"min":null,"max":null}},"rangedSkill":{"range":{"min":32,"max":42},"average":37,"levelUp":{"min":null,"max":null}},"meleeDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"rangedDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"fatigue":{"range":{"min":93,"max":103},"average":98,"levelUp":{"min":3,"max":3}},"resolve":{"range":{"min":45,"max":50},"average":47.5,"levelUp":{"min":15,"max":10}},"initiative":{"range":{"min":100,"max":110},"average":105,"levelUp":{"min":null,"max":null}}},"icon":"icons/Cultist.png"},{"id":"daytaler","name":"Daytaler","startingLevel":{"min":1,"max":1},"baseWage":6,"attributes":{"hitpoints":{"range":{"min":50,"max":60},"average":55,"levelUp":{"min":null,"max":null}},"meleeSkill":{"range":{"min":47,"max":57},"average":52,"levelUp":{"min":null,"max":null}},"rangedSkill":{"range":{"min":32,"max":42},"average":37,"levelUp":{"min":null,"max":null}},"meleeDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"rangedDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"fatigue":{"range":{"min":90,"max":103},"average":96.5,"levelUp":{"min":null,"max":3}},"resolve":{"range":{"min":30,"max":40},"average":35,"levelUp":{"min":null,"max":null}},"initiative":{"range":{"min":100,"max":110},"average":105,"levelUp":{"min":null,"max":null}}},"icon":"icons/Daytaler.png"},{"id":"deserter","name":"Deserter","startingLevel":{"min":1,"max":2},"baseWage":11,"attributes":{"hitpoints":{"range":{"min":50,"max":60},"average":55,"levelUp":{"min":null,"max":null}},"meleeSkill":{"range":{"min":52,"max":62},"average":57,"levelUp":{"min":5,"max":5}},"rangedSkill":{"range":{"min":39,"max":42},"average":40.5,"levelUp":{"min":7,"max":null}},"meleeDefense":{"range":{"min":3,"max":10},"average":6.5,"levelUp":{"min":3,"max":5}},"rangedDefense":{"range":{"min":3,"max":10},"average":6.5,"levelUp":{"min":3,"max":5}},"fatigue":{"range":{"min":90,"max":100},"average":95,"levelUp":{"min":null,"max":null}},"resolve":{"range":{"min":15,"max":30},"average":22.5,"levelUp":{"min":-15,"max":-10}},"initiative":{"range":{"min":100,"max":110},"average":105,"levelUp":{"min":null,"max":null}}},"icon":"icons/Deserter.png"},{"id":"disowned_noble","name":"Disowned Noble","startingLevel":{"min":1,"max":3},"baseWage":18,"attributes":{"hitpoints":{"range":{"min":50,"max":60},"average":55,"levelUp":{"min":null,"max":null}},"meleeSkill":{"range":{"min":55,"max":67},"average":61,"levelUp":{"min":8,"max":10}},"rangedSkill":{"range":{"min":35,"max":48},"average":41.5,"levelUp":{"min":3,"max":6}},"meleeDefense":{"range":{"min":2,"max":12},"average":8,"levelUp":{"min":2,"max":7}},"rangedDefense":{"range":{"min":3,"max":10},"average":6.5,"levelUp":{"min":3,"max":5}},"fatigue":{"range":{"min":80,"max":95},"average":87.5,"levelUp":{"min":-10,"max":-5}},"resolve":{"range":{"min":35,"max":53},"average":44,"levelUp":{"min":5,"max":13}},"initiative":{"range":{"min":106,"max":120},"average":113,"levelUp":{"min":6,"max":10}}},"icon":"icons/Disowned_noble.png"},{"id":"eunuch","name":"Eunuch","startingLevel":{"min":1,"max":1},"baseWage":6,"attributes":{"hitpoints":{"range":{"min":50,"max":60},"average":55,"levelUp":{"min":null,"max":null}},"meleeSkill":{"range":{"min":47,"max":57},"average":52,"levelUp":{"min":null,"max":null}},"rangedSkill":{"range":{"min":32,"max":42},"average":37,"levelUp":{"min":null,"max":null}},"meleeDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"rangedDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"fatigue":{"range":{"min":90,"max":100},"average":95,"levelUp":{"min":null,"max":null}},"resolve":{"range":{"min":25,"max":35},"average":30,"levelUp":{"min":-5,"max":-5}},"initiative":{"range":{"min":95,"max":105},"average":100,"levelUp":{"min":-5,"max":-5}}},"icon":"icons/Eunuch.png"},{"id":"farmhand","name":"Farmhand","startingLevel":{"min":1,"max":1},"baseWage":10,"attributes":{"hitpoints":{"range":{"min":62,"max":70},"average":66,"levelUp":{"min":12,"max":10}},"meleeSkill":{"range":{"min":47,"max":57},"average":52,"levelUp":{"min":null,"max":null}},"rangedSkill":{"range":{"min":32,"max":42},"average":37,"levelUp":{"min":null,"max":null}},"meleeDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"rangedDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"fatigue":{"range":{"min":100,"max":120},"average":110,"levelUp":{"min":10,"max":20}},"resolve":{"range":{"min":28,"max":37},"average":32.5,"levelUp":{"min":-2,"max":-3}},"initiative":{"range":{"min":100,"max":110},"average":105,"levelUp":{"min":null,"max":null}}},"icon":"icons/Farmhand.png"},{"id":"fisherman","name":"Fisherman","startingLevel":{"min":1,"max":1},"baseWage":7,"attributes":{"hitpoints":{"range":{"min":55,"max":60},"average":57.5,"levelUp":{"min":5,"max":null}},"meleeSkill":{"range":{"min":47,"max":57},"average":52,"levelUp":{"min":null,"max":null}},"rangedSkill":{"range":{"min":32,"max":42},"average":37,"levelUp":{"min":null,"max":null}},"meleeDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"rangedDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"fatigue":{"range":{"min":95,"max":105},"average":100,"levelUp":{"min":5,"max":5}},"resolve":{"range":{"min":35,"max":40},"average":37.5,"levelUp":{"min":5,"max":null}},"initiative":{"range":{"min":100,"max":115},"average":107.5,"levelUp":{"min":null,"max":5}}},"icon":"icons/Fisherman.png"},{"id":"flagellant","name":"Flagellant","startingLevel":{"min":1,"max":1},"baseWage":6,"attributes":{"hitpoints":{"range":{"min":50,"max":60},"average":55,"levelUp":{"min":null,"max":null}},"meleeSkill":{"range":{"min":42,"max":52},"average":47,"levelUp":{"min":-5,"max":-5}},"rangedSkill":{"range":{"min":32,"max":42},"average":37,"levelUp":{"min":null,"max":null}},"meleeDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"rangedDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"fatigue":{"range":{"min":80,"max":100},"average":90,"levelUp":{"min":-10,"max":null}},"resolve":{"range":{"min":41,"max":51},"average":46,"levelUp":{"min":11,"max":11}},"initiative":{"range":{"min":100,"max":110},"average":105,"levelUp":{"min":null,"max":null}}},"icon":"icons/Flagellant.png"},{"id":"gambler","name":"Gambler","startingLevel":{"min":1,"max":1},"baseWage":6,"attributes":{"hitpoints":{"range":{"min":48,"max":58},"average":53,"levelUp":{"min":-2,"max":-2}},"meleeSkill":{"range":{"min":47,"max":57},"average":52,"levelUp":{"min":null,"max":null}},"rangedSkill":{"range":{"min":32,"max":42},"average":37,"levelUp":{"min":null,"max":null}},"meleeDefense":{"range":{"min":0,"max":7},"average":3.5,"levelUp":{"min":null,"max":2}},"rangedDefense":{"range":{"min":2,"max":13},"average":7.5,"levelUp":{"min":2,"max":8}},"fatigue":{"range":{"min":84,"max":95},"average":89.5,"levelUp":{"min":-6,"max":-5}},"resolve":{"range":{"min":42,"max":52},"average":47,"levelUp":{"min":12,"max":12}},"initiative":{"range":{"min":112,"max":120},"average":116,"levelUp":{"min":12,"max":10}}},"icon":"icons/Gambler.png"},{"id":"gladiator","name":"Gladiator","startingLevel":{"min":2,"max":4},"baseWage":35,"attributes":{"hitpoints":{"range":{"min":50,"max":60},"average":55,"levelUp":{"min":null,"max":null}},"meleeSkill":{"range":{"min":60,"max":67},"average":63.5,"levelUp":{"min":13,"max":10}},"rangedSkill":{"range":{"min":40,"max":48},"average":44,"levelUp":{"min":8,"max":6}},"meleeDefense":{"range":{"min":5,"max":13},"average":9,"levelUp":{"min":5,"max":8}},"rangedDefense":{"range":{"min":5,"max":13},"average":9,"levelUp":{"min":5,"max":8}},"fatigue":{"range":{"min":90,"max":100},"average":95,"levelUp":{"min":null,"max":null}},"resolve":{"range":{"min":35,"max":45},"average":40,"levelUp":{"min":5,"max":5}},"initiative":{"range":{"min":100,"max":110},"average":105,"levelUp":{"min":null,"max":null}}},"icon":"icons/Background_61.png"},{"id":"gravedigger","name":"Gravedigger","startingLevel":{"min":1,"max":1},"baseWage":5,"attributes":{"hitpoints":{"range":{"min":50,"max":64},"average":57,"levelUp":{"min":null,"max":4}},"meleeSkill":{"range":{"min":47,"max":57},"average":52,"levelUp":{"min":null,"max":null}},"rangedSkill":{"range":{"min":32,"max":42},"average":37,"levelUp":{"min":null,"max":null}},"meleeDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"rangedDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"fatigue":{"range":{"min":95,"max":107},"average":101,"levelUp":{"min":5,"max":7}},"resolve":{"range":{"min":37,"max":45},"average":41,"levelUp":{"min":7,"max":5}},"initiative":{"range":{"min":95,"max":110},"average":102.5,"levelUp":{"min":-5,"max":null}}},"icon":"icons/Gravedigger.png"},{"id":"graverobber","name":"Graverobber","startingLevel":{"min":1,"max":1},"baseWage":6,"attributes":{"hitpoints":{"range":{"min":50,"max":60},"average":55,"levelUp":{"min":null,"max":null}},"meleeSkill":{"range":{"min":50,"max":57},"average":53.5,"levelUp":{"min":3,"max":null}},"rangedSkill":{"range":{"min":32,"max":42},"average":37,"levelUp":{"min":null,"max":null}},"meleeDefense":{"range":{"min":0,"max":6},"average":3,"levelUp":{"min":null,"max":1}},"rangedDefense":{"range":{"min":0,"max":6},"average":3,"levelUp":{"min":null,"max":1}},"fatigue":{"range":{"min":95,"max":105},"average":100,"levelUp":{"min":5,"max":5}},"resolve":{"range":{"min":38,"max":45},"average":41.5,"levelUp":{"min":8,"max":5}},"initiative":{"range":{"min":100,"max":114},"average":107,"levelUp":{"min":null,"max":4}}},"icon":"icons/Background_25.png"},{"id":"hedge_knight","name":"Hedge Knight","startingLevel":{"min":2,"max":5},"baseWage":35,"attributes":{"hitpoints":{"range":{"min":62,"max":73},"average":67.5,"levelUp":{"min":12,"max":13}},"meleeSkill":{"range":{"min":58,"max":67},"average":62.5,"levelUp":{"min":11,"max":10}},"rangedSkill":{"range":{"min":32,"max":42},"average":37,"levelUp":{"min":null,"max":null}},"meleeDefense":{"range":{"min":6,"max":10},"average":8,"levelUp":{"min":6,"max":5}},"rangedDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"fatigue":{"range":{"min":105,"max":110},"average":107.5,"levelUp":{"min":15,"max":10}},"resolve":{"range":{"min":39,"max":44},"average":41.5,"levelUp":{"min":9,"max":4}},"initiative":{"range":{"min":86,"max":103},"average":94.5,"levelUp":{"min":-14,"max":-7}}},"icon":"icons/Background_33.png"},{"id":"historian","name":"Historian","startingLevel":{"min":1,"max":1},"baseWage":8,"attributes":{"hitpoints":{"range":{"min":48,"max":55},"average":51.5,"levelUp":{"min":-2,"max":-5}},"meleeSkill":{"range":{"min":42,"max":52},"average":47,"levelUp":{"min":-5,"max":-5}},"rangedSkill":{"range":{"min":29,"max":40},"average":34.5,"levelUp":{"min":-3,"max":-2}},"meleeDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"rangedDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"fatigue":{"range":{"min":85,"max":95},"average":90,"levelUp":{"min":-5,"max":-5}},"resolve":{"range":{"min":30,"max":40},"average":35,"levelUp":{"min":null,"max":null}},"initiative":{"range":{"min":100,"max":110},"average":105,"levelUp":{"min":null,"max":null}}},"icon":"icons/Historian.png"},{"id":"houndmaster","name":"Houndmaster","startingLevel":{"min":1,"max":1},"baseWage":7,"attributes":{"hitpoints":{"range":{"min":55,"max":60},"average":57.5,"levelUp":{"min":5,"max":null}},"meleeSkill":{"range":{"min":47,"max":57},"average":52,"levelUp":{"min":null,"max":null}},"rangedSkill":{"range":{"min":32,"max":42},"average":37,"levelUp":{"min":null,"max":null}},"meleeDefense":{"range":{"min":3,"max":8},"average":5.5,"levelUp":{"min":3,"max":3}},"rangedDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"fatigue":{"range":{"min":95,"max":100},"average":97.5,"levelUp":{"min":5,"max":null}},"resolve":{"range":{"min":35,"max":45},"average":40,"levelUp":{"min":5,"max":5}},"initiative":{"range":{"min":105,"max":110},"average":107.5,"levelUp":{"min":5,"max":null}}},"icon":"icons/Houndmaster.png"},{"id":"hunter","name":"Hunter","startingLevel":{"min":1,"max":2},"baseWage":20,"attributes":{"hitpoints":{"range":{"min":50,"max":60},"average":55,"levelUp":{"min":null,"max":null}},"meleeSkill":{"range":{"min":47,"max":57},"average":52,"levelUp":{"min":null,"max":null}},"rangedSkill":{"range":{"min":52,"max":59},"average":55.5,"levelUp":{"min":20,"max":17}},"meleeDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"rangedDefense":{"range":{"min":0,"max":8},"average":4,"levelUp":{"min":null,"max":3}},"fatigue":{"range":{"min":97,"max":105},"average":101,"levelUp":{"min":7,"max":5}},"resolve":{"range":{"min":30,"max":45},"average":37.5,"levelUp":{"min":null,"max":5}},"initiative":{"range":{"min":100,"max":115},"average":107.5,"levelUp":{"min":null,"max":5}}},"icon":"icons/Hunter2.png"},{"id":"indebted","name":"Indebted","startingLevel":{"min":1,"max":1},"baseWage":0,"attributes":{"hitpoints":{"range":{"min":40,"max":50},"average":45,"levelUp":{"min":-10,"max":-10}},"meleeSkill":{"range":{"min":47,"max":57},"average":52,"levelUp":{"min":null,"max":null}},"rangedSkill":{"range":{"min":32,"max":42},"average":37,"levelUp":{"min":null,"max":null}},"meleeDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"rangedDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"fatigue":{"range":{"min":95,"max":105},"average":100,"levelUp":{"min":5,"max":5}},"resolve":{"range":{"min":20,"max":35},"average":27.5,"levelUp":{"min":-10,"max":-5}},"initiative":{"range":{"min":95,"max":105},"average":100,"levelUp":{"min":-5,"max":-5}}},"icon":"icons/Background_60.png"},{"id":"juggler","name":"Juggler","startingLevel":{"min":1,"max":1},"baseWage":7,"attributes":{"hitpoints":{"range":{"min":45,"max":55},"average":50,"levelUp":{"min":-5,"max":-5}},"meleeSkill":{"range":{"min":47,"max":57},"average":52,"levelUp":{"min":null,"max":null}},"rangedSkill":{"range":{"min":35,"max":45},"average":40,"levelUp":{"min":3,"max":3}},"meleeDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"rangedDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"fatigue":{"range":{"min":90,"max":100},"average":95,"levelUp":{"min":null,"max":null}},"resolve":{"range":{"min":30,"max":40},"average":35,"levelUp":{"min":null,"max":null}},"initiative":{"range":{"min":112,"max":120},"average":116,"levelUp":{"min":12,"max":10}}},"icon":"icons/Juggler.png"},{"id":"killer_on_the_run","name":"Killer on the Run","startingLevel":{"min":1,"max":1},"baseWage":6,"attributes":{"hitpoints":{"range":{"min":50,"max":60},"average":55,"levelUp":{"min":null,"max":null}},"meleeSkill":{"range":{"min":51,"max":57},"average":54,"levelUp":{"min":4,"max":null}},"rangedSkill":{"range":{"min":34,"max":45},"average":39.5,"levelUp":{"min":2,"max":3}},"meleeDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"rangedDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"fatigue":{"range":{"min":90,"max":100},"average":95,"levelUp":{"min":null,"max":null}},"resolve":{"range":{"min":25,"max":35},"average":30,"levelUp":{"min":-5,"max":-5}},"initiative":{"range":{"min":100,"max":115},"average":107.5,"levelUp":{"min":null,"max":5}}},"icon":"icons/Killer_on_the_run.png"},{"id":"king_s_guard","name":"King's Guard","startingLevel":{"min":3,"max":3},"baseWage":30,"attributes":{"hitpoints":{"range":{"min":45,"max":65},"average":55,"levelUp":{"min":-5,"max":5}},"meleeSkill":{"range":{"min":54,"max":64},"average":59,"levelUp":{"min":7,"max":7}},"rangedSkill":{"range":{"min":27,"max":42},"average":34.5,"levelUp":{"min":-5,"max":null}},"meleeDefense":{"range":{"min":7,"max":12},"average":9.5,"levelUp":{"min":7,"max":7}},"rangedDefense":{"range":{"min":7,"max":12},"average":9.5,"levelUp":{"min":7,"max":7}},"fatigue":{"range":{"min":90,"max":110},"average":100,"levelUp":{"min":null,"max":10}},"resolve":{"range":{"min":45,"max":55},"average":50,"levelUp":{"min":15,"max":15}},"initiative":{"range":{"min":85,"max":110},"average":97.5,"levelUp":{"min":-15,"max":null}}},"icon":"icons/Background_59.png"},{"id":"lindwurm_slayer","name":"Lindwurm Slayer","startingLevel":{"min":1,"max":1},"baseWage":28,"attributes":{"hitpoints":{"range":{"min":56,"max":63},"average":59.5,"levelUp":{"min":6,"max":3}},"meleeSkill":{"range":{"min":55,"max":65},"average":60,"levelUp":{"min":8,"max":8}},"rangedSkill":{"range":{"min":42,"max":50},"average":46,"levelUp":{"min":10,"max":8}},"meleeDefense":{"range":{"min":5,"max":9},"average":7,"levelUp":{"min":5,"max":4}},"rangedDefense":{"range":{"min":-3,"max":2},"average":-0.5,"levelUp":{"min":-3,"max":-3}},"fatigue":{"range":{"min":95,"max":105},"average":100,"levelUp":{"min":5,"max":5}},"resolve":{"range":{"min":42,"max":50},"average":46,"levelUp":{"min":12,"max":10}},"initiative":{"range":{"min":108,"max":122},"average":115,"levelUp":{"min":8,"max":12}}},"icon":"icons/Background_71.png"},{"id":"lumberjack","name":"Lumberjack","startingLevel":{"min":1,"max":1},"baseWage":13,"attributes":{"hitpoints":{"range":{"min":60,"max":70},"average":65,"levelUp":{"min":10,"max":10}},"meleeSkill":{"range":{"min":52,"max":57},"average":54.5,"levelUp":{"min":5,"max":null}},"rangedSkill":{"range":{"min":32,"max":42},"average":37,"levelUp":{"min":null,"max":null}},"meleeDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"rangedDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"fatigue":{"range":{"min":100,"max":115},"average":107.5,"levelUp":{"min":10,"max":15}},"resolve":{"range":{"min":30,"max":45},"average":37.5,"levelUp":{"min":null,"max":5}},"initiative":{"range":{"min":95,"max":110},"average":102.5,"levelUp":{"min":-5,"max":null}}},"icon":"icons/Lumberjack.png"},{"id":"manhunter","name":"Manhunter","startingLevel":{"min":1,"max":1},"baseWage":10,"attributes":{"hitpoints":{"range":{"min":52,"max":63},"average":57.5,"levelUp":{"min":2,"max":3}},"meleeSkill":{"range":{"min":52,"max":62},"average":57,"levelUp":{"min":5,"max":5}},"rangedSkill":{"range":{"min":32,"max":42},"average":37,"levelUp":{"min":null,"max":null}},"meleeDefense":{"range":{"min":2,"max":7},"average":4.5,"levelUp":{"min":2,"max":2}},"rangedDefense":{"range":{"min":-1,"max":4},"average":1.5,"levelUp":{"min":-1,"max":-1}},"fatigue":{"range":{"min":93,"max":105},"average":99,"levelUp":{"min":3,"max":5}},"resolve":{"range":{"min":37,"max":45},"average":41,"levelUp":{"min":7,"max":5}},"initiative":{"range":{"min":103,"max":115},"average":109.5,"levelUp":{"min":3,"max":5}}},"icon":"icons/Background_62.png"},{"id":"mason","name":"Mason","startingLevel":{"min":1,"max":1},"baseWage":8,"attributes":{"hitpoints":{"range":{"min":50,"max":60},"average":55,"levelUp":{"min":null,"max":null}},"meleeSkill":{"range":{"min":47,"max":57},"average":52,"levelUp":{"min":null,"max":null}},"rangedSkill":{"range":{"min":32,"max":42},"average":37,"levelUp":{"min":null,"max":null}},"meleeDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"rangedDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"fatigue":{"range":{"min":95,"max":105},"average":100,"levelUp":{"min":5,"max":5}},"resolve":{"range":{"min":30,"max":40},"average":35,"levelUp":{"min":null,"max":null}},"initiative":{"range":{"min":100,"max":110},"average":105,"levelUp":{"min":null,"max":null}}},"icon":"icons/Mason.png"},{"id":"messenger","name":"Messenger","startingLevel":{"min":1,"max":1},"baseWage":6,"attributes":{"hitpoints":{"range":{"min":50,"max":60},"average":55,"levelUp":{"min":null,"max":null}},"meleeSkill":{"range":{"min":47,"max":57},"average":52,"levelUp":{"min":null,"max":null}},"rangedSkill":{"range":{"min":32,"max":42},"average":37,"levelUp":{"min":null,"max":null}},"meleeDefense":{"range":{"min":0,"max":7},"average":3.5,"levelUp":{"min":null,"max":2}},"rangedDefense":{"range":{"min":3,"max":8},"average":5.5,"levelUp":{"min":3,"max":3}},"fatigue":{"range":{"min":105,"max":110},"average":107.5,"levelUp":{"min":15,"max":10}},"resolve":{"range":{"min":35,"max":40},"average":37.5,"levelUp":{"min":5,"max":null}},"initiative":{"range":{"min":100,"max":110},"average":105,"levelUp":{"min":null,"max":null}}},"icon":"icons/Messenger.png"},{"id":"militia","name":"Militia","startingLevel":{"min":1,"max":2},"baseWage":10,"attributes":{"hitpoints":{"range":{"min":50,"max":60},"average":55,"levelUp":{"min":null,"max":null}},"meleeSkill":{"range":{"min":52,"max":62},"average":57,"levelUp":{"min":5,"max":5}},"rangedSkill":{"range":{"min":38,"max":47},"average":42.5,"levelUp":{"min":6,"max":5}},"meleeDefense":{"range":{"min":2,"max":7},"average":4.5,"levelUp":{"min":2,"max":2}},"rangedDefense":{"range":{"min":2,"max":7},"average":4.5,"levelUp":{"min":2,"max":2}},"fatigue":{"range":{"min":93,"max":105},"average":99,"levelUp":{"min":3,"max":5}},"resolve":{"range":{"min":33,"max":45},"average":39,"levelUp":{"min":3,"max":5}},"initiative":{"range":{"min":100,"max":110},"average":105,"levelUp":{"min":null,"max":null}}},"icon":"icons/Militia.png"},{"id":"miller","name":"Miller","startingLevel":{"min":1,"max":1},"baseWage":7,"attributes":{"hitpoints":{"range":{"min":53,"max":60},"average":56.5,"levelUp":{"min":3,"max":null}},"meleeSkill":{"range":{"min":47,"max":57},"average":52,"levelUp":{"min":null,"max":null}},"rangedSkill":{"range":{"min":32,"max":42},"average":37,"levelUp":{"min":null,"max":null}},"meleeDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"rangedDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"fatigue":{"range":{"min":98,"max":105},"average":101.5,"levelUp":{"min":8,"max":5}},"resolve":{"range":{"min":30,"max":40},"average":35,"levelUp":{"min":null,"max":null}},"initiative":{"range":{"min":100,"max":110},"average":105,"levelUp":{"min":null,"max":null}}},"icon":"icons/Miller.png"},{"id":"miner","name":"Miner","startingLevel":{"min":1,"max":1},"baseWage":6,"attributes":{"hitpoints":{"range":{"min":60,"max":70},"average":65,"levelUp":{"min":10,"max":10}},"meleeSkill":{"range":{"min":52,"max":57},"average":54.5,"levelUp":{"min":5,"max":null}},"rangedSkill":{"range":{"min":32,"max":42},"average":37,"levelUp":{"min":null,"max":null}},"meleeDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"rangedDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"fatigue":{"range":{"min":80,"max":90},"average":85,"levelUp":{"min":-10,"max":-10}},"resolve":{"range":{"min":35,"max":48},"average":41.5,"levelUp":{"min":5,"max":8}},"initiative":{"range":{"min":100,"max":110},"average":105,"levelUp":{"min":null,"max":null}}},"icon":"icons/Miner.png"},{"id":"minstrel","name":"Minstrel","startingLevel":{"min":1,"max":1},"baseWage":6,"attributes":{"hitpoints":{"range":{"min":45,"max":57},"average":51,"levelUp":{"min":-5,"max":-3}},"meleeSkill":{"range":{"min":47,"max":57},"average":52,"levelUp":{"min":null,"max":null}},"rangedSkill":{"range":{"min":32,"max":42},"average":37,"levelUp":{"min":null,"max":null}},"meleeDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"rangedDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"fatigue":{"range":{"min":80,"max":90},"average":85,"levelUp":{"min":-10,"max":-10}},"resolve":{"range":{"min":35,"max":50},"average":42.5,"levelUp":{"min":5,"max":10}},"initiative":{"range":{"min":100,"max":115},"average":107.5,"levelUp":{"min":null,"max":5}}},"icon":"icons/Minstrel.png"},{"id":"monk","name":"Monk","startingLevel":{"min":1,"max":1},"baseWage":5,"attributes":{"hitpoints":{"range":{"min":40,"max":55},"average":47.5,"levelUp":{"min":-10,"max":-5}},"meleeSkill":{"range":{"min":47,"max":57},"average":52,"levelUp":{"min":null,"max":null}},"rangedSkill":{"range":{"min":32,"max":42},"average":37,"levelUp":{"min":null,"max":null}},"meleeDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"rangedDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"fatigue":{"range":{"min":95,"max":110},"average":102.5,"levelUp":{"min":5,"max":10}},"resolve":{"range":{"min":42,"max":52},"average":47,"levelUp":{"min":12,"max":12}},"initiative":{"range":{"min":100,"max":110},"average":105,"levelUp":{"min":null,"max":null}}},"icon":"icons/Monk.png"},{"id":"nomad","name":"Nomad","startingLevel":{"min":2,"max":4},"baseWage":28,"attributes":{"hitpoints":{"range":{"min":50,"max":60},"average":55,"levelUp":{"min":null,"max":null}},"meleeSkill":{"range":{"min":52,"max":60},"average":56,"levelUp":{"min":5,"max":3}},"rangedSkill":{"range":{"min":47,"max":56},"average":51.5,"levelUp":{"min":15,"max":14}},"meleeDefense":{"range":{"min":5,"max":8},"average":6.5,"levelUp":{"min":5,"max":3}},"rangedDefense":{"range":{"min":6,"max":10},"average":8,"levelUp":{"min":6,"max":5}},"fatigue":{"range":{"min":92,"max":100},"average":96,"levelUp":{"min":2,"max":null}},"resolve":{"range":{"min":30,"max":37},"average":33.5,"levelUp":{"min":null,"max":-3}},"initiative":{"range":{"min":100,"max":110},"average":105,"levelUp":{"min":null,"max":null}}},"icon":"icons/Background_63.png"},{"id":"oathtaker","name":"Oathtaker","startingLevel":{"min":1,"max":3},"baseWage":22,"attributes":{"hitpoints":{"range":{"min":60,"max":66},"average":63,"levelUp":{"min":10,"max":6}},"meleeSkill":{"range":{"min":60,"max":67},"average":63.5,"levelUp":{"min":13,"max":10}},"rangedSkill":{"range":{"min":30,"max":39},"average":34.5,"levelUp":{"min":-2,"max":-3}},"meleeDefense":{"range":{"min":4,"max":10},"average":7,"levelUp":{"min":4,"max":5}},"rangedDefense":{"range":{"min":-10,"max":0},"average":-5,"levelUp":{"min":-10,"max":-5}},"fatigue":{"range":{"min":90,"max":96},"average":93,"levelUp":{"min":null,"max":-4}},"resolve":{"range":{"min":43,"max":56},"average":49.5,"levelUp":{"min":13,"max":16}},"initiative":{"range":{"min":113,"max":122},"average":117.5,"levelUp":{"min":13,"max":12}}},"icon":"icons/Paladin.png"},{"id":"orc_slayer","name":"Orc Slayer","startingLevel":{"min":9,"max":9},"baseWage":25,"attributes":{"hitpoints":{"range":{"min":60,"max":70},"average":65,"levelUp":{"min":10,"max":10}},"meleeSkill":{"range":{"min":57,"max":67},"average":62,"levelUp":{"min":10,"max":10}},"rangedSkill":{"range":{"min":22,"max":37},"average":29.5,"levelUp":{"min":-10,"max":-5}},"meleeDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"rangedDefense":{"range":{"min":-5,"max":5},"average":0,"levelUp":{"min":-5,"max":null}},"fatigue":{"range":{"min":100,"max":110},"average":105,"levelUp":{"min":10,"max":10}},"resolve":{"range":{"min":45,"max":60},"average":52.5,"levelUp":{"min":15,"max":20}},"initiative":{"range":{"min":100,"max":110},"average":105,"levelUp":{"min":null,"max":null}}},"icon":"icons/Background_55.png"},{"id":"peddler","name":"Peddler","startingLevel":{"min":1,"max":1},"baseWage":6,"attributes":{"hitpoints":{"range":{"min":50,"max":60},"average":55,"levelUp":{"min":null,"max":null}},"meleeSkill":{"range":{"min":37,"max":48},"average":42.5,"levelUp":{"min":-10,"max":-9}},"rangedSkill":{"range":{"min":32,"max":42},"average":37,"levelUp":{"min":null,"max":null}},"meleeDefense":{"range":{"min":2,"max":12},"average":7,"levelUp":{"min":2,"max":7}},"rangedDefense":{"range":{"min":2,"max":12},"average":7,"levelUp":{"min":2,"max":7}},"fatigue":{"range":{"min":90,"max":100},"average":95,"levelUp":{"min":null,"max":null}},"resolve":{"range":{"min":30,"max":40},"average":35,"levelUp":{"min":null,"max":null}},"initiative":{"range":{"min":100,"max":117},"average":108.5,"levelUp":{"min":null,"max":7}}},"icon":"icons/Peddler.png"},{"id":"pimp","name":"Pimp","startingLevel":{"min":1,"max":1},"baseWage":6,"attributes":{"hitpoints":{"range":{"min":50,"max":60},"average":55,"levelUp":{"min":null,"max":null}},"meleeSkill":{"range":{"min":42,"max":52},"average":47,"levelUp":{"min":-5,"max":-5}},"rangedSkill":{"range":{"min":32,"max":42},"average":37,"levelUp":{"min":null,"max":null}},"meleeDefense":{"range":{"min":2,"max":12},"average":7,"levelUp":{"min":2,"max":7}},"rangedDefense":{"range":{"min":2,"max":12},"average":7,"levelUp":{"min":2,"max":7}},"fatigue":{"range":{"min":90,"max":100},"average":95,"levelUp":{"min":null,"max":null}},"resolve":{"range":{"min":35,"max":45},"average":40,"levelUp":{"min":5,"max":5}},"initiative":{"range":{"min":100,"max":117},"average":108.5,"levelUp":{"min":null,"max":7}}},"icon":"icons/Background_56.png"},{"id":"poacher","name":"Poacher","startingLevel":{"min":1,"max":1},"baseWage":8,"attributes":{"hitpoints":{"range":{"min":50,"max":60},"average":55,"levelUp":{"min":null,"max":null}},"meleeSkill":{"range":{"min":49,"max":57},"average":53,"levelUp":{"min":2,"max":null}},"rangedSkill":{"range":{"min":47,"max":49},"average":48,"levelUp":{"min":15,"max":7}},"meleeDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"rangedDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"fatigue":{"range":{"min":93,"max":100},"average":96.5,"levelUp":{"min":3,"max":null}},"resolve":{"range":{"min":25,"max":45},"average":35,"levelUp":{"min":-5,"max":5}},"initiative":{"range":{"min":100,"max":114},"average":107,"levelUp":{"min":null,"max":4}}},"icon":"icons/Poacher.png"},{"id":"raider","name":"Raider","startingLevel":{"min":2,"max":4},"baseWage":28,"attributes":{"hitpoints":{"range":{"min":50,"max":60},"average":55,"levelUp":{"min":null,"max":null}},"meleeSkill":{"range":{"min":59,"max":67},"average":63,"levelUp":{"min":12,"max":10}},"rangedSkill":{"range":{"min":37,"max":42},"average":39.5,"levelUp":{"min":5,"max":null}},"meleeDefense":{"range":{"min":6,"max":10},"average":8,"levelUp":{"min":6,"max":5}},"rangedDefense":{"range":{"min":6,"max":10},"average":8,"levelUp":{"min":6,"max":5}},"fatigue":{"range":{"min":92,"max":100},"average":96,"levelUp":{"min":2,"max":null}},"resolve":{"range":{"min":30,"max":37},"average":33.5,"levelUp":{"min":null,"max":-3}},"initiative":{"range":{"min":100,"max":110},"average":105,"levelUp":{"min":null,"max":null}}},"icon":"icons/Raider2.png"},{"id":"ratcatcher","name":"Ratcatcher","startingLevel":{"min":1,"max":1},"baseWage":4,"attributes":{"hitpoints":{"range":{"min":45,"max":55},"average":50,"levelUp":{"min":-5,"max":-5}},"meleeSkill":{"range":{"min":47,"max":57},"average":52,"levelUp":{"min":null,"max":null}},"rangedSkill":{"range":{"min":32,"max":42},"average":37,"levelUp":{"min":null,"max":null}},"meleeDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"rangedDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"fatigue":{"range":{"min":90,"max":100},"average":95,"levelUp":{"min":null,"max":null}},"resolve":{"range":{"min":30,"max":40},"average":35,"levelUp":{"min":null,"max":null}},"initiative":{"range":{"min":118,"max":125},"average":121.5,"levelUp":{"min":18,"max":15}}},"icon":"icons/Ratcatcher.png"},{"id":"refugee","name":"Refugee","startingLevel":{"min":1,"max":1},"baseWage":4,"attributes":{"hitpoints":{"range":{"min":42,"max":55},"average":48.5,"levelUp":{"min":-8,"max":-5}},"meleeSkill":{"range":{"min":47,"max":57},"average":52,"levelUp":{"min":null,"max":null}},"rangedSkill":{"range":{"min":32,"max":42},"average":37,"levelUp":{"min":null,"max":null}},"meleeDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"rangedDefense":{"range":{"min":1,"max":5},"average":3,"levelUp":{"min":1,"max":null}},"fatigue":{"range":{"min":97,"max":105},"average":101,"levelUp":{"min":7,"max":5}},"resolve":{"range":{"min":25,"max":35},"average":30,"levelUp":{"min":-5,"max":-5}},"initiative":{"range":{"min":100,"max":110},"average":105,"levelUp":{"min":null,"max":null}}},"icon":"icons/Refugee.png"},{"id":"retired_soldier","name":"Retired Soldier","startingLevel":{"min":2,"max":3},"baseWage":15,"attributes":{"hitpoints":{"range":{"min":40,"max":45},"average":42.5,"levelUp":{"min":-10,"max":-15}},"meleeSkill":{"range":{"min":60,"max":67},"average":63.5,"levelUp":{"min":13,"max":10}},"rangedSkill":{"range":{"min":37,"max":42},"average":39.5,"levelUp":{"min":5,"max":null}},"meleeDefense":{"range":{"min":5,"max":13},"average":9,"levelUp":{"min":5,"max":8}},"rangedDefense":{"range":{"min":5,"max":13},"average":9,"levelUp":{"min":5,"max":8}},"fatigue":{"range":{"min":80,"max":90},"average":85,"levelUp":{"min":-10,"max":-10}},"resolve":{"range":{"min":43,"max":50},"average":46.5,"levelUp":{"min":13,"max":10}},"initiative":{"range":{"min":95,"max":100},"average":97.5,"levelUp":{"min":-5,"max":-10}}},"icon":"icons/Retired_soldier.png"},{"id":"sellsword","name":"Sellsword","startingLevel":{"min":2,"max":4},"baseWage":35,"attributes":{"hitpoints":{"range":{"min":50,"max":60},"average":55,"levelUp":{"min":null,"max":null}},"meleeSkill":{"range":{"min":60,"max":67},"average":63.5,"levelUp":{"min":13,"max":10}},"rangedSkill":{"range":{"min":44,"max":52},"average":48,"levelUp":{"min":12,"max":10}},"meleeDefense":{"range":{"min":5,"max":13},"average":9,"levelUp":{"min":5,"max":8}},"rangedDefense":{"range":{"min":5,"max":13},"average":9,"levelUp":{"min":5,"max":8}},"fatigue":{"range":{"min":90,"max":100},"average":95,"levelUp":{"min":null,"max":null}},"resolve":{"range":{"min":35,"max":45},"average":40,"levelUp":{"min":5,"max":5}},"initiative":{"range":{"min":100,"max":110},"average":105,"levelUp":{"min":null,"max":null}}},"icon":"icons/Sellsword.png"},{"id":"servant","name":"Servant","startingLevel":{"min":1,"max":1},"baseWage":4,"attributes":{"hitpoints":{"range":{"min":45,"max":55},"average":50,"levelUp":{"min":-5,"max":-5}},"meleeSkill":{"range":{"min":47,"max":57},"average":52,"levelUp":{"min":null,"max":null}},"rangedSkill":{"range":{"min":32,"max":42},"average":37,"levelUp":{"min":null,"max":null}},"meleeDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"rangedDefense":{"range":{"min":2,"max":5},"average":3.5,"levelUp":{"min":2,"max":null}},"fatigue":{"range":{"min":85,"max":95},"average":90,"levelUp":{"min":-5,"max":-5}},"resolve":{"range":{"min":25,"max":35},"average":30,"levelUp":{"min":-5,"max":-5}},"initiative":{"range":{"min":105,"max":110},"average":107.5,"levelUp":{"min":5,"max":null}}},"icon":"icons/Servant.png"},{"id":"shepherd","name":"Shepherd","startingLevel":{"min":1,"max":1},"baseWage":6,"attributes":{"hitpoints":{"range":{"min":50,"max":60},"average":55,"levelUp":{"min":null,"max":null}},"meleeSkill":{"range":{"min":47,"max":57},"average":52,"levelUp":{"min":null,"max":null}},"rangedSkill":{"range":{"min":37,"max":49},"average":43,"levelUp":{"min":5,"max":7}},"meleeDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"rangedDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"fatigue":{"range":{"min":90,"max":105},"average":97.5,"levelUp":{"min":null,"max":5}},"resolve":{"range":{"min":35,"max":40},"average":37.5,"levelUp":{"min":5,"max":null}},"initiative":{"range":{"min":100,"max":110},"average":105,"levelUp":{"min":null,"max":null}}},"icon":"icons/Shepherd.png"},{"id":"squire","name":"Squire","startingLevel":{"min":1,"max":1},"baseWage":20,"attributes":{"hitpoints":{"range":{"min":50,"max":60},"average":55,"levelUp":{"min":null,"max":null}},"meleeSkill":{"range":{"min":54,"max":62},"average":58,"levelUp":{"min":7,"max":5}},"rangedSkill":{"range":{"min":39,"max":50},"average":44.5,"levelUp":{"min":7,"max":8}},"meleeDefense":{"range":{"min":1,"max":8},"average":4.5,"levelUp":{"min":1,"max":3}},"rangedDefense":{"range":{"min":1,"max":8},"average":4.5,"levelUp":{"min":1,"max":3}},"fatigue":{"range":{"min":97,"max":105},"average":101,"levelUp":{"min":7,"max":5}},"resolve":{"range":{"min":42,"max":52},"average":47,"levelUp":{"min":12,"max":12}},"initiative":{"range":{"min":100,"max":110},"average":105,"levelUp":{"min":null,"max":null}}},"icon":"icons/Squire.png"},{"id":"swordmaster","name":"Swordmaster","startingLevel":{"min":3,"max":5},"baseWage":35,"attributes":{"hitpoints":{"range":{"min":38,"max":48},"average":43,"levelUp":{"min":-12,"max":-12}},"meleeSkill":{"range":{"min":72,"max":77},"average":74.5,"levelUp":{"min":25,"max":20}},"rangedSkill":{"range":{"min":27,"max":37},"average":32,"levelUp":{"min":-5,"max":-5}},"meleeDefense":{"range":{"min":10,"max":20},"average":15,"levelUp":{"min":10,"max":15}},"rangedDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"fatigue":{"range":{"min":75,"max":90},"average":82.5,"levelUp":{"min":-15,"max":-10}},"resolve":{"range":{"min":42,"max":50},"average":46,"levelUp":{"min":12,"max":10}},"initiative":{"range":{"min":90,"max":100},"average":95,"levelUp":{"min":-10,"max":-10}}},"icon":"icons/Swordmaster2.png"},{"id":"tailor","name":"Tailor","startingLevel":{"min":1,"max":1},"baseWage":5,"attributes":{"hitpoints":{"range":{"min":47,"max":60},"average":53.5,"levelUp":{"min":-3,"max":null}},"meleeSkill":{"range":{"min":47,"max":57},"average":52,"levelUp":{"min":null,"max":null}},"rangedSkill":{"range":{"min":32,"max":42},"average":37,"levelUp":{"min":null,"max":null}},"meleeDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"rangedDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"fatigue":{"range":{"min":85,"max":95},"average":90,"levelUp":{"min":-5,"max":-5}},"resolve":{"range":{"min":30,"max":40},"average":35,"levelUp":{"min":null,"max":null}},"initiative":{"range":{"min":100,"max":115},"average":107.5,"levelUp":{"min":null,"max":5}}},"icon":"icons/Tailor.png"},{"id":"thief","name":"Thief","startingLevel":{"min":1,"max":1},"baseWage":10,"attributes":{"hitpoints":{"range":{"min":50,"max":60},"average":55,"levelUp":{"min":null,"max":null}},"meleeSkill":{"range":{"min":47,"max":57},"average":52,"levelUp":{"min":null,"max":null}},"rangedSkill":{"range":{"min":32,"max":42},"average":37,"levelUp":{"min":null,"max":null}},"meleeDefense":{"range":{"min":5,"max":13},"average":9,"levelUp":{"min":5,"max":8}},"rangedDefense":{"range":{"min":5,"max":13},"average":9,"levelUp":{"min":5,"max":8}},"fatigue":{"range":{"min":90,"max":100},"average":95,"levelUp":{"min":null,"max":null}},"resolve":{"range":{"min":35,"max":40},"average":37.5,"levelUp":{"min":5,"max":null}},"initiative":{"range":{"min":112,"max":120},"average":116,"levelUp":{"min":12,"max":10}}},"icon":"icons/Thief.png"},{"id":"vagabond","name":"Vagabond","startingLevel":{"min":1,"max":1},"baseWage":6,"attributes":{"hitpoints":{"range":{"min":47,"max":60},"average":53.5,"levelUp":{"min":-3,"max":null}},"meleeSkill":{"range":{"min":47,"max":57},"average":52,"levelUp":{"min":null,"max":null}},"rangedSkill":{"range":{"min":32,"max":42},"average":37,"levelUp":{"min":null,"max":null}},"meleeDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"rangedDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"fatigue":{"range":{"min":100,"max":115},"average":107.5,"levelUp":{"min":10,"max":15}},"resolve":{"range":{"min":25,"max":33},"average":29,"levelUp":{"min":-5,"max":-7}},"initiative":{"range":{"min":100,"max":110},"average":105,"levelUp":{"min":null,"max":null}}},"icon":"icons/Vagabond.png"},{"id":"wildman","name":"Wildman","startingLevel":{"min":1,"max":2},"baseWage":12,"attributes":{"hitpoints":{"range":{"min":62,"max":70},"average":66,"levelUp":{"min":12,"max":10}},"meleeSkill":{"range":{"min":53,"max":57},"average":55,"levelUp":{"min":6,"max":null}},"rangedSkill":{"range":{"min":27,"max":42},"average":34.5,"levelUp":{"min":-5,"max":null}},"meleeDefense":{"range":{"min":-5,"max":5},"average":0,"levelUp":{"min":-5,"max":null}},"rangedDefense":{"range":{"min":-5,"max":0},"average":-2.5,"levelUp":{"min":-5,"max":-5}},"fatigue":{"range":{"min":108,"max":123},"average":115.5,"levelUp":{"min":18,"max":23}},"resolve":{"range":{"min":42,"max":50},"average":46,"levelUp":{"min":12,"max":10}},"initiative":{"range":{"min":95,"max":105},"average":100,"levelUp":{"min":-5,"max":-5}}},"icon":"icons/Wildman.png"},{"id":"witchhunter","name":"Witchhunter","startingLevel":{"min":1,"max":3},"baseWage":13,"attributes":{"hitpoints":{"range":{"min":50,"max":60},"average":55,"levelUp":{"min":null,"max":null}},"meleeSkill":{"range":{"min":47,"max":57},"average":52,"levelUp":{"min":null,"max":null}},"rangedSkill":{"range":{"min":47,"max":50},"average":48.5,"levelUp":{"min":15,"max":8}},"meleeDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"rangedDefense":{"range":{"min":0,"max":5},"average":2.5,"levelUp":{"min":null,"max":null}},"fatigue":{"range":{"min":90,"max":100},"average":95,"levelUp":{"min":null,"max":null}},"resolve":{"range":{"min":42,"max":50},"average":46,"levelUp":{"min":12,"max":10}},"initiative":{"range":{"min":100,"max":110},"average":105,"levelUp":{"min":null,"max":null}}},"icon":"icons/Witchhunter.png"}]};
+  (function() {
+    allBgs = EMBEDDED_DATA.backgrounds;
+    computeGlobals();
+    applyFilter();
+  })();
+
+  // ── GLOBALS (min/max across all backgrounds) ──────────────
+  function computeGlobals() {
+    ATTR_KEYS.forEach(({ key }) => {
+      const avgs = allBgs.map(b => b.attributes[key]?.average ?? 0);
+      globalMin[key] = Math.min(...avgs);
+      globalMax[key] = Math.max(...avgs);
+    });
+  }
+
+  // ── COLOUR helpers ────────────────────────────────────────
+  function pct(key, val) {
+    const lo = globalMin[key], hi = globalMax[key];
+    if (hi === lo) return 50;
+    return Math.max(0, Math.min(100, ((val - lo) / (hi - lo)) * 100));
+  }
+
+  function barColor(p) {
+    // red (0) → yellow (50) → green (100)
+    if (p <= 50) {
+      const t = p / 50;
+      const r = Math.round(192 + (230 - 192) * t);
+      const g = Math.round(57  + (184 - 57)  * t);
+      const b = Math.round(43  + (0   - 43)  * t);
+      return `rgb(${r},${g},${b})`;
+    } else {
+      const t = (p - 50) / 50;
+      const r = Math.round(230 + (39  - 230) * t);
+      const g = Math.round(184 + (174 - 184) * t);
+      const b = Math.round(0   + (96  - 0)   * t);
+      return `rgb(${r},${g},${b})`;
+    }
+  }
+
+  // ── SORT ─────────────────────────────────────────────────
+  function sortValue(bg, key) {
+    if (key === 'name')     return bg.name.toLowerCase();
+    if (key === 'baseWage') return bg.baseWage;
+    return bg.attributes[key]?.average ?? 0;
+  }
+
+  function applySort() {
+    filtered.sort((a, b) => {
+      const va = sortValue(a, sortKey);
+      const vb = sortValue(b, sortKey);
+      if (va < vb) return sortAsc ? -1 : 1;
+      if (va > vb) return sortAsc ? 1 : -1;
+      return 0;
+    });
+  }
+
+  // ── FILTER ────────────────────────────────────────────────
+  function applyFilter() {
+    const q = query.toLowerCase().trim();
+    filtered = q
+      ? allBgs.filter(b => b.name.toLowerCase().includes(q))
+      : [...allBgs];
+    applySort();
+    render();
+  }
+
+  // ── RENDER ────────────────────────────────────────────────
+  function render() {
+    listEl.innerHTML = '';
+    countEl.textContent = `${filtered.length} of ${allBgs.length} backgrounds`;
+
+    if (!filtered.length) {
+      emptyEl.style.display = 'flex';
+      return;
+    }
+    emptyEl.style.display = 'none';
+
+    filtered.forEach(bg => {
+      listEl.appendChild(buildItem(bg));
+    });
+
+    // restore open state after re-render
+    if (openId) {
+      const el = document.getElementById(`item-${openId}`);
+      if (el) el.classList.add('open');
+    }
+  }
+
+  // ── BUILD ITEM ────────────────────────────────────────────
+  function buildItem(bg) {
+    const wrap = document.createElement('div');
+    wrap.className = 'bg-item';
+    wrap.id = `item-${bg.id}`;
+
+    // ── collapsed row
+    const row = document.createElement('div');
+    row.className = 'bg-row';
+
+    // icon
+    const iconSrc = `../assets/${bg.icon}`;
+    const img = document.createElement('img');
+    img.className = 'bg-icon';
+    img.alt = bg.name;
+    img.loading = 'lazy';
+    img.src = iconSrc;
+    img.onerror = function () {
+      const fb = document.createElement('div');
+      fb.className = 'bg-icon-fallback';
+      fb.textContent = '⚔';
+      this.replaceWith(fb);
+    };
+    row.appendChild(img);
+
+    // center info
+    const main = document.createElement('div');
+    main.className = 'bg-main';
+
+    const nameEl = document.createElement('div');
+    nameEl.className = 'bg-name';
+    nameEl.textContent = bg.name;
+    main.appendChild(nameEl);
+
+    // sparkline
+    const spark = document.createElement('div');
+    spark.className = 'bg-sparkline';
+    ATTR_KEYS.forEach(({ key }) => {
+      const avg = bg.attributes[key]?.average ?? 0;
+      const p   = pct(key, avg);
+      const bar = document.createElement('div');
+      bar.className = 'spark-bar';
+      const h = Math.max(2, Math.round(p * 0.16)); // max 16px
+      bar.style.cssText = `height:${h}px;background:${barColor(p)};`;
+      spark.appendChild(bar);
+    });
+    main.appendChild(spark);
+    row.appendChild(main);
+
+    // right side
+    const right = document.createElement('div');
+    right.className = 'bg-row-right';
+
+    const wage = document.createElement('div');
+    wage.className = 'wage-badge';
+    wage.textContent = `${bg.baseWage}g`;
+    right.appendChild(wage);
+
+    const chev = document.createElement('div');
+    chev.className = 'chevron';
+    chev.textContent = '▾';
+    right.appendChild(chev);
+
+    row.appendChild(right);
+    wrap.appendChild(row);
+
+    // ── expanded panel
+    const panel = document.createElement('div');
+    panel.className = 'bg-panel';
+
+    const inner = document.createElement('div');
+    inner.className = 'bg-panel-inner';
+
+    // badges
+    const badges = document.createElement('div');
+    badges.className = 'panel-badges';
+    badges.innerHTML = `
+      <div class="panel-badge">Level <span>${bg.startingLevel.min}–${bg.startingLevel.max}</span></div>
+      <div class="panel-badge">Wage <span>${bg.baseWage}g</span></div>
+    `;
+    inner.appendChild(badges);
+
+    // attribute bars
+    const attrList = document.createElement('div');
+    attrList.className = 'attr-list';
+
+    ATTR_KEYS.forEach(({ key, label }) => {
+      const attr = bg.attributes[key];
+      if (!attr) return;
+
+      const avg = attr.average;
+      const p   = pct(key, avg);
+      const color = barColor(p);
+
+      const attrRow = document.createElement('div');
+      attrRow.className = 'attr-row';
+
+      // label
+      const lbl = document.createElement('div');
+      lbl.className = 'attr-label';
+      lbl.textContent = label;
+      attrRow.appendChild(lbl);
+
+      // bar
+      const barWrap = document.createElement('div');
+      barWrap.className = 'attr-bar-wrap';
+      const fill = document.createElement('div');
+      fill.className = 'attr-bar-fill';
+      fill.style.cssText = `width:${p}%;background:${color};`;
+      barWrap.appendChild(fill);
+      attrRow.appendChild(barWrap);
+
+      // values
+      const vals = document.createElement('div');
+      vals.className = 'attr-vals';
+      const rangeMin = attr.range?.min ?? '?';
+      const rangeMax = attr.range?.max ?? '?';
+      vals.innerHTML = `<span class="attr-avg">${avg}</span> <span style="color:#555;font-size:9px">${rangeMin}–${rangeMax}</span>`;
+      attrRow.appendChild(vals);
+
+      // level-up
+      const lu = document.createElement('div');
+      lu.className = 'attr-levelup';
+      const luMin = attr.levelUp?.min;
+      const luMax = attr.levelUp?.max;
+      if (luMin === null && luMax === null) {
+        lu.textContent = '—';
+      } else {
+        const luMinStr = luMin !== null ? luMin : '?';
+        const luMaxStr = luMax !== null ? luMax : '?';
+        const val = luMin ?? luMax;
+        lu.textContent = `+${luMinStr}/+${luMaxStr}`;
+        if (val !== null && val < 0) {
+          lu.textContent = `${luMinStr}/${luMaxStr}`;
+          lu.classList.add('negative');
+        } else if (val !== null && val > 0) {
+          lu.classList.add('positive');
+        }
+      }
+      attrRow.appendChild(lu);
+
+      attrList.appendChild(attrRow);
+    });
+
+    inner.appendChild(attrList);
+    panel.appendChild(inner);
+    wrap.appendChild(panel);
+
+    // ── toggle
+    row.addEventListener('click', () => toggleItem(bg.id, wrap));
+
+    return wrap;
+  }
+
+  function toggleItem(id, wrap) {
+    const isOpen = wrap.classList.contains('open');
+
+    // close previously open
+    if (openId && openId !== id) {
+      const prev = document.getElementById(`item-${openId}`);
+      if (prev) prev.classList.remove('open');
+    }
+
+    if (isOpen) {
+      wrap.classList.remove('open');
+      openId = null;
+    } else {
+      wrap.classList.add('open');
+      openId = id;
+      // scroll into view gently
+      setTimeout(() => {
+        wrap.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 50);
+    }
+  }
+
+  // ── PILL SORT ─────────────────────────────────────────────
+  pillsEl.addEventListener('click', e => {
+    const pill = e.target.closest('.pill');
+    if (!pill) return;
+    const key = pill.dataset.key;
+
+    if (sortKey === key) {
+      sortAsc = !sortAsc;
+    } else {
+      sortKey = key;
+      sortAsc = key === 'name'; // default asc for name, desc for stats
+    }
+
+    // update pills UI
+    document.querySelectorAll('.pill').forEach(p => {
+      p.classList.remove('active');
+      const arrow = p.querySelector('.arrow');
+      if (arrow) arrow.remove();
+    });
+    pill.classList.add('active');
+    const arrowSpan = document.createElement('span');
+    arrowSpan.className = 'arrow';
+    arrowSpan.textContent = sortAsc ? '▲' : '▼';
+    pill.appendChild(arrowSpan);
+
+    applySort();
+    render();
+  });
+
+  // ── SEARCH ────────────────────────────────────────────────
+  let searchTimer;
+  searchEl.addEventListener('input', () => {
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(() => {
+      query = searchEl.value;
+      openId = null;
+      applyFilter();
+    }, 180);
+  });
+
+  // ── NAV TABS (visual only) ────────────────────────────────
+  document.querySelectorAll('.nav-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+    });
+  });
+
+})();
+</script>
+</body>
+</html>
