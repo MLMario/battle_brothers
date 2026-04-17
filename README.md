@@ -12,7 +12,7 @@ Then open http://localhost:8000 in a browser.
 
 ## Live demo
 
-_Live URL: TODO — fill in after first GitHub Pages deploy_
+_Live URL: https://mlmario.github.io/battle_brothers/_
 
 ## More
 
