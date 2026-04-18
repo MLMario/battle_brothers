@@ -112,7 +112,7 @@
     return spark;
   }
 
-  // ── D-05 / D-06: skeleton placeholder rows matching the five-slot .bg-row shape ──
+  // ── D-05 / D-06: skeleton placeholder rows matching the nested .bg-row shape (icon + main + right) ──
   function renderSkeleton() {
     const listEl = document.getElementById('list');
     if (!listEl) return;
@@ -124,34 +124,43 @@
       const row = document.createElement('div');
       row.className = 'bg-row';
 
-      const icon = document.createElement('span');
+      // icon slot placeholder (div — no src to resolve)
+      const icon = document.createElement('div');
       icon.className = 'bg-icon';
       icon.style.opacity = '0.35';
-      icon.style.background = '#1c1c1c';
 
-      const name = document.createElement('span');
+      const main = document.createElement('div');
+      main.className = 'bg-main';
+
+      const name = document.createElement('div');
       name.className = 'bg-name';
-      name.style.display = 'inline-block';
       name.style.width = '55%';
       name.style.height = '12px';
       name.style.background = '#222';
       name.style.borderRadius = '3px';
       name.style.opacity = '0.6';
+      main.appendChild(name);
 
-      const spark = document.createElement('span');
+      const spark = document.createElement('div');
       spark.className = 'bg-sparkline';
+      main.appendChild(spark);
 
-      const wage = document.createElement('span');
-      wage.className = 'bg-wage';
+      const right = document.createElement('div');
+      right.className = 'bg-row-right';
 
-      const chev = document.createElement('span');
-      chev.className = 'bg-chev';
+      const wage = document.createElement('div');
+      wage.className = 'wage-badge';
+      wage.style.opacity = '0.3';
+      wage.textContent = '\u2014';
+      right.appendChild(wage);
+
+      const chev = document.createElement('div');
+      chev.className = 'chevron';
+      right.appendChild(chev);
 
       row.appendChild(icon);
-      row.appendChild(name);
-      row.appendChild(spark);
-      row.appendChild(wage);
-      row.appendChild(chev);
+      row.appendChild(main);
+      row.appendChild(right);
       item.appendChild(row);
       listEl.appendChild(item);
     }
@@ -201,7 +210,7 @@
     listEl.appendChild(wrap);
   }
 
-  // ── D-13 / D-14: build the mockup's five-slot row for a single background ──
+  // ── D-13 / D-14: build the mockup-shape nested row for a single background ──
   function buildRow(bg) {
     const item = document.createElement('article');
     item.className = 'bg-item';
@@ -210,31 +219,42 @@
     const row = document.createElement('div');
     row.className = 'bg-row';
 
-    // icon slot (empty in Phase 1 — Phase 2 inserts <img> + calls wireIconFallback)
-    const icon = document.createElement('span');
-    icon.className = 'bg-icon';
+    // ── icon (D-11 lazy, D-12 no placeholder, D-13 sizing from CSS, D-14 fallback via Phase 1 helper) ──
+    const img = document.createElement('img');
+    img.className = 'bg-icon';
+    img.loading = 'lazy';
+    img.alt = bg.name;
+    img.src = iconUrl(bg);
+    wireIconFallback(img);
+    row.appendChild(img);
 
-    // name slot (populated in Phase 1)
-    const name = document.createElement('span');
+    // ── center column: name + sparkline ──
+    const main = document.createElement('div');
+    main.className = 'bg-main';
+
+    const name = document.createElement('div');
     name.className = 'bg-name';
     name.textContent = bg.name;
+    main.appendChild(name);
 
-    // sparkline slot — Plan 02-01 populates 8 height/color-encoded bars
-    const spark = makeSparkline(bg);
+    main.appendChild(makeSparkline(bg));
+    row.appendChild(main);
 
-    // wage slot (empty in Phase 1 — Phase 2 populates badge)
-    const wage = document.createElement('span');
-    wage.className = 'bg-wage';
+    // ── right column: wage badge + chevron (D-06/D-07 format, D-09 static chevron, D-10 glyph) ──
+    const right = document.createElement('div');
+    right.className = 'bg-row-right';
 
-    // chevron slot (empty in Phase 1 — Phase 2 populates)
-    const chev = document.createElement('span');
-    chev.className = 'bg-chev';
+    const wage = document.createElement('div');
+    wage.className = 'wage-badge';
+    wage.textContent = bg.baseWage + 'g';
+    right.appendChild(wage);
 
-    row.appendChild(icon);
-    row.appendChild(name);
-    row.appendChild(spark);
-    row.appendChild(wage);
-    row.appendChild(chev);
+    const chev = document.createElement('div');
+    chev.className = 'chevron';
+    chev.textContent = '\u25BE';  // ▾ — mockup glyph (D-10)
+    right.appendChild(chev);
+
+    row.appendChild(right);
 
     // D-14: plumbing-validation click handler (real accordion toggle lands in Phase 3)
     row.addEventListener('click', function onRowClick() {
