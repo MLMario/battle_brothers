@@ -13,8 +13,14 @@
   const SKELETON_DELAY_MS = 150;  // D-06
   const SKELETON_ROW_COUNT = 8;   // D-05 (~8 placeholder rows)
   const ATTR_KEYS = [
-    'hitpoints', 'meleeSkill', 'rangedSkill', 'meleeDefense',
-    'rangedDefense', 'fatigue', 'resolve', 'initiative'
+    { key: 'hitpoints',     label: 'HP'  },
+    { key: 'meleeSkill',    label: 'MSk' },
+    { key: 'rangedSkill',   label: 'RSk' },
+    { key: 'meleeDefense',  label: 'MDf' },
+    { key: 'rangedDefense', label: 'RDf' },
+    { key: 'fatigue',       label: 'Fat' },
+    { key: 'resolve',       label: 'Res' },
+    { key: 'initiative',    label: 'Ini' },
   ];
 
   // ── D-10: icon URL helper (prefix JSON "icons/Foo.png" with "assets/") ──
@@ -38,13 +44,13 @@
     let maxScalar = -Infinity;
     const minByAttr = {};
     const maxByAttr = {};
-    for (const key of ATTR_KEYS) {
+    for (const { key } of ATTR_KEYS) {
       minByAttr[key] = Infinity;
       maxByAttr[key] = -Infinity;
     }
     for (const bg of list) {
       if (!bg || !bg.attributes) continue;
-      for (const key of ATTR_KEYS) {
+      for (const { key } of ATTR_KEYS) {
         const attr = bg.attributes[key];
         if (!attr || typeof attr.average !== 'number') continue;
         const avg = attr.average;
@@ -60,6 +66,50 @@
       minByAttr: minByAttr,
       maxByAttr: maxByAttr
     };
+  }
+
+  // ── D-05: reusable percentile helper (consumed by sparkline + Phase 3 expanded bars) ──
+  function pct(key, val) {
+    const lo = globalMinByAttr[key];
+    const hi = globalMaxByAttr[key];
+    if (hi === lo) return 50;
+    return Math.max(0, Math.min(100, ((val - lo) / (hi - lo)) * 100));
+  }
+
+  // ── D-03 / D-05: verbatim mockup red→yellow→green interpolation on 0-100 percentile ──
+  function barColor(p) {
+    if (p <= 50) {
+      const t = p / 50;
+      const r = Math.round(192 + (230 - 192) * t);
+      const g = Math.round(57  + (184 - 57)  * t);
+      const b = Math.round(43  + (0   - 43)  * t);
+      return `rgb(${r},${g},${b})`;
+    } else {
+      const t = (p - 50) / 50;
+      const r = Math.round(230 + (39  - 230) * t);
+      const g = Math.round(184 + (174 - 184) * t);
+      const b = Math.round(0   + (96  - 0)   * t);
+      return `rgb(${r},${g},${b})`;
+    }
+  }
+
+  // ── D-01 / D-02 / D-04: build the 8-bar sparkline for one background ──
+  function makeSparkline(bg) {
+    const spark = document.createElement('div');
+    spark.className = 'bg-sparkline';
+    ATTR_KEYS.forEach(function (entry) {
+      const key = entry.key;
+      const avg = (bg.attributes && bg.attributes[key] && typeof bg.attributes[key].average === 'number')
+        ? bg.attributes[key].average
+        : 0;
+      const p = pct(key, avg);
+      const bar = document.createElement('div');
+      bar.className = 'spark-bar';
+      const h = Math.max(2, Math.round(p * 0.16)); // max 16px at p=100
+      bar.style.cssText = `height:${h}px;background:${barColor(p)};`;
+      spark.appendChild(bar);
+    });
+    return spark;
   }
 
   // ── D-05 / D-06: skeleton placeholder rows matching the five-slot .bg-row shape ──
@@ -89,7 +139,7 @@
       name.style.opacity = '0.6';
 
       const spark = document.createElement('span');
-      spark.className = 'bg-spark';
+      spark.className = 'bg-sparkline';
 
       const wage = document.createElement('span');
       wage.className = 'bg-wage';
@@ -169,9 +219,8 @@
     name.className = 'bg-name';
     name.textContent = bg.name;
 
-    // sparkline slot (empty in Phase 1 — Phase 2 populates 8 bars)
-    const spark = document.createElement('span');
-    spark.className = 'bg-spark';
+    // sparkline slot — Plan 02-01 populates 8 height/color-encoded bars
+    const spark = makeSparkline(bg);
 
     // wage slot (empty in Phase 1 — Phase 2 populates badge)
     const wage = document.createElement('span');
