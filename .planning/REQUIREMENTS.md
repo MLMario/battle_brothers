@@ -10,7 +10,7 @@ Requirements for initial release. Each maps to roadmap phases.
 ### Data Display
 
 - [x] **DATA-01**: All 67 backgrounds from backgrounds.json render in an accordion list
-- [ ] **DATA-02**: Each collapsed row shows background icon, name, mini sparkline of stats, wage badge, and expand chevron
+- [x] **DATA-02**: Each collapsed row shows background icon, name, mini sparkline of stats, wage badge, and expand chevron
 - [ ] **DATA-03**: Expanding a row reveals color-coded stat bars (HP, MSk, RSk, MDf, RDf, Fat, Res, Ini) with red-yellow-green gradient
 - [ ] **DATA-04**: Expanded panel shows stat ranges (min-max) and averages for each attribute
 - [ ] **DATA-05**: Expanded panel shows level-up bonuses (positive/negative) for each attribute
@@ -67,7 +67,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | Requirement | Phase | Status |
 |-------------|-------|--------|
 | DATA-01 | Phase 1: Foundation & Data Loading | Complete |
-| DATA-02 | Phase 2: Collapsed Row Display | Pending |
+| DATA-02 | Phase 2: Collapsed Row Display | Complete |
 | DATA-03 | Phase 3: Expanded Detail Panel | Pending |
 | DATA-04 | Phase 3: Expanded Detail Panel | Pending |
 | DATA-05 | Phase 3: Expanded Detail Panel | Pending |
