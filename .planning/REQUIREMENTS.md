@@ -20,7 +20,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 - [x] **VISU-01**: Dark theme with amber/gold accents matching design3_accordion.html mockup
 - [x] **VISU-02**: Mobile-first layout (430px max-width) with responsive scrolling and touch-optimized interactions
-- [ ] **VISU-03**: Background icons loaded from assets/icons/ directory with fallback on missing images
+- [x] **VISU-03**: Background icons loaded from assets/icons/ directory with fallback on missing images
 - [x] **VISU-04**: CSS custom properties for theming, system font stack, scrollbar customization
 
 ### Navigation & Chrome
@@ -74,7 +74,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | DATA-06 | Phase 3: Expanded Detail Panel | Pending |
 | VISU-01 | Phase 1: Foundation & Data Loading | Complete |
 | VISU-02 | Phase 1: Foundation & Data Loading | Complete |
-| VISU-03 | Phase 2: Collapsed Row Display | Pending |
+| VISU-03 | Phase 2: Collapsed Row Display | Complete |
 | VISU-04 | Phase 1: Foundation & Data Loading | Complete |
 | NAV-01 | Phase 4: Navigation & Polish | Pending |
 | NAV-02 | Phase 4: Navigation & Polish | Pending |
