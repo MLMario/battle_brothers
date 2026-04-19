@@ -7,7 +7,7 @@ This roadmap delivers the v1 Battle Brothers Companion -- a mobile-first static 
 ## Phase Checklist
 
 - [x] Phase 1: Foundation & Data Loading
-- [ ] Phase 2: Collapsed Row Display
+- [x] Phase 2: Collapsed Row Display
 - [ ] Phase 3: Expanded Detail Panel
 - [ ] Phase 4: Navigation & Polish
 
@@ -107,10 +107,10 @@ This roadmap delivers the v1 Battle Brothers Companion -- a mobile-first static 
 | Phase | Name | Status | Started | Completed |
 |-------|------|--------|---------|-----------|
 | 1 | Foundation & Data Loading | Complete | 2026-04-16 | 2026-04-17 |
-| 2 | Collapsed Row Display | Not Started | - | - |
+| 2 | Collapsed Row Display | Complete | 2026-04-18 | 2026-04-18 |
 | 3 | Expanded Detail Panel | Not Started | - | - |
 | 4 | Navigation & Polish | Not Started | - | - |
 
 ---
 *Roadmap created: 2026-04-16*
-*Last updated: 2026-04-17*
+*Last updated: 2026-04-18*
