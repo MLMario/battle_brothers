@@ -210,6 +210,104 @@
     listEl.appendChild(wrap);
   }
 
+  // ── Phase 3 D-15: format the .attr-levelup cell per mockup spec ──
+  function formatLevelUp(cell, luMin, luMax) {
+    if (luMin == null && luMax == null) {
+      cell.textContent = '\u2014';  // em-dash
+      return;
+    }
+    const luMinStr = luMin != null ? luMin : '?';
+    const luMaxStr = luMax != null ? luMax : '?';
+    const val = (luMin != null) ? luMin : luMax;
+    if (val > 0) {
+      cell.textContent = '+' + luMinStr + '/+' + luMaxStr;
+      cell.classList.add('positive');
+    } else if (val < 0) {
+      cell.textContent = luMinStr + '/' + luMaxStr;
+      cell.classList.add('negative');
+    } else {
+      // val === 0 (edge case: zero level-up) — no color class, show raw
+      cell.textContent = luMinStr + '/' + luMaxStr;
+    }
+  }
+
+  // ── Phase 3 D-12/D-13/D-14/D-15: build one .attr-row for a given attribute ──
+  function buildAttrRow(bg, key, label) {
+    const attr = bg.attributes && bg.attributes[key];
+    if (!attr) return null;
+
+    const rowEl = document.createElement('div');
+    rowEl.className = 'attr-row';
+
+    // label
+    const labelEl = document.createElement('div');
+    labelEl.className = 'attr-label';
+    labelEl.textContent = label;
+    rowEl.appendChild(labelEl);
+
+    // bar wrap + fill (D-13 — reuse pct + barColor)
+    const barWrap = document.createElement('div');
+    barWrap.className = 'attr-bar-wrap';
+    const barFill = document.createElement('div');
+    barFill.className = 'attr-bar-fill';
+    const avg = (typeof attr.average === 'number') ? attr.average : 0;
+    const p = pct(key, avg);
+    const color = barColor(p);
+    barFill.style.cssText = 'width:' + p + '%;background:' + color + ';';
+    barWrap.appendChild(barFill);
+    rowEl.appendChild(barWrap);
+
+    // vals (D-14 — innerHTML verbatim from mockup)
+    const vals = document.createElement('div');
+    vals.className = 'attr-vals';
+    const rangeMin = (attr.range && attr.range.min != null) ? attr.range.min : '?';
+    const rangeMax = (attr.range && attr.range.max != null) ? attr.range.max : '?';
+    vals.innerHTML = '<span class="attr-avg">' + avg + '</span> '
+      + '<span style="color:#555;font-size:9px">' + rangeMin + '\u2013' + rangeMax + '</span>';
+    rowEl.appendChild(vals);
+
+    // levelup (D-15)
+    const lu = document.createElement('div');
+    lu.className = 'attr-levelup';
+    const luMin = (attr.levelUp && attr.levelUp.min !== undefined) ? attr.levelUp.min : null;
+    const luMax = (attr.levelUp && attr.levelUp.max !== undefined) ? attr.levelUp.max : null;
+    formatLevelUp(lu, luMin, luMax);
+    rowEl.appendChild(lu);
+
+    return rowEl;
+  }
+
+  // ── Phase 3 D-06/D-11/D-12: build the .bg-panel subtree for a background ──
+  function buildPanel(bg) {
+    const panel = document.createElement('div');
+    panel.className = 'bg-panel';
+
+    const inner = document.createElement('div');
+    inner.className = 'bg-panel-inner';
+
+    // D-11: two fixed-template pills via innerHTML (mockup verbatim)
+    const badges = document.createElement('div');
+    badges.className = 'panel-badges';
+    const lvlMin = (bg.startingLevel && bg.startingLevel.min != null) ? bg.startingLevel.min : '?';
+    const lvlMax = (bg.startingLevel && bg.startingLevel.max != null) ? bg.startingLevel.max : '?';
+    const wage = (bg.baseWage != null) ? bg.baseWage : '?';
+    badges.innerHTML = '<div class="panel-badge">Level <span>' + lvlMin + '\u2013' + lvlMax + '</span></div>'
+      + '<div class="panel-badge">Wage <span>' + wage + 'g</span></div>';
+    inner.appendChild(badges);
+
+    // D-12: iterate ATTR_KEYS for 8 attribute rows
+    const attrList = document.createElement('div');
+    attrList.className = 'attr-list';
+    ATTR_KEYS.forEach(function (entry) {
+      const row = buildAttrRow(bg, entry.key, entry.label);
+      if (row) attrList.appendChild(row);
+    });
+    inner.appendChild(attrList);
+
+    panel.appendChild(inner);
+    return panel;
+  }
+
   // ── D-13 / D-14: build the mockup-shape nested row for a single background ──
   function buildRow(bg) {
     const item = document.createElement('article');
@@ -262,6 +360,10 @@
     });
 
     item.appendChild(row);
+
+    // Phase 3 D-06: eagerly build expanded panel subtree
+    item.appendChild(buildPanel(bg));
+
     return item;
   }
 
