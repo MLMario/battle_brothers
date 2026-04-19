@@ -39,6 +39,25 @@
     });
   }
 
+  // ── Phase 4 D-07: write "X of Y backgrounds" to #result-count ──
+  function updateCount(filtered, total) {
+    const el = document.getElementById('result-count');
+    if (!el) return;
+    el.textContent = filtered + ' of ' + total + ' backgrounds';
+  }
+
+  // ── Phase 4 D-11/D-12/D-13: toggle #empty visibility (v1 uses only the dev hook) ──
+  function setEmpty(show) {
+    const emptyEl = document.getElementById('empty');
+    const listEl = document.getElementById('list');
+    if (!emptyEl || !listEl) return;
+    emptyEl.style.display = show ? 'flex' : 'none';
+    listEl.style.display = show ? 'none' : '';
+  }
+
+  // Phase 4 D-12: unconditional verification hook (no DEV guard — static frontend, no build step)
+  window.__setEmpty = setEmpty;
+
   // ── D-15: compute global min/max across all attribute averages ──
   function computeGlobalMinMax(list) {
     let minScalar = Infinity;
@@ -433,6 +452,7 @@
         globalMinByAttr = mm.minByAttr;
         globalMaxByAttr = mm.maxByAttr;
         renderList(allBgs);
+        updateCount(allBgs.length, allBgs.length);  // Phase 4 D-07/D-08
       })
       .catch(function (err) {
         clearTimeout(skeletonTimer);
