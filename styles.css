@@ -148,7 +148,7 @@
   }
 
   /* ── LIST ──────────────────────────────────────────────── */
-  #list-wrap {
+  #list {
     flex: 1;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
@@ -156,9 +156,9 @@
     padding-bottom: calc(var(--nav-h) + 4px);
   }
 
-  #list-wrap::-webkit-scrollbar { width: 3px; }
-  #list-wrap::-webkit-scrollbar-track { background: transparent; }
-  #list-wrap::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 2px; }
+  #list::-webkit-scrollbar { width: 3px; }
+  #list::-webkit-scrollbar-track { background: transparent; }
+  #list::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 2px; }
 
   .bg-item {
     border-bottom: 1px solid var(--border);
