@@ -25,9 +25,9 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Navigation & Chrome
 
-- [ ] **NAV-01**: Result count displayed (e.g. "67 of 67 backgrounds")
-- [ ] **NAV-02**: Bottom navigation bar with Backgrounds (active) and Build (placeholder) tabs
-- [ ] **NAV-03**: Empty state displayed when search returns no results
+- [x] **NAV-01**: Result count displayed (e.g. "67 of 67 backgrounds")
+- [x] **NAV-02**: Bottom navigation bar with Backgrounds (active) and Build (placeholder) tabs
+- [x] **NAV-03**: Empty state displayed when search returns no results
 
 ## v2 Requirements
 
@@ -76,9 +76,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 | VISU-02 | Phase 1: Foundation & Data Loading | Complete |
 | VISU-03 | Phase 2: Collapsed Row Display | Complete |
 | VISU-04 | Phase 1: Foundation & Data Loading | Complete |
-| NAV-01 | Phase 4: Navigation & Polish | Pending |
-| NAV-02 | Phase 4: Navigation & Polish | Pending |
-| NAV-03 | Phase 4: Navigation & Polish | Pending |
+| NAV-01 | Phase 4: Navigation & Polish | Complete |
+| NAV-02 | Phase 4: Navigation & Polish | Complete |
+| NAV-03 | Phase 4: Navigation & Polish | Complete |
 
 **Coverage:**
 - v1 requirements: 13 total
