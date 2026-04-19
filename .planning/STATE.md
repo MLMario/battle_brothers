@@ -1,17 +1,16 @@
 ---
-lgsd_state_version: 1.0
+gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: verifying
-stopped_at: Completed 02-03-PLAN.md — Phase 2 verified complete
-last_updated: "2026-04-19T16:59:05.475Z"
+stopped_at: Phase 3 context gathered
+last_updated: "2026-04-19T17:24:27.574Z"
 last_activity: 2026-04-19
 progress:
   total_phases: 4
   completed_phases: 2
   total_plans: 6
   completed_plans: 6
-  percent: 100
 ---
 
 # State: Battle Brothers Companion
@@ -48,10 +47,10 @@ See [ROADMAP.md](./ROADMAP.md) for phase breakdown and success criteria.
 
 ## Session Continuity
 
-- **Last session:** 2026-04-19T16:59:05.472Z
+- **Last session:** 2026-04-19T17:24:27.572Z
 - **Last action:** Completed 01-01-PLAN.md
-- **Stopped At:** Completed 02-03-PLAN.md — Phase 2 verified complete
-- **Resume File:** None
+- **Stopped At:** Phase 3 context gathered
+- **Resume File:** .planning/phases/03-expanded-detail-panel/03-CONTEXT.md
 - **Blockers:** None
 - **Open questions:** None
 
