@@ -1,15 +1,15 @@
 ---
 phase: 03-expanded-detail-panel
 verified: 2026-04-19T00:00:00Z
-status: human_needed
-score: "13/13 must-haves verified (automated); 5 runtime items deferred to human"
+status: gaps_found
+score: "13/13 automated truths verified; UAT 4 Pass / 1 Fail"
 ---
 
 # Phase 3: Expanded Detail Panel Verification Report
 
 **Phase Goal:** Build the expanded accordion panel that reveals when a row is clicked, showing full stat bars with color-coded fills, stat ranges, level-up bonuses, and info badges. Only one panel open at a time.
 **Verified:** 2026-04-19T00:00:00Z
-**Status:** human_needed
+**Status:** gaps_found
 
 ## Goal Achievement
 
@@ -125,10 +125,40 @@ Roadmap §Phase 3 success criteria 1 (smooth animation), plus cross-browser/devi
 **Expected:** After ~50ms, the item smoothly scrolls so the full panel is in view (`block: 'nearest'`).
 **Why human:** Tests the setTimeout + scrollIntoView interaction under real browser scroll behavior.
 
-## Return to Orchestrator
+## UAT Results
 
-**DO NOT COMMIT.**
+| Item | Status | Notes |
+|------|--------|-------|
+| 1. Smooth open/close animation | Pass | — |
+| 2. Single-open invariant in action | Pass | — |
+| 3. Panel content visual fidelity (DATA-03/04/05/06) | Pass | — |
+| 4. Clicks inside panel do NOT collapse | Pass | — |
+| 5. scrollIntoView behavior after open | Fail | User observation: "I cannot scroll the page and when clicking a row near the end of my visible view it doesn't scroll up." |
+
+**Recomputed status:** gaps_found — 4 Pass, 1 Fail. Failure appended to `## Gaps for Replanning` below.
+
+## Gaps for Replanning
+
+~~~yaml
+gaps:
+  - truth: "After opening, the item smoothly scrolls into view (nearest block) after a short delay"
+    status: failed
+    reason: "UAT item 5 failed: page cannot be scrolled at all, and clicking a row near the bottom of the viewport does not trigger scrollIntoView. Suggests the list container's scroll behavior is broken (possibly overflow/height constraint on a parent) and/or scrollIntoView is targeting the wrong scroll root."
+    artifacts:
+      - path: "app.js"
+        issue: "L338-340 setTimeout(() => item.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50) — call exists but has no observable effect in the deployed build."
+      - path: "styles.css"
+        issue: "Investigate body/html/container overflow + height rules that may prevent page-level scrolling entirely. User reports 'I cannot scroll the page' — this is a prerequisite-level defect independent of scrollIntoView."
+    missing:
+      - "Diagnose why the page is not scrollable at all on the deployed site (inspect body/html/root container heights and overflow values in styles.css; reproduce at 430px and taller content than viewport)."
+      - "Fix the scroll root so vertical scrolling works on the list."
+      - "Verify that scrollIntoView targets the correct scroll container after the fix (may need to call on a nested scroll parent, or adjust block option), so that opening a row near the bottom brings the full panel into view."
+      - "Re-verify UAT item 5 after fix."
+~~~
+
+## Return to Orchestrator
 
 ---
 *Verified: 2026-04-19*
 *Verifier: Claude (lgsd-verifier subagent)*
+*UAT appended by: /lgsd:verify orchestrator (main session)*
