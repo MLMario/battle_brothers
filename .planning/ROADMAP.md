@@ -8,7 +8,7 @@ This roadmap delivers the v1 Battle Brothers Companion -- a mobile-first static 
 
 - [x] Phase 1: Foundation & Data Loading
 - [x] Phase 2: Collapsed Row Display
-- [ ] Phase 3: Expanded Detail Panel
+- [x] Phase 3: Expanded Detail Panel
 - [ ] Phase 4: Navigation & Polish
 
 ---
@@ -108,7 +108,7 @@ This roadmap delivers the v1 Battle Brothers Companion -- a mobile-first static 
 |-------|------|--------|---------|-----------|
 | 1 | Foundation & Data Loading | Complete | 2026-04-16 | 2026-04-17 |
 | 2 | Collapsed Row Display | Complete | 2026-04-18 | 2026-04-18 |
-| 3 | Expanded Detail Panel | Not Started | - | - |
+| 3 | Expanded Detail Panel | Complete | 2026-04-19 | 2026-04-19 |
 | 4 | Navigation & Polish | Not Started | - | - |
 
 ---
