@@ -8,6 +8,7 @@
   let globalMax = 0;              // scalar max across all attribute averages (plan contract)
   let globalMinByAttr = {};       // per-attribute min (needed by Phase 2 sparklines — mockup parity)
   let globalMaxByAttr = {};       // per-attribute max (needed by Phase 2 sparklines — mockup parity)
+  let openId = null;              // id of the currently-open background; null when all collapsed (P3 D-01)
 
   const DATA_URL = 'data/backgrounds.json';
   const SKELETON_DELAY_MS = 150;  // D-06
@@ -308,6 +309,38 @@
     return panel;
   }
 
+  // ── Phase 3 D-01/D-03/D-04/D-07: accordion toggle with measured max-height animation ──
+  function toggleItem(id, item) {
+    const panel = item.querySelector('.bg-panel');
+    const isOpen = item.classList.contains('open');
+
+    // Close previously-open item if it's a different one (D-04)
+    if (openId && openId !== id) {
+      const prev = document.querySelector('.bg-item[data-id="' + openId + '"]');
+      if (prev) {
+        prev.classList.remove('open');
+        const prevPanel = prev.querySelector('.bg-panel');
+        if (prevPanel) prevPanel.style.maxHeight = '0';
+      }
+    }
+
+    if (isOpen) {
+      // Collapse (D-04 — tapping same row closes)
+      item.classList.remove('open');
+      if (panel) panel.style.maxHeight = '0';
+      openId = null;
+    } else {
+      // Expand: measured scrollHeight overrides base CSS max-height: 0 (D-07)
+      item.classList.add('open');
+      if (panel) panel.style.maxHeight = panel.scrollHeight + 'px';
+      openId = id;
+      // D-03: 50ms delay lets the max-height animation start before scroll begins
+      setTimeout(function () {
+        item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 50);
+    }
+  }
+
   // ── D-13 / D-14: build the mockup-shape nested row for a single background ──
   function buildRow(bg) {
     const item = document.createElement('article');
@@ -354,9 +387,9 @@
 
     row.appendChild(right);
 
-    // D-14: plumbing-validation click handler (real accordion toggle lands in Phase 3)
+    // Phase 3 D-05/D-16: accordion toggle via toggleItem (replaces Phase 1 plumbing stub)
     row.addEventListener('click', function onRowClick() {
-      console.log('[click]', bg.id);
+      toggleItem(bg.id, item);
     });
 
     item.appendChild(row);
