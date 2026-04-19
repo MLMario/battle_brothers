@@ -278,10 +278,6 @@
     border-left: 3px solid var(--amber);
   }
 
-  .bg-item.open .bg-panel {
-    max-height: 600px;
-  }
-
   .bg-panel-inner {
     padding: 10px 12px 12px 12px;
   }
