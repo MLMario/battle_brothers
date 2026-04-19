@@ -1,7 +1,7 @@
 ---
 phase: 04-navigation-polish
 verified: 2026-04-19T22:10:00Z
-status: human_needed
+status: passed
 score: "13/13 must-haves verified"
 ---
 
@@ -9,7 +9,7 @@ score: "13/13 must-haves verified"
 
 **Phase Goal:** Add the top result count, bottom navigation bar, and empty-state display. This phase completes the v1 feature set and prepares the app for future v2 additions (search, sort, build tab).
 **Verified:** 2026-04-19T22:10:00Z
-**Status:** human_needed
+**Status:** passed
 
 ## Goal Achievement
 
@@ -24,16 +24,16 @@ Merged from ROADMAP §Phase 4 Success Criteria + plan `must_haves.truths` across
 | 3 | `#bottom-nav` element exists as a sibling of `#list` inside `#app` with two `.nav-tab` children (Backgrounds active, Build placeholder) | ✓ VERIFIED | `index.html` L25-43: `<nav id="bottom-nav">` sibling of `#list` inside `#app`; first `.nav-tab active` (L26) contains "Backgrounds" text; second `.nav-tab` with no `.active` (L35) contains "Build" text |
 | 4 | Both `.nav-tab` inline SVGs render verbatim from mockup lines 498-503 (Backgrounds/people icon) and 507-511 (Build/card icon) | ✓ VERIFIED | People icon paths at L28-31 match mockup (M17 21v-2…, circle cx="9" cy="7" r="4", M23 21v-2…, M16 3.13…); card/window icon at L37-39 matches mockup (rect x="2" y="3" width="20" height="14" rx="2", line x1="8" y1="21" x2="16" y2="21", line x1="12" y1="17" x2="12" y2="21") |
 | 5 | `#list-wrap` is NOT reintroduced (Phase 3 gap-fix stays intact — `#list` remains the direct scroll container) | ✓ VERIFIED | `grep "list-wrap\|id=\"controls\"\|id=\"search\"\|id=\"pills\"" index.html` → 0 matches; `styles.css` L151-157 `#list { flex: 1; overflow-y: auto; ... padding-bottom: calc(var(--nav-h) + 4px); }` still the scroll root |
-| 6 | After fetch resolves, `#result-count` displays the text "67 of 67 backgrounds" exactly | ✓ VERIFIED (code path) / ? UNCERTAIN (runtime render) | `app.js` L43-47 `updateCount(filtered, total)` writes `filtered + ' of ' + total + ' backgrounds'` via `el.textContent`; L455 `updateCount(allBgs.length, allBgs.length)` invoked inside `.then` success branch after `renderList(allBgs)`; data file known-good 67 entries (Phase 1 verified). Runtime DOM confirmation deferred to UAT item 1. |
+| 6 | After fetch resolves, `#result-count` displays the text "67 of 67 backgrounds" exactly | ✓ VERIFIED | `app.js` L43-47 `updateCount(filtered, total)` writes `filtered + ' of ' + total + ' backgrounds'` via `el.textContent`; L455 `updateCount(allBgs.length, allBgs.length)` invoked inside `.then` success branch after `renderList(allBgs)`; UAT item 1 confirmed runtime render. |
 | 7 | During fetch (before resolution), `#result-count` textContent is empty (no "0 of 0" flash) | ✓ VERIFIED | `updateCount` is NOT called in `renderSkeleton` (L136-187) or `load()` pre-resolution path. `#result-count` markup is `<div id="result-count"></div>` with empty initial textContent. First call occurs only in `.then` success branch at L455. |
-| 8 | Calling `window.__setEmpty(true)` shows `#empty` and hides `#list` | ✓ VERIFIED (code path) / ? UNCERTAIN (runtime) | `app.js` L50-56 `setEmpty(show)` sets `emptyEl.style.display = 'flex'` and `listEl.style.display = 'none'` when `show` is truthy; L59 `window.__setEmpty = setEmpty` exposes it unconditionally. Runtime toggle confirmation deferred to UAT item 4. |
-| 9 | Calling `window.__setEmpty(false)` hides `#empty` and restores `#list` visibility | ✓ VERIFIED (code path) / ? UNCERTAIN (runtime) | Same helper at L50-56: `show === false` branch sets `emptyEl.style.display = 'none'` and `listEl.style.display = ''` (empty string lets styles.css L151 `flex: 1; overflow-y: auto` reassert — not hardcoded). Runtime confirmation deferred to UAT item 4. |
-| 10 | Error state (fetch fails) does not populate `#result-count` and does not toggle `#empty` | ✓ VERIFIED | `load()` `.catch` branch at L457-465 only logs `console.error` and calls `renderError()`. No `updateCount` or `setEmpty` invocation in the catch path or inside `renderError` (L190-231). |
-| 11 | A result count reading "67 of 67 backgrounds" is visible at the top of the accordion list (ROADMAP §Phase 4 SC 1) | ✓ VERIFIED (DOM position + helper) / ? UNCERTAIN (visible rendering) | `#result-count` sits before `#list` inside `#app` (Truth 1). CSS `#result-count` styling at styles.css L143-148 (font-size 11px, color #555, padding 0 12px 6px, flex-shrink: 0). `updateCount(67, 67)` wired (Truth 6). Visual confirmation deferred to UAT item 1. |
-| 12 | A fixed bottom navigation bar is rendered with "Backgrounds" tab styled as active and "Build" tab styled as a placeholder (ROADMAP §Phase 4 SC 2) | ✓ VERIFIED (markup + CSS) / ? UNCERTAIN (visual) | Markup Truth 3 + 4. CSS: `#bottom-nav { position: fixed; bottom: 0; max-width: 430px; z-index: 30 }` at styles.css L373-385; `.nav-tab { color: #555 }` (placeholder state) at L395; `.nav-tab.active { color: var(--amber) }` at L406-408 plus amber underline via `.nav-tab.active::after` L410-419. Visual side-by-side confirmation deferred to UAT item 2. |
-| 13 | Bottom nav does not overlap accordion content (`#list` padding-bottom accounts for `--nav-h`) and empty-state displays when forced via `window.__setEmpty(true)` (ROADMAP §Phase 4 SC 3 + SC 4) | ✓ VERIFIED (CSS + helper) / ? UNCERTAIN (visual) | `styles.css` L156 `#list { padding-bottom: calc(var(--nav-h) + 4px) }` prevents overlap; `--nav-h: 52px` token (CODEBASE §2). `setEmpty` helper per Truth 8/9. Visual overlap + empty-state render confirmation deferred to UAT items 3 + 4. |
+| 8 | Calling `window.__setEmpty(true)` shows `#empty` and hides `#list` | ✓ VERIFIED | `app.js` L50-56 `setEmpty(show)` sets `emptyEl.style.display = 'flex'` and `listEl.style.display = 'none'` when `show` is truthy; L59 `window.__setEmpty = setEmpty` exposes it unconditionally. UAT item 4 confirmed runtime toggle. |
+| 9 | Calling `window.__setEmpty(false)` hides `#empty` and restores `#list` visibility | ✓ VERIFIED | Same helper at L50-56: `show === false` branch sets `emptyEl.style.display = 'none'` and `listEl.style.display = ''` (empty string lets styles.css L151 `flex: 1; overflow-y: auto` reassert — not hardcoded). UAT item 4 confirmed. |
+| 10 | Error state (fetch fails) does not populate `#result-count` and does not toggle `#empty` | ✓ VERIFIED | `load()` `.catch` branch at L457-465 only logs `console.error` and calls `renderError()`. No `updateCount` or `setEmpty` invocation in the catch path or inside `renderError` (L190-231). UAT item 6 confirmed at runtime. |
+| 11 | A result count reading "67 of 67 backgrounds" is visible at the top of the accordion list (ROADMAP §Phase 4 SC 1) | ✓ VERIFIED | `#result-count` sits before `#list` inside `#app` (Truth 1). CSS `#result-count` styling at styles.css L143-148 (font-size 11px, color #555, padding 0 12px 6px, flex-shrink: 0). `updateCount(67, 67)` wired (Truth 6). UAT item 1 confirmed visual render. |
+| 12 | A fixed bottom navigation bar is rendered with "Backgrounds" tab styled as active and "Build" tab styled as a placeholder (ROADMAP §Phase 4 SC 2) | ✓ VERIFIED | Markup Truth 3 + 4. CSS: `#bottom-nav { position: fixed; bottom: 0; max-width: 430px; z-index: 30 }` at styles.css L373-385; `.nav-tab { color: #555 }` (placeholder state) at L395; `.nav-tab.active { color: var(--amber) }` at L406-408 plus amber underline via `.nav-tab.active::after` L410-419. UAT item 2 confirmed visual parity. |
+| 13 | Bottom nav does not overlap accordion content (`#list` padding-bottom accounts for `--nav-h`) and empty-state displays when forced via `window.__setEmpty(true)` (ROADMAP §Phase 4 SC 3 + SC 4) | ✓ VERIFIED | `styles.css` L156 `#list { padding-bottom: calc(var(--nav-h) + 4px) }` prevents overlap; `--nav-h: 52px` token (CODEBASE §2). `setEmpty` helper per Truth 8/9. UAT items 3 + 4 confirmed no overlap and empty-state render. |
 
-**Score:** 13/13 truths verified by static analysis (5 items carry a runtime `? UNCERTAIN` flag relayed to UAT — the roadmap success criteria are inherently visual/runtime behaviors).
+**Score:** 13/13 truths verified (static analysis + UAT walkthrough).
 
 ROADMAP §Phase 4 Success Criteria cross-check:
 - SC 1 (result count "67 of 67 backgrounds" visible at top) → Truths 6, 7, 11
@@ -80,7 +80,7 @@ Requirement IDs extracted from plan frontmatter: NAV-01, NAV-02, NAV-03 (Plan 04
 
 REQUIREMENTS.md traceability cross-check: Phase 4 owns NAV-01, NAV-02, NAV-03 per the Traceability table (lines 79-81). All three claimed by plans in this phase; no orphans; no unclaimed requirements.
 
-**Coverage:** 3/3 requirements satisfied. With Phase 1 (DATA-01, VISU-01, VISU-02, VISU-04), Phase 2 (DATA-02, VISU-03), Phase 3 (DATA-03, DATA-04, DATA-05, DATA-06), and Phase 4 (NAV-01, NAV-02, NAV-03), v1 coverage reaches **13/13** — roadmap Phase 4 success criterion 5 met on paper (visual side-by-side vs mockup deferred to UAT item 5).
+**Coverage:** 3/3 requirements satisfied. With Phase 1 (DATA-01, VISU-01, VISU-02, VISU-04), Phase 2 (DATA-02, VISU-03), Phase 3 (DATA-03, DATA-04, DATA-05, DATA-06), and Phase 4 (NAV-01, NAV-02, NAV-03), v1 coverage reaches **13/13** — roadmap Phase 4 success criterion 5 met (UAT item 5 confirmed visual parity).
 
 ### Anti-Patterns Found
 
@@ -109,7 +109,7 @@ Commit verification (`git cat-file -e <hash>^{commit}`):
 
 | Truth | Previously Passed In | Now Status | Evidence |
 |-------|----------------------|-----------|----------|
-| (none) | Phase 1 (01-VERIFICATION.md — 21/21 VERIFIED), Phase 3 (03-VERIFICATION.md — 13/13 VERIFIED) | — | No prior-phase truth regressed. Phase 1 truths (fetch pipeline, 67-row render, skeleton, error retry, CSS tokens, 430px layout, click handler plumbing) remain intact: `app.js` fetch, `renderSkeleton`, `renderError`, `buildRow`, `computeGlobalMinMax`, icon fallback all unchanged; `index.html` additions are sibling inserts and do NOT mutate `<main id="list">` (unchanged at L18 with `role="list" aria-label="Backgrounds"`); `styles.css` unchanged in Phase 4 (per SUMMARY 04-01 and 04-02 — no CSS edits). Phase 3 truths (eager panel build, toggle wiring, `#list` as scroll container, single-open invariant, scrollIntoView behavior) also intact: `#list-wrap` NOT reintroduced (Truth 5 of this phase confirms), `#list { overflow-y: auto }` preserved at styles.css L151-157, `toggleItem`/`openId`/`buildPanel`/`buildAttrRow` all unmodified in `app.js`. Phase 2 has no VERIFICATION.md on disk (only Phase 1 and Phase 3) — regression check not applicable; Phase 2 helpers (`pct`, `barColor`, `makeSparkline`) remain unmodified and continue to drive sparklines + expanded bars. |
+| (none) | Phase 1 (01-VERIFICATION.md — 21/21 VERIFIED), Phase 3 (03-VERIFICATION.md — 13/13 VERIFIED) | — | No prior-phase truth regressed. Phase 1 truths intact; Phase 3 truths intact. |
 
 **Regressions:** 0.
 
@@ -172,8 +172,21 @@ Side-by-side with `mockups/design3_accordion.html` should match.
 **Expected:** Empty `#result-count` during error; populated only after successful fetch.
 **Why human:** Confirms the `catch`-branch intentionally skips `updateCount` (D-09) under real network-failure conditions.
 
+## UAT Results
+
+| Item | Status | Notes |
+|------|--------|-------|
+| 1. Result count renders "67 of 67 backgrounds" | Pass | — |
+| 2. Bottom nav visual — Backgrounds active, Build placeholder | Pass | — |
+| 3. Nav does not overlap list content | Pass | — |
+| 4. Empty state toggle via `window.__setEmpty` | Pass | — |
+| 5. Mockup parity — full v1 side-by-side | Pass | — |
+| 6. Error-state regression (result-count stays empty) | Pass | — |
+
+**Recomputed status:** passed — all 6 UAT items Pass; no failures; Phase 4 goal achieved.
+
 ---
 
 *Verified: 2026-04-19T22:10:00Z*
 *Verifier: Claude (lgsd-verifier subagent)*
-*Static analysis complete — 13/13 must-haves verified. Six items require a live-browser UAT walkthrough to close the roadmap SCs.*
+*Static analysis complete — 13/13 must-haves verified. UAT walkthrough complete — 6/6 Pass.*
