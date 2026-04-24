@@ -40,15 +40,15 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| SRCH-01-c1 | TBD | Pending |
-| SRCH-02-c1 | TBD | Pending |
-| SRCH-03-c1 | TBD | Pending |
+| SRCH-01-c1 | Phase 5 | Pending |
+| SRCH-02-c1 | Phase 6 | Pending |
+| SRCH-03-c1 | Phase 6 | Pending |
 
 **Coverage:**
 - v1 requirements: 3 total
-- Mapped to phases: 0 (pending roadmap step)
-- Unmapped: 3 ⚠️ (will resolve after `/lgsd:start` step 8)
+- Mapped to phases: 3 ✓
+- Unmapped: 0 ✓
 
 ---
 *Requirements defined: 2026-04-24*
-*Last updated: 2026-04-24 after cycle-2 opening*
+*Last updated: 2026-04-24 after cycle-2 roadmap creation (Phases 5 & 6)*
