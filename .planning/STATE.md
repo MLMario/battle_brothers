@@ -2,16 +2,16 @@
 lgsd_state_version: 1.0
 milestone: v2.0
 milestone_name: Search & Sort
-status: Plan execution
-stopped_at: Completed 05-01-PLAN.md (Phase 5)
-last_updated: "2026-04-24T18:48:47.747Z"
-last_activity: 2026-04-24 — Plan 05-01 complete; DOM scaffold + state slots landed; ready for Plan 05-02 wiring
+status: executing
+stopped_at: Completed 05-02-PLAN.md (Phase 5)
+last_updated: "2026-04-24T18:53:13.310Z"
+last_activity: 2026-04-24
 progress:
   total_phases: 2
-  completed_phases: 0
+  completed_phases: 1
   total_plans: 2
-  completed_plans: 1
-  percent: 50
+  completed_plans: 2
+  percent: 100
 ---
 
 # Project State
@@ -26,9 +26,9 @@ See: .planning/PROJECT.md (updated 2026-04-16)
 ## Current Position
 
 Phase: 5 of 6 (Search filter)
-Plan: 1 of 2 in current phase (05-01 complete)
-Status: Plan execution
-Last activity: 2026-04-24 — Plan 05-01 complete; DOM scaffold + state slots landed; ready for Plan 05-02 wiring
+Plan: 2 of 2 in current phase (05-01 complete)
+Status: Ready to execute
+Last activity: 2026-04-24
 
 Progress (this cycle): [█████░░░░░] 50% (1 / 2 plans)
 
@@ -56,6 +56,7 @@ Progress (this cycle): [█████░░░░░] 50% (1 / 2 plans)
 **Recent Trend:** First plan of cycle 2 in line with cycle-1 fast-execute baseline.
 
 *Historical v1.0 velocity: 11 plans across Phases 1–4, closed 2026-04-24. See `.planning/CYCLE-LOG.md`.*
+| Phase 05 P02 | 68 | 1 tasks | 1 files |
 
 ## Accumulated Context
 
@@ -68,6 +69,7 @@ Relevant decisions carried in from cycle 1:
 - Cycle-1 close: `#controls`, `#search`, `#pills` deliberately excluded from v1 DOM; this cycle lands the DOM and wiring only.
 - Mockup parity is the governing discipline for SRCH (sort direction defaults, 180 ms debounce, substring-match on name only).
 - [Phase 05-search-filter]: 05-01: Shipped #controls > #search-wrap DOM (mockup-verbatim subtree, 5 attrs incl. aria-label per D-11) and reserved filtered/query state in app.js — DOM/state ready for Plan 05-02 wiring; no CSS edits needed
+- [Phase 05-search-filter]: 05-02: Wired #search → debounced (180ms) applyFilter pipeline in app.js — applyFilter resets openId, name-substring filter, drives renderList+updateCount+setEmpty (D-05/06/09/10); wireControls + window.__setQuery shipped; SRCH-01-c1 complete
 
 ### Pending Todos
 
@@ -85,6 +87,6 @@ None. CODEBASE.md Section 4 enumerates concrete insertion points and contracts; 
 
 ## Session Continuity
 
-Last session: 2026-04-24T18:48:14.373Z
-Stopped at: Completed 05-01-PLAN.md (Phase 5)
-Resume file: .planning/phases/05-search-filter/05-02-PLAN.md
+Last session: 2026-04-24T18:53:13.307Z
+Stopped at: Completed 05-02-PLAN.md (Phase 5)
+Resume file: None

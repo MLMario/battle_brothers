@@ -61,7 +61,7 @@ v1.0 MVP shipped 2026-04-24 at https://mlmario.github.io/battle_brothers/ — 67
 
 Plans:
 - [x] 05-01: DOM scaffold + state slots (#controls > #search-wrap, filtered/query) — completed 2026-04-24
-- [ ] 05-02: Wire applyFilter + 180ms debounce + wireControls() + __setQuery dev hook
+- [x] 05-02: Wire applyFilter + 180ms debounce + wireControls() + __setQuery dev hook
 
 ### Phase 6: Sort pills + direction
 **Goal**: User can reorder the background list by any of 10 attributes and flip ascending/descending by re-clicking the active pill
