@@ -2,7 +2,7 @@
   'use strict';
 
   // ── Module state ─────────────────────────────────────────────
-  // Phase 6 state (sortKey, sortAsc) intentionally absent.
+  // All module state for v2.0 Search & Sort is now declared (Phases 5 + 6).
   let allBgs = [];
   let globalMin = 0;              // scalar min across all attribute averages (plan contract)
   let globalMax = 0;              // scalar max across all attribute averages (plan contract)
@@ -13,6 +13,10 @@
   // ── Phase 5 D-19: search state (consumed by applyFilter in 05-02) ──
   let filtered = [];
   let query = '';
+
+  // ── Phase 6 D-19: sort state (consumed by applySort + pill handler in 06-02) ──
+  let sortKey = 'name';
+  let sortAsc = true;
 
   const DATA_URL = 'data/backgrounds.json';
   const SKELETON_DELAY_MS = 150;  // D-06
