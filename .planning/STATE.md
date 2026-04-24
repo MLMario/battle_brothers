@@ -3,15 +3,15 @@ lgsd_state_version: 1.0
 milestone: v2.0
 milestone_name: Search & Sort
 status: executing
-stopped_at: Phase 6 plans created
-last_updated: "2026-04-24T19:17:17.287Z"
+stopped_at: Completed 06-01-PLAN.md
+last_updated: "2026-04-24T20:57:25.792Z"
 last_activity: 2026-04-24
 progress:
   total_phases: 2
   completed_phases: 1
   total_plans: 4
-  completed_plans: 2
-  percent: 50
+  completed_plans: 3
+  percent: 75
 ---
 
 # Project State
@@ -21,42 +21,43 @@ progress:
 See: .planning/PROJECT.md (updated 2026-04-16)
 
 **Core value:** Instant, scannable access to every background's stats so players can compare and make informed hiring decisions without leaving the game.
-**Current focus:** Phase 5 — Search filter (v2.0 Search & Sort milestone)
+**Current focus:** Phase 6 — Sort pills + direction (v2.0 Search & Sort milestone)
 
 ## Current Position
 
-Phase: 5 of 6 (Search filter)
-Plan: 2 of 2 in current phase (05-01 complete)
-Status: Ready to execute
+Phase: 6 of 6 (Sort pills + direction)
+Plan: 1 of 2 in current phase (06-01 complete)
+Status: Ready to execute 06-02
 Last activity: 2026-04-24
 
-Progress (this cycle): [█████░░░░░] 50% (1 / 2 plans)
+Progress (this cycle): [████████░░] 75% (3 / 4 plans)
 
 ## Performance Metrics
 
 **Velocity (this cycle):**
 
-- Total plans completed: 1
-- Average duration: 168 s (~2.8 min)
-- Total execution time: 168 s
+- Total plans completed: 3
+- Average duration: 109 s (~1.8 min)
+- Total execution time: 328 s
 
 **By Phase (this cycle):**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| 5. Search filter | 1 / 2 | 168 s | 168 s |
-| 6. Sort pills + direction | 0 / TBD | — | — |
+| 5. Search filter | 2 / 2 | 236 s | 118 s |
+| 6. Sort pills + direction | 1 / 2 | 92 s | 92 s |
 
 **Per-plan log:**
 
 | Plan | Duration (s) | Tasks | Files |
 |------|--------------|-------|-------|
 | 05-01 | 168 | 2 | 2 |
+| 05-02 | 68 | 1 | 1 |
+| 06-01 | 92 | 3 | 3 |
 
-**Recent Trend:** First plan of cycle 2 in line with cycle-1 fast-execute baseline.
+**Recent Trend:** Cycle-2 plans trending faster than cycle-1 baseline — 06-01's DOM/state/CSS groundwork plan closed in 92 s across 3 tasks and 3 files.
 
 *Historical v1.0 velocity: 11 plans across Phases 1–4, closed 2026-04-24. See `.planning/CYCLE-LOG.md`.*
-| Phase 05 P02 | 68 | 1 tasks | 1 files |
 
 ## Accumulated Context
 
@@ -70,6 +71,7 @@ Relevant decisions carried in from cycle 1:
 - Mockup parity is the governing discipline for SRCH (sort direction defaults, 180 ms debounce, substring-match on name only).
 - [Phase 05-search-filter]: 05-01: Shipped #controls > #search-wrap DOM (mockup-verbatim subtree, 5 attrs incl. aria-label per D-11) and reserved filtered/query state in app.js — DOM/state ready for Plan 05-02 wiring; no CSS edits needed
 - [Phase 05-search-filter]: 05-02: Wired #search → debounced (180ms) applyFilter pipeline in app.js — applyFilter resets openId, name-substring filter, drives renderList+updateCount+setEmpty (D-05/06/09/10); wireControls + window.__setQuery shipped; SRCH-01-c1 complete
+- [Phase 06-sort-pills-direction]: 06-01: Shipped #pills-wrap > #pills DOM (10 buttons, Name-active preset with literal U+25B2 ▲, per-pill aria-pressed per D-14) inside #controls; reserved sortKey='name'/sortAsc=true module state (D-19); added single .pill:focus-visible CSS rule (D-18). DOM/state/a11y groundwork for Plan 06-02 wiring.
 
 ### Pending Todos
 
@@ -87,6 +89,6 @@ None. CODEBASE.md Section 4 enumerates concrete insertion points and contracts; 
 
 ## Session Continuity
 
-Last session: 2026-04-24T19:17:17.283Z
-Stopped at: Phase 6 plans created
-Resume file: .planning/phases/06-sort-pills-direction/06-1-PLAN.md
+Last session: 2026-04-24T20:57:25.789Z
+Stopped at: Completed 06-01-PLAN.md
+Resume file: .planning/phases/06-sort-pills-direction/06-02-PLAN.md

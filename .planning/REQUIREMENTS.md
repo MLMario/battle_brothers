@@ -41,7 +41,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | Requirement | Phase | Status |
 |-------------|-------|--------|
 | SRCH-01-c1 | Phase 5 | Complete |
-| SRCH-02-c1 | Phase 6 | Pending |
+| SRCH-02-c1 | Phase 6 | In Progress |
 | SRCH-03-c1 | Phase 6 | Pending |
 
 **Coverage:**

@@ -42,7 +42,7 @@ v1.0 MVP shipped 2026-04-24 at https://mlmario.github.io/battle_brothers/ — 67
 
 **Milestone Goal:** Users can narrow the 67-background list to what they care about right now — by name (search) or by any attribute (sort pills with direction toggle) — matching the `design3_accordion.html` mockup contract exactly.
 
-- [ ] **Phase 5: Search filter** — Real-time name search with debounced substring match
+- [x] **Phase 5: Search filter** — Real-time name search with debounced substring match
 - [ ] **Phase 6: Sort pills + direction** — 10-attribute sticky pill row with ▲/▼ toggle on re-click
 
 ## Phase Details
@@ -74,10 +74,11 @@ Plans:
   4. Clicking the currently active pill toggles direction; the glyph flips between `▲` and `▼` and the list order reverses.
   5. Sort composes correctly with search: narrowing by name and then clicking a stat pill sorts only the filtered subset; clearing search and then sorting applies to all 67 backgrounds.
   6. Changing sort key or direction resets any currently open accordion row so there is no stale-open-id pointing to a row that has since been re-rendered.
-**Plans**: TBD
+**Plans**: 2
 
 Plans:
-- [ ] 06-01: TBD
+- [x] 06-01: #pills-wrap DOM scaffold + sortKey/sortAsc state + .pill:focus-visible CSS — completed 2026-04-24
+- [ ] 06-02: Wire applySort + sortValue + delegated pill-click handler + __setSort dev hook
 
 ## Progress
 
@@ -87,8 +88,8 @@ Plans:
 | 2. Data pipeline | v1.0 | shipped | Complete | 2026-04-24 |
 | 3. Accordion + panels | v1.0 | shipped | Complete | 2026-04-24 |
 | 4. Navigation + empty state + deploy | v1.0 | shipped | Complete | 2026-04-24 |
-| 5. Search filter | v2.0 | 1/2 | In Progress | - |
-| 6. Sort pills + direction | v2.0 | 0/TBD | Not started | - |
+| 5. Search filter | v2.0 | 2/2 | Complete | 2026-04-24 |
+| 6. Sort pills + direction | v2.0 | 1/2 | In Progress | - |
 
 ---
 *Created 2026-04-16; v2.0 milestone opened 2026-04-24*
