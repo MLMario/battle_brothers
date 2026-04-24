@@ -10,6 +10,10 @@
   let globalMaxByAttr = {};       // per-attribute max (needed by Phase 2 sparklines — mockup parity)
   let openId = null;              // id of the currently-open background; null when all collapsed (P3 D-01)
 
+  // ── Phase 5 D-19: search state (consumed by applyFilter in 05-02) ──
+  let filtered = [];
+  let query = '';
+
   const DATA_URL = 'data/backgrounds.json';
   const SKELETON_DELAY_MS = 150;  // D-06
   const SKELETON_ROW_COUNT = 8;   // D-05 (~8 placeholder rows)
