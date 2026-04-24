@@ -32,6 +32,9 @@
     { key: 'initiative',    label: 'Ini' },
   ];
 
+  // ── Phase 6 D-22: known sort keys (validator for __setSort; mirrors ATTR_KEYS precedent) ──
+  const SORT_KEYS = ['name','baseWage','hitpoints','meleeSkill','rangedSkill','meleeDefense','rangedDefense','fatigue','resolve','initiative'];
+
   // ── D-10: icon URL helper (prefix JSON "icons/Foo.png" with "assets/") ──
   function iconUrl(bg) {
     return 'assets/' + bg.icon;
@@ -456,6 +459,25 @@
     });
   }
 
+  // ── Phase 6 D-13/D-14/D-29: pill UI update routine (reused by handler + __setSort) ──
+  function updatePillUI() {
+    const pills = document.querySelectorAll('#pills .pill');
+    pills.forEach(function (p) {
+      p.classList.remove('active');
+      p.setAttribute('aria-pressed', 'false');
+      const existingArrow = p.querySelector('.arrow');
+      if (existingArrow) existingArrow.remove();
+    });
+    const active = document.querySelector('#pills .pill[data-key="' + sortKey + '"]');
+    if (!active) return;   // defensive — impossible case of sortKey not matching any pill
+    active.classList.add('active');
+    active.setAttribute('aria-pressed', 'true');
+    const arrowSpan = document.createElement('span');
+    arrowSpan.className = 'arrow';
+    arrowSpan.textContent = sortAsc ? '▲' : '▼';   // ▲ (U+25B2) or ▼ (U+25BC) — D-29
+    active.appendChild(arrowSpan);
+  }
+
   // ── Phase 5 D-05/D-06/D-09/D-10 + Phase 6 D-04: filter → sort → render pipeline ──
   function applyFilter() {
     // D-10: clear stale openId before re-render destroys/recreates DOM nodes
@@ -486,7 +508,20 @@
     applyFilter();   // synchronous — no setTimeout
   };
 
-  // ── Phase 5 D-07/D-13/D-14: wire #search input → debounced applyFilter ──
+  // ── Phase 6 D-21/D-22/D-23/D-24: __setSort dev hook (validates key, synchronous) ──
+  window.__setSort = function __setSort(key, asc) {
+    if (SORT_KEYS.indexOf(key) === -1) {
+      console.warn('__setSort: unknown key', key);
+      return;
+    }
+    sortKey = key;
+    sortAsc = !!asc;
+    openId = null;
+    updatePillUI();
+    applyFilter();   // synchronous — no setTimeout
+  };
+
+  // ── Phase 5 D-07/D-13/D-14 + Phase 6 D-11/D-12/D-25: wire #search + delegated pill clicks ──
   function wireControls() {
     const searchEl = document.getElementById('search');
     if (!searchEl) return;   // defensive guard — matches app.js convention
@@ -501,6 +536,27 @@
     });
     // D-13: no keyboard handlers, no change/keyup wiring — type="search" native input event covers all clear paths.
     // D-14: never set searchEl.disabled — input is always typable; applyFilter no-ops against empty allBgs.
+
+    // ── Phase 6 D-11/D-12/D-25: delegated pill-click handler (single listener on #pills) ──
+    const pillsEl = document.getElementById('pills');
+    if (!pillsEl) return;
+    pillsEl.addEventListener('click', function onPillsClick(e) {
+      const pill = e.target.closest('.pill');
+      if (!pill) return;                        // D-12 step 1: null-guard
+      const key = pill.dataset.key;             // D-12 step 2
+
+      // D-12 step 3: same-key toggles direction; different-key switches key with D-01 default
+      if (key === sortKey) {
+        sortAsc = !sortAsc;
+      } else {
+        sortKey = key;
+        sortAsc = (key === 'name');             // D-01: sortAsc = key === 'name'
+      }
+
+      openId = null;                            // D-12 step 4: reset stale openId per SC-6
+      updatePillUI();                           // D-12 step 5: repaint pill visuals per D-13
+      applyFilter();                            // D-12 step 6 + D-06: full filter → sort → render
+    });
   }
 
   // ── fetch + lifecycle ────────────────────────────────────────
