@@ -436,7 +436,27 @@
     }
   }
 
-  // ── Phase 5 D-05/D-06/D-09/D-10: filter pipeline (drives render + count + empty) ──
+  // ── Phase 6 D-03: sortValue contract (mockup-verbatim from design3_accordion.html lines 593–607) ──
+  function sortValue(bg, key) {
+    if (key === 'name')     return bg.name.toLowerCase();
+    if (key === 'baseWage') return bg.baseWage;
+    return (bg.attributes && bg.attributes[key] && typeof bg.attributes[key].average === 'number')
+      ? bg.attributes[key].average
+      : 0;
+  }
+
+  // ── Phase 6 D-02/D-05: applySort — sorts `filtered` IN PLACE via bare < / > comparison ──
+  function applySort() {
+    filtered.sort(function (a, b) {
+      const va = sortValue(a, sortKey);
+      const vb = sortValue(b, sortKey);
+      if (va < vb) return sortAsc ? -1 : 1;
+      if (va > vb) return sortAsc ? 1 : -1;
+      return 0;
+    });
+  }
+
+  // ── Phase 5 D-05/D-06/D-09/D-10 + Phase 6 D-04: filter → sort → render pipeline ──
   function applyFilter() {
     // D-10: clear stale openId before re-render destroys/recreates DOM nodes
     openId = null;
@@ -447,7 +467,9 @@
       ? allBgs.filter(function (b) { return b.name.toLowerCase().includes(q); })
       : allBgs.slice();   // CLONE — do NOT share reference with allBgs
 
-    // D-05: direct pipeline (Phase 6 will insert applySort() between filter and render)
+    applySort();   // Phase 6 D-04: sort the filtered subset before rendering
+
+    // D-05/D-04: pipeline — filter → sort → render → count → empty
     renderList(filtered);
     updateCount(filtered.length, allBgs.length);
 
