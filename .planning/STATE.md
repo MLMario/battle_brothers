@@ -2,16 +2,16 @@
 lgsd_state_version: 1.0
 milestone: v2.0
 milestone_name: Search & Sort
-status: planning
-stopped_at: Phase 5 plans created
-last_updated: "2026-04-24T18:43:37.393Z"
-last_activity: 2026-04-24 — Cycle-2 roadmap created; Phases 5–6 opened under v2.0 milestone
+status: Plan execution
+stopped_at: Completed 05-01-PLAN.md (Phase 5)
+last_updated: "2026-04-24T18:48:47.747Z"
+last_activity: 2026-04-24 — Plan 05-01 complete; DOM scaffold + state slots landed; ready for Plan 05-02 wiring
 progress:
   total_phases: 2
   completed_phases: 0
   total_plans: 2
-  completed_plans: 0
-  percent: 0
+  completed_plans: 1
+  percent: 50
 ---
 
 # Project State
@@ -26,28 +26,34 @@ See: .planning/PROJECT.md (updated 2026-04-16)
 ## Current Position
 
 Phase: 5 of 6 (Search filter)
-Plan: 0 of TBD in current phase
-Status: Ready to plan
-Last activity: 2026-04-24 — Cycle-2 roadmap created; Phases 5–6 opened under v2.0 milestone
+Plan: 1 of 2 in current phase (05-01 complete)
+Status: Plan execution
+Last activity: 2026-04-24 — Plan 05-01 complete; DOM scaffold + state slots landed; ready for Plan 05-02 wiring
 
-Progress (this cycle): [░░░░░░░░░░] 0% (0 / TBD plans)
+Progress (this cycle): [█████░░░░░] 50% (1 / 2 plans)
 
 ## Performance Metrics
 
 **Velocity (this cycle):**
 
-- Total plans completed: 0
-- Average duration: —
-- Total execution time: —
+- Total plans completed: 1
+- Average duration: 168 s (~2.8 min)
+- Total execution time: 168 s
 
 **By Phase (this cycle):**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| 5. Search filter | 0 / TBD | — | — |
+| 5. Search filter | 1 / 2 | 168 s | 168 s |
 | 6. Sort pills + direction | 0 / TBD | — | — |
 
-**Recent Trend:** n/a — cycle just opened.
+**Per-plan log:**
+
+| Plan | Duration (s) | Tasks | Files |
+|------|--------------|-------|-------|
+| 05-01 | 168 | 2 | 2 |
+
+**Recent Trend:** First plan of cycle 2 in line with cycle-1 fast-execute baseline.
 
 *Historical v1.0 velocity: 11 plans across Phases 1–4, closed 2026-04-24. See `.planning/CYCLE-LOG.md`.*
 
@@ -61,6 +67,7 @@ Relevant decisions carried in from cycle 1:
 - Phase 1 (D-16): Full mockup CSS ported verbatim — all SRCH selectors are dormant and ready; no CSS work this cycle for baseline.
 - Cycle-1 close: `#controls`, `#search`, `#pills` deliberately excluded from v1 DOM; this cycle lands the DOM and wiring only.
 - Mockup parity is the governing discipline for SRCH (sort direction defaults, 180 ms debounce, substring-match on name only).
+- [Phase 05-search-filter]: 05-01: Shipped #controls > #search-wrap DOM (mockup-verbatim subtree, 5 attrs incl. aria-label per D-11) and reserved filtered/query state in app.js — DOM/state ready for Plan 05-02 wiring; no CSS edits needed
 
 ### Pending Todos
 
@@ -78,6 +85,6 @@ None. CODEBASE.md Section 4 enumerates concrete insertion points and contracts; 
 
 ## Session Continuity
 
-Last session: 2026-04-24T18:43:37.390Z
-Stopped at: Phase 5 plans created
-Resume file: .planning/phases/05-search-filter/05-1-PLAN.md
+Last session: 2026-04-24T18:48:14.373Z
+Stopped at: Completed 05-01-PLAN.md (Phase 5)
+Resume file: .planning/phases/05-search-filter/05-02-PLAN.md

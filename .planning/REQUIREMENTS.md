@@ -9,7 +9,7 @@ This cycle's scope is tightly bounded to the three search/sort items deferred fr
 
 ### Search
 
-- [ ] **SRCH-01-c1**: User can type in a search input to filter the 67 backgrounds by name in real time (case-insensitive substring match, 180ms debounce, name-only — not id)
+- [x] **SRCH-01-c1**: User can type in a search input to filter the 67 backgrounds by name in real time (case-insensitive substring match, 180ms debounce, name-only — not id)
 
 ### Sort
 
@@ -40,7 +40,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| SRCH-01-c1 | Phase 5 | Pending |
+| SRCH-01-c1 | Phase 5 | Complete |
 | SRCH-02-c1 | Phase 6 | Pending |
 | SRCH-03-c1 | Phase 6 | Pending |
 

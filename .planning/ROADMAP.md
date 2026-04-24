@@ -57,10 +57,11 @@ v1.0 MVP shipped 2026-04-24 at https://mlmario.github.io/battle_brothers/ — 67
   3. Clearing the search input (including via the native `type="search"` clear button) restores the full list of 67 backgrounds.
   4. When the search yields zero matches, the empty state (`#empty`) appears and the list is hidden; `#result-count` reads `0 of 67 backgrounds`.
   5. Opening an accordion row, then typing a search query that no longer matches that row, does not leave a stale open reference — subsequent renders reach a clean state (no phantom open row after clearing).
-**Plans**: TBD
+**Plans**: 2
 
 Plans:
-- [ ] 05-01: TBD
+- [x] 05-01: DOM scaffold + state slots (#controls > #search-wrap, filtered/query) — completed 2026-04-24
+- [ ] 05-02: Wire applyFilter + 180ms debounce + wireControls() + __setQuery dev hook
 
 ### Phase 6: Sort pills + direction
 **Goal**: User can reorder the background list by any of 10 attributes and flip ascending/descending by re-clicking the active pill
@@ -86,7 +87,7 @@ Plans:
 | 2. Data pipeline | v1.0 | shipped | Complete | 2026-04-24 |
 | 3. Accordion + panels | v1.0 | shipped | Complete | 2026-04-24 |
 | 4. Navigation + empty state + deploy | v1.0 | shipped | Complete | 2026-04-24 |
-| 5. Search filter | v2.0 | 0/TBD | Not started | - |
+| 5. Search filter | v2.0 | 1/2 | In Progress | - |
 | 6. Sort pills + direction | v2.0 | 0/TBD | Not started | - |
 
 ---
