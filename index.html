@@ -21,6 +21,20 @@
         </svg>
         <input id="search" type="search" placeholder="Search backgrounds…" autocomplete="off" spellcheck="false" aria-label="Search backgrounds">
       </div>
+      <div id="pills-wrap">
+        <div id="pills">
+          <button class="pill active" data-key="name" aria-pressed="true">Name <span class="arrow">▲</span></button>
+          <button class="pill" data-key="baseWage" aria-pressed="false">Wage</button>
+          <button class="pill" data-key="hitpoints" aria-pressed="false">HP</button>
+          <button class="pill" data-key="meleeSkill" aria-pressed="false">MSk</button>
+          <button class="pill" data-key="rangedSkill" aria-pressed="false">RSk</button>
+          <button class="pill" data-key="meleeDefense" aria-pressed="false">MDf</button>
+          <button class="pill" data-key="rangedDefense" aria-pressed="false">RDf</button>
+          <button class="pill" data-key="fatigue" aria-pressed="false">Fat</button>
+          <button class="pill" data-key="resolve" aria-pressed="false">Res</button>
+          <button class="pill" data-key="initiative" aria-pressed="false">Ini</button>
+        </div>
+      </div>
     </div>
     <div id="result-count"></div>
     <main id="list" role="list" aria-label="Backgrounds"></main>
