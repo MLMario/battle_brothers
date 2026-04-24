@@ -1,8 +1,8 @@
 (function () {
   'use strict';
 
-  // ── Module state (Phase 1 scope only — D-15) ─────────────────
-  // Phase 2+ state (filtered, sortKey, openId) intentionally absent.
+  // ── Module state ─────────────────────────────────────────────
+  // Phase 6 state (sortKey, sortAsc) intentionally absent.
   let allBgs = [];
   let globalMin = 0;              // scalar min across all attribute averages (plan contract)
   let globalMax = 0;              // scalar max across all attribute averages (plan contract)
@@ -432,6 +432,51 @@
     }
   }
 
+  // ── Phase 5 D-05/D-06/D-09/D-10: filter pipeline (drives render + count + empty) ──
+  function applyFilter() {
+    // D-10: clear stale openId before re-render destroys/recreates DOM nodes
+    openId = null;
+
+    // D-06: case-insensitive substring match on name; empty query → cloned full list
+    const q = query.toLowerCase().trim();
+    filtered = q
+      ? allBgs.filter(function (b) { return b.name.toLowerCase().includes(q); })
+      : allBgs.slice();   // CLONE — do NOT share reference with allBgs
+
+    // D-05: direct pipeline (Phase 6 will insert applySort() between filter and render)
+    renderList(filtered);
+    updateCount(filtered.length, allBgs.length);
+
+    // D-09: empty-state rule — zero matches AND data is loaded
+    setEmpty(filtered.length === 0 && allBgs.length > 0);
+  }
+
+  // ── Phase 5 D-15/D-16/D-17: __setQuery dev hook (synchronous, bypasses 180ms debounce) ──
+  window.__setQuery = function __setQuery(str) {
+    const searchEl = document.getElementById('search');
+    const value = String(str == null ? '' : str);
+    if (searchEl) searchEl.value = value;
+    query = value;
+    applyFilter();   // synchronous — no setTimeout
+  };
+
+  // ── Phase 5 D-07/D-13/D-14: wire #search input → debounced applyFilter ──
+  function wireControls() {
+    const searchEl = document.getElementById('search');
+    if (!searchEl) return;   // defensive guard — matches app.js convention
+
+    let searchTimer = null;
+    searchEl.addEventListener('input', function onSearchInput() {
+      clearTimeout(searchTimer);
+      searchTimer = setTimeout(function onSearchDebounce() {
+        query = searchEl.value;
+        applyFilter();   // applyFilter handles openId = null itself (D-10)
+      }, 180);
+    });
+    // D-13: no keyboard handlers, no change/keyup wiring — type="search" native input event covers all clear paths.
+    // D-14: never set searchEl.disabled — input is always typable; applyFilter no-ops against empty allBgs.
+  }
+
   // ── fetch + lifecycle ────────────────────────────────────────
   function load() {
     const skeletonTimer = setTimeout(renderSkeleton, SKELETON_DELAY_MS);
@@ -455,8 +500,8 @@
         globalMax = mm.max;
         globalMinByAttr = mm.minByAttr;
         globalMaxByAttr = mm.maxByAttr;
-        renderList(allBgs);
-        updateCount(allBgs.length, allBgs.length);  // Phase 4 D-07/D-08
+        wireControls();   // Phase 5 D-07/D-20: one-time #search → applyFilter wiring (DOM is live)
+        applyFilter();    // Phase 5 D-07: initial render — query is '' → filtered = allBgs.slice()
       })
       .catch(function (err) {
         clearTimeout(skeletonTimer);
