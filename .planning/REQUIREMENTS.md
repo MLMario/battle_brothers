@@ -13,8 +13,8 @@ This cycle's scope is tightly bounded to the three search/sort items deferred fr
 
 ### Sort
 
-- [ ] **SRCH-02-c1**: User can sort the background list by any of 10 attributes via a horizontal row of sticky sort pills (Name, Wage, HP, MSk, RSk, MDf, RDf, Fat, Res, Ini) with a visible active-pill amber fill state
-- [ ] **SRCH-03-c1**: User can toggle ascending / descending sort direction by re-clicking the active pill; the pill displays an ▲ (asc) or ▼ (desc) arrow glyph reflecting current direction
+- [x] **SRCH-02-c1**: User can sort the background list by any of 10 attributes via a horizontal row of sticky sort pills (Name, Wage, HP, MSk, RSk, MDf, RDf, Fat, Res, Ini) with a visible active-pill amber fill state
+- [x] **SRCH-03-c1**: User can toggle ascending / descending sort direction by re-clicking the active pill; the pill displays an ▲ (asc) or ▼ (desc) arrow glyph reflecting current direction
 
 ## v2 Requirements
 
@@ -42,7 +42,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 |-------------|-------|--------|
 | SRCH-01-c1 | Phase 5 | Complete |
 | SRCH-02-c1 | Phase 6 | In Progress |
-| SRCH-03-c1 | Phase 6 | Pending |
+| SRCH-03-c1 | Phase 6 | Complete |
 
 **Coverage:**
 - v1 requirements: 3 total

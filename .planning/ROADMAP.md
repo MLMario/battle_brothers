@@ -78,7 +78,7 @@ Plans:
 
 Plans:
 - [x] 06-01: #pills-wrap DOM scaffold + sortKey/sortAsc state + .pill:focus-visible CSS — completed 2026-04-24
-- [ ] 06-02: Wire applySort + sortValue + delegated pill-click handler + __setSort dev hook
+- [x] 06-02: Wire applySort + sortValue + delegated pill-click handler + __setSort dev hook
 
 ## Progress
 
